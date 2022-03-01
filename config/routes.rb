@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'applications/index'
+  get 'applications/show'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -10,5 +12,9 @@ Rails.application.routes.draw do
   get '/waiters', to: 'waiters#index', as: :waiters
 
   get '/waiters/:id', to: 'waiters#show', as: :waiter
+
+  get '/applications', to: 'applications#index', as: :applications
+
+  get '/applications/:id', to: 'applications#show', as: :aspplication
 
 end
