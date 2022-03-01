@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/applications', to: 'applications#index', as: :applications
 
-  get '/applications/:id', to: 'applications#show', as: :aspplication
+  get '/applications/:id', to: 'applications#show', as: :application
+
+  get '/profile', to: 'users#show', as: :user
 
 end
