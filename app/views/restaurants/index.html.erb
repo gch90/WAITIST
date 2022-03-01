@@ -1,3 +1,8 @@
 <h1>RESTAURANTS INDEX</h1>
 <p>Find me in app/views/restaurants/index.html.erb</p>
-<%=  link_to 'home', root_path  %>
+
+<%= link_to 'HOME', root_path %>
+
+<% @restaurants.each do |resto|%>
+  <%= link_to 'SHOW', restaurant_path(resto) %>
+<% end %>
