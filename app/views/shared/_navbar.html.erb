@@ -28,6 +28,12 @@
             </div>
           </li>
         <% else %>
+            <li class="nav-item">
+            <%= link_to "Waiters", waiters_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Restaurants", restaurants_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>

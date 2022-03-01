@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :applications
-  enum role: {
+  enum user_role: {
     user: 0,
     restaurant: 1,
   }

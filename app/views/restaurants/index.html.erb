@@ -3,6 +3,12 @@
 
 <%= link_to 'HOME', root_path %>
 
-<% @restaurants.each do |resto|%>
-  <%= link_to 'SHOW', restaurant_path(resto) %>
-<% end %>
+
+<ul>
+  <% @restaurants.each do |restaurant|%>
+    <li>
+      <%= link_to 'SHOW', restaurant_path(restaurant) %>
+      <%= restaurant.restaurant_name %>
+    </li>
+  <% end %>
+</ul>

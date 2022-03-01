@@ -3,7 +3,7 @@ class WaitersController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @waiters = User.where(role: 0)
+    @waiters = User.where(user_role: 0)
   end
 
   def show
@@ -12,7 +12,7 @@ class WaitersController < ApplicationController
   private
 
   def set_waiter
-    @waiter = User.where(role: 0).find(params[:id])
+    @waiter = User.where(user_role: 0).find(params[:id])
   end
 
 end

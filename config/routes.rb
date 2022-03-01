@@ -19,4 +19,10 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show', as: :user
 
+
+
+
+  get '/restaurants/:id/apply', to: 'applications#new', as: :apply
+
+
 end
