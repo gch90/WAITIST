@@ -4,5 +4,4 @@
 <%= link_to 'HOME', root_path %>
 <%= link_to 'BACK', restaurants_path %>
 
-
-<%= link_to 'APPLY NOW', apply_path %>
+<%= link_to 'APPLY NOW', apply_path, method: 'create', data: { confirm: "Are you sure you want to apply"} %>

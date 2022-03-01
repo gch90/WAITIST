@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'users#edit'
   patch '/profile', to: 'users#update'
 
-   get '/restaurants/:id/apply', to: 'applications#new', as: :apply
-
+  post '/restaurants/:id/', to: 'applications#create', as: :apply
 
 end

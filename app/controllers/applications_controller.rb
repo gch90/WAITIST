@@ -1,4 +1,6 @@
 class ApplicationsController < ApplicationController
+  before_action :set_restaurant, only: [:create]
+
 
   def index
     @applications = Application.where(user: current_user)
@@ -8,11 +10,23 @@ class ApplicationsController < ApplicationController
     @application = Application.new
   end
 
-  def update
+  def create
     @application = Application.new
-    @restaurant = Restaurant.find(params[:id])
-    @application.restaurant = @restaurant
-    @application.user = current_user
+    @application.restaurant_id = @restaurant.id
+    @application.user_id = current_user.id
+
+    if @application.save!
+      redirect_to user_path
+    else
+      render :create
+    end
+  end
+
+
+  private
+
+  def set_restaurant
+    @restaurant = User.where(user_role: 1).find(params[:id])
   end
 
 end

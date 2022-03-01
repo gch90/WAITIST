@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :applications
   enum user_role: {
     user: 0,
-    restaurant: 1,
+    restaurant: 1
   }
 end
