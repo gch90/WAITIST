@@ -1,13 +1,8 @@
 class ApplicationsController < ApplicationController
   before_action :set_restaurant, only: [:create]
 
-
   def index
     @applications = Application.where(user: current_user)
-  end
-
-  def new
-    @application = Application.new
   end
 
   def create
@@ -22,11 +17,9 @@ class ApplicationsController < ApplicationController
     end
   end
 
-
   private
 
   def set_restaurant
     @restaurant = User.where(user_role: 1).find(params[:id])
   end
-
 end
