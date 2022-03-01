@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @restaurants = User.where(role: 1)
+    @restaurants = User.where(user_role: 1)
   end
 
   def show
@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = User.where(role: 1).find(params[:id])
+    @restaurant = User.where(user_role: 1).find(params[:id])
   end
 
 end
