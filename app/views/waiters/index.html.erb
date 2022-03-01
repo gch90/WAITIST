@@ -3,6 +3,11 @@
 
 <%= link_to 'HOME', root_path %>
 
-<% @waiters.each do |waiter|%>
-  <%= link_to 'SHOW', waiter_path(waiter) %>
-<% end %>
+<ul>
+  <% @waiters.each do |waiter|%>
+    <li>
+      <%= link_to 'SHOW', waiter_path(waiter) %>
+      <%= waiter.first_name %>
+    </li>
+  <% end %>
+</ul>

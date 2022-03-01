@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_223534) do
     t.string "last_name"
     t.string "address"
     t.string "description"
-    t.integer "role", default: 0
+    t.integer "user_role", default: 0
     t.float "rate", default: 0.0
     t.string "restaurant_name"
     t.index ["email"], name: "index_users_on_email", unique: true
