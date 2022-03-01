@@ -1,0 +1,16 @@
+<%= @user = current_user %>
+
+<%= simple_form_for(@user) do |f| %>
+  <h1 class="text-center">Edit Profile</h1>
+  <h5 class="form-title" >Email: </h5>
+  <%= f.input :email %>
+  <h5 class="form-title" >First name: </h5>
+  <%= f.input :first_name %>
+  <h5 class="form-title" >Last name: </h5>
+  <%= f.input :last_name %>
+  <h5 class="form-title" >Address: </h5>
+  <%= f.input :address %>
+  <div class="my-submit">
+    <%= f.submit %>
+  </div>
+<% end %>

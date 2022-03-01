@@ -19,10 +19,15 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show', as: :user
 
+<<<<<<< HEAD
+  get '/profile/edit', to: 'users#edit'
+  patch '/profile', to: 'users#update'
+=======
 
 
 
   get '/restaurants/:id/apply', to: 'applications#new', as: :apply
 
+>>>>>>> 0d54d99544f052ba7911b795067e075316cd501d
 
 end
