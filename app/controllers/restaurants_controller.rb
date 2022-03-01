@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  before_action
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 
 
 
@@ -7,6 +8,8 @@ class RestaurantsController < ApplicationController
     @restaurants = User.where(role: 1)
   end
 
-
+  def show
+    @restaurant = User.where(role: 1).find(params[:id])
+  end
 
 end
