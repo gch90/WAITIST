@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
   def index
     # pg_search MM --->
     if params[:query].present?
-      @restaurants = User.search_by_name_and_address(params[:query])
+      @restaurants = User.search_in_restaurants(params[:query])
     else
       @restaurants = User.where(user_role: 1)
     end

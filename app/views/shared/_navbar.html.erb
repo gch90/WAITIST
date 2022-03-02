@@ -12,14 +12,7 @@
       <div class="row justify-content-center">
         <div class="col-sm-8">
 
-          <%= form_tag restaurants_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "What are you looking for"
-            %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
-          <% end %>
+          <%= render 'shared/searchform' %>
         </div>
       </div>
     </div>

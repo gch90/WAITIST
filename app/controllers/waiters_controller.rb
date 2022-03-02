@@ -5,7 +5,7 @@ class WaitersController < ApplicationController
   def index
     # pg_search MM --->
     if params[:query].present?
-      @waiters = User.search_by_fname_and_lname_and_address(params[:query])
+      @waiters = User.search_in_waiters(params[:query])
     else
       @waiters = User.where(user_role: 0)
     end
