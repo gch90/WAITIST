@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   patch '/profile', to: 'users#update'
 
   post '/restaurants/:id/', to: 'applications#create', as: :apply
+  post '/waiter/:id/', to: 'applications#create_by_resto', as: :apply_resto
 
 end
