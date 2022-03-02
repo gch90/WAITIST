@@ -3,7 +3,13 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @restaurants = User.where(user_role: 1)
+    # pg_search MM --->
+    if params[:query].present?
+      @restaurants = User.search_by_name_and_address(params[:query])
+    else
+      @restaurants = User.where(user_role: 1)
+    end
+    # <---
   end
 
   def show
