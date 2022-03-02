@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_223534) do
     t.string "first_name"
     t.string "last_name"
     t.string "address"
-    t.string "description"
+    t.text "description"
     t.integer "user_role", default: 0
     t.float "rate", default: 0.0
     t.string "restaurant_name"
