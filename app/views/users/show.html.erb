@@ -2,3 +2,11 @@
 <p>Find me in app/views/users/show.html.erb</p>
 
 <%= link_to 'EDIT YOUR PROFILE', '/profile/edit' %>
+
+<% @applications.each do |application| %>
+  <ul>
+    <li>
+      <%= application.id %>
+    </li>
+  </ul>
+<% end %>
