@@ -20,7 +20,7 @@ class User < ApplicationRecord
     }
 
   pg_search_scope :search_in_restaurants,
-    against: [ :restaurant_name, :address ],
+    against: [ :restaurant_name, :address, :restaurant_type, :summary ],
     using: {
       tsearch: { prefix: true }
     }
