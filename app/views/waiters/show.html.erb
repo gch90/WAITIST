@@ -6,4 +6,4 @@
 <%= link_to 'HOME', root_path, class:"btn btn-primary" %>
 <%= link_to 'BACK', waiters_path, class:"btn btn-primary" %>
 
-<%= link_to 'HIRE', class:"btn btn-primary" %>
+<%= link_to 'HIRE', apply_resto_path, method: 'create', data: { confirm: "Are you sure you want to apply"}, class:"btn btn-primary" %>

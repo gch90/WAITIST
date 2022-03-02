@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_applications, only: [:show]
 
   def show
     @profile = User.find(current_user.id)
@@ -21,4 +22,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :first_name, :last_name, :address)
   end
 
+  def set_applications
+    @applications = Application.where(user: current_user.id).or(Application.where(restaurant_id: current_user.id))
+  end
 end
