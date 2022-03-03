@@ -15,8 +15,6 @@ Rails.application.routes.draw do
 
   get '/applications', to: 'applications#index', as: :applications
 
-  get '/applications/:id', to: 'applications#show', as: :application
-
   get '/profile', to: 'users#show', as: :user
 
   get '/profile/edit', to: 'users#edit'
@@ -25,4 +23,5 @@ Rails.application.routes.draw do
   post '/restaurants/:id/', to: 'applications#create', as: :apply
   post '/waiter/:id/', to: 'applications#create_by_resto', as: :apply_resto
 
+  patch '/booking/:id/confirm', to: 'users#approve', as: :approve
 end

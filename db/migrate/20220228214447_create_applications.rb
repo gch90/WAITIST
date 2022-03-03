@@ -1,7 +1,7 @@
 class CreateApplications < ActiveRecord::Migration[6.1]
   def change
     create_table :applications do |t|
-      t.references :user, foreign_key: { to_table: :users }
+      t.references :waiter, foreign_key: { to_table: :users }
       t.references :restaurant, foreign_key: { to_table: :users }
       t.date :start_date
       t.date :end_date

@@ -6,7 +6,12 @@
 <% @applications.each do |application| %>
   <ul>
     <li>
-      <%= application.id %>
+      <h3>
+        <%= application.id %> <%= application.status %>
+      </h3>
     </li>
+
+  <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
   </ul>
+
 <% end %>
