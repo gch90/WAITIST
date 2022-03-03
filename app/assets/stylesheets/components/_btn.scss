@@ -1,9 +1,3 @@
-@mixin btn-custom($color, $back, $border) {
-  color: $color;
-  background: $back;
-  border: 2px solid $border;
-}
-
 .btn {
   text-decoration: none;
   padding: 8px 14px;
@@ -22,37 +16,37 @@
 }
 
 .btn-primary {
-  @include btn-custom($white, $primary, $secondary);
+  @include color-custom($white, $primary, $secondary);
   &:hover {
-    @include btn-custom($white, $secondary, $secondary);
+    @include color-custom($white, $secondary, $secondary);
   }
 }
 
 .btn-light {
-  @include btn-custom($secondary, $white, $secondary);
+  @include color-custom($secondary, $white, $secondary);
   &:hover {
-    @include btn-custom($secondary, $white, $white);
+    @include color-custom($secondary, $white, $white);
   }
 }
 
 .btn-dark {
-  @include btn-custom($white, $secondary, $secondary);
+  @include color-custom($white, $secondary, $secondary);
   &:hover {
-    @include btn-custom($white, $black, $black);
+    @include color-custom($white, $black, $black);
   }
 }
 
 .btn-gray {
-  @include btn-custom($dark-gray, $white, $dark-gray);
+  @include color-custom($dark-gray, $white, $dark-gray);
   &:checked {
-    @include btn-custom($dark-gray, $white, $white);
+    @include color-custom($dark-gray, $white, $white);
   }
 }
 
 .btn-search {
   width: 40px;
   height: 40px;
-  @include btn-custom($secondary, $primary, $secondary);
+  @include color-custom($secondary, $primary, $secondary);
 }
 
 .capsule {

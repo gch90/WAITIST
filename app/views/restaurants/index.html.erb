@@ -6,9 +6,6 @@
 
 <ul>
   <% @restaurants.each do |restaurant|%>
-    <li>
-      <%= link_to 'SHOW', restaurant_path(restaurant) %>
-      <%= restaurant.restaurant_name %>
-    </li>
+    <%= render 'shared/card', resto: restaurant %>
   <% end %>
 </ul>
