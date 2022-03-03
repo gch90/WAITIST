@@ -24,9 +24,7 @@
     <% else %>
       <div class="nav-links">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        <div class="nav-item dropdown">
-          <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-light" %>
-        </div>
+        <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-light" %>
       </div>
     <% end %>
 </nav>
