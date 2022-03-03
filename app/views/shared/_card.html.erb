@@ -1,0 +1,28 @@
+
+<div class="card">
+  <div class="card-head">
+    <%= image_tag 'joe.jpg'%>
+    <div class="rating">
+      <h3>5.4</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="name">
+      <h2>Joe's Panini</h2>
+    </div>
+    <div class="desc">
+      <p class="summary">Need Staff urgent</p>
+      <p class="location"><%= render 'icons/location' %>1150 rue dale</p>
+      <div class="card-foot">
+        <p class="rate">
+          <% 3.times do%>
+            <%= render 'icons/rate'%>
+          <% end %>
+        </p>
+        <p class="text-primary">●</p>
+        <p class="type"><%= render 'icons/info' %>Italian</p>
+      </div>
+    </div>
+  </div>
+
+</div>

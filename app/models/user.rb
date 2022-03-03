@@ -27,9 +27,4 @@ class User < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  # <---
-
-  def waiter?
-    @user_role.zero?
-  end
 end
