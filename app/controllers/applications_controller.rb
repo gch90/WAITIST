@@ -1,5 +1,7 @@
 # REMINDER: CAN USE METHODS:
-# created_applications, applications_with_restaurant, applications_with_waiter, waiter?, restaurant? %>
+# created_applications, applications_including_restaurant, applications_including_waiter
+# waiter_applications_received, restaurant_applications_received, waiter?, restaurant?
+
 
 class ApplicationsController < ApplicationController
   before_action :set_restaurant, only: [:create]
