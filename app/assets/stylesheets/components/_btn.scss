@@ -1,7 +1,7 @@
 .btn {
   text-decoration: none;
   padding: 8px 14px;
-  border-radius: 2px;
+  border-radius: 37px;
   font-size: 16px;
 }
 
@@ -11,4 +11,64 @@
   border: 2px solid $secondary;
   font-weight: 600;
   box-shadow: $shadow;
+}
+
+.btn-light {
+  color: $secondary;
+  background: $light-gray;
+  border: 2px solid $secondary;
+  font-weight: 600;
+  box-shadow: $shadow;
+}
+
+.btn-dark {
+  color: $white;
+  background: $black;
+  font-weight: 600;
+  box-shadow: $shadow;
+}
+
+.btn-gray {
+  color: $dark-gray;
+  background: $light-gray;
+  border: 2px solid $dark-gray;
+  font-weight: 600;
+  box-shadow: $shadow;
+}
+
+.capsule {
+  display: flex;
+  border: 2px solid $dark-gray;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 37px;
+  font-size: 16px;
+
+  // color: $white;
+  // background: $dark-gray;
+  // font-weight: 600;
+  // text-decoration: none;
+  // padding: 8px 14px;
+  // border-radius: 37px;
+  // font-size: 16px;
+}
+
+.capsule-empty {
+  color: $white;
+  background: $dark-gray;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 37px;
+  font-size: 16px;
+}
+
+.button-capsule {
+  color: $white;
+  background: $dark-gray;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 37px;
+  font-size: 16px;
 }
