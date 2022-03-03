@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :applications_as_waiter, class_name: "Application", foreign_key: :waiter_id
 
   enum user_role: {
-    user: 0,
+    waiter: 0,
     restaurant: 1
   }
 
@@ -27,9 +27,9 @@ class User < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  # <---
+  # We do not need below method anymore
 
-  def waiter?
-    @user_role.zero?
-  end
+  # def waiter?
+  #   @user_role.zero?
+  # end
 end

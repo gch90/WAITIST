@@ -7,9 +7,9 @@
 
     <% if user_signed_in? %>
       <div class="nav-links">
-        <% if current_user.role = 0 %>
+        <% if current_user.waiter? %>
           <%= link_to "Restaurants", restaurants_path, class: "nav-link" %>
-        <% elsif current_user.role = 1 %>
+        <% elsif current_user.restaurant? %>
           <%= link_to "Waiters", waiters_path, class: "nav-link" %>
         <% end %>
         <div class="nav-item dropdown">
