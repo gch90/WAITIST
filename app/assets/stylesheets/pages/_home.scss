@@ -1,8 +1,6 @@
 // Specific CSS for your home-page
 .container {
+  @include flex(center, flex-start);
+  gap: 32px;
   margin-top: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-direction: row;
 }

@@ -4,10 +4,12 @@
 
       <%= render 'shared/searchform' %>
 
+    <% unless user_signed_in? %>
     <div>
-      <a class="btn btn-light" href="#">Log-in</a>
-      <a class="btn btn-dark" href="#">Sign up</a>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-light" %>
+      <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-dark" %>
     </div>
+    <% end %>
   </div>
 
   <%= image_tag("banner.svg") %>
