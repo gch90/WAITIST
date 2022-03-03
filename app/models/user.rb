@@ -14,4 +14,24 @@ class User < ApplicationRecord
     user: 0,
     restaurant: 1
   }
+
+  # PG_search MM --->
+  include PgSearch::Model
+
+  pg_search_scope :search_in_waiters,
+    against: [ :first_name, :last_name, :address ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_in_restaurants,
+    against: [ :restaurant_name, :address, :restaurant_type, :summary ],
+    using: {
+      tsearch: { prefix: true }
+    }
+  # <---
+
+  def waiter?
+    @user_role.zero?
+  end
 end

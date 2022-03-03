@@ -1,6 +1,4 @@
 class Application < ApplicationRecord
-
-  # belongs_to :user
   belongs_to :waiter, class_name: "User"
   belongs_to :restaurant, class_name: "User"
   belongs_to :creator, class_name: "User"

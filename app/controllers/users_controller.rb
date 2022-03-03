@@ -22,7 +22,6 @@ class UsersController < ApplicationController
     else
       render :show
     end
-
   end
 
   def approve
@@ -37,11 +36,11 @@ class UsersController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:status, :user_id, :restaurant_id, :rating)
+    params.require(:application).permit(:status, :waiter_id, :restaurant_id, :rating, :creator_id)
   end
 
   def set_applications
-    @applications = Application.where(user: current_user.id).or(Application.where(restaurant_id: current_user.id))
+    @applications = Application.where(waiter_id: current_user.id).or(Application.where(restaurant_id: current_user.id))
   end
 
   def set_application
