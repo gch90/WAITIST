@@ -1,6 +1,7 @@
 class ApplicationsController < ApplicationController
   before_action :set_restaurant, only: [:create]
   before_action :set_waiter, only: [:create_by_resto]
+
   def index
     @applications = Application.where(user: current_user)
   end
@@ -8,7 +9,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new
     @application.restaurant_id = @restaurant.id
-    @application.user_id = current_user.id
+    @application.waiter_id = current_user.id
 
     if @application.save!
       redirect_to user_path
@@ -20,7 +21,7 @@ class ApplicationsController < ApplicationController
   def create_by_resto
     @application = Application.new
     @application.restaurant_id = current_user.id
-    @application.user_id = @waiter.id
+    @application.waiter_id = @waiter.id
 
     if @application.save!
       redirect_to user_path

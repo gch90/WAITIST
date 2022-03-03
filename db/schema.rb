@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_223534) do
+ActiveRecord::Schema.define(version: 2022_03_02_213705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "waiter_id"
     t.bigint "restaurant_id"
     t.date "start_date"
     t.date "end_date"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 2022_02_28_223534) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "creator_id"
+    t.index ["creator_id"], name: "index_applications_on_creator_id"
     t.index ["restaurant_id"], name: "index_applications_on_restaurant_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
+    t.index ["waiter_id"], name: "index_applications_on_waiter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_28_223534) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "applications", "users"
+  add_foreign_key "applications", "users", column: "creator_id"
   add_foreign_key "applications", "users", column: "restaurant_id"
+  add_foreign_key "applications", "users", column: "waiter_id"
 end

@@ -36,11 +36,11 @@ User.create!(user_role: 1, email: "10@0.0", password: "qwerty", restaurant_name:
 
 # application seeds
 p "creating application"
-Application.create!(user_id:1, restaurant_id:1, start_date:Date.new(2022,3,3), end_date:Date.new(2022,3,7), rating:4)
-Application.create!(user_id:1, restaurant_id:2, start_date:Date.new(2022,3,12), end_date:Date.new(2022,3,16), rating:4)
-Application.create!(user_id:2, restaurant_id:1, start_date:Date.new(2022,3,8), end_date:Date.new(2022,3,15), rating:3)
-Application.create!(user_id:2, restaurant_id:3, start_date:Date.new(2022,3,16), end_date:Date.new(2022,3,22), rating:3)
-Application.create!(user_id:3, restaurant_id:4, start_date:Date.new(2022,3,3), end_date:Date.new(2022,3,7), rating:5)
-Application.create!(user_id:3, restaurant_id:3, start_date:Date.new(2022,3,23), end_date:Date.new(2022,3,29), rating:5)
-Application.create!(user_id:4, restaurant_id:4, start_date:Date.new(2022,3,8), end_date:Date.new(2022,3,15), rating:4)
-Application.create!(user_id:4, restaurant_id:2, start_date:Date.new(2022,3,17), end_date:Date.new(2022,3,23), rating:4)
+Application.create!(waiter_id:1, restaurant_id:1, start_date:Date.new(2022,3,3), end_date:Date.new(2022,3,7), rating:4, creator_id: 1)
+# Application.create!(waiter_id:1, restaurant_id:2, start_date:Date.new(2022,3,12), end_date:Date.new(2022,3,16), rating:4)
+# Application.create!(waiter_id:2, restaurant_id:1, start_date:Date.new(2022,3,8), end_date:Date.new(2022,3,15), rating:3)
+# Application.create!(waiter_id:2, restaurant_id:3, start_date:Date.new(2022,3,16), end_date:Date.new(2022,3,22), rating:3)
+# Application.create!(waiter_id:3, restaurant_id:4, start_date:Date.new(2022,3,3), end_date:Date.new(2022,3,7), rating:5)
+# Application.create!(waiter_id:3, restaurant_id:3, start_date:Date.new(2022,3,23), end_date:Date.new(2022,3,29), rating:5)
+# Application.create!(waiter_id:4, restaurant_id:4, start_date:Date.new(2022,3,8), end_date:Date.new(2022,3,15), rating:4)
+# Application.create!(waiter_id:4, restaurant_id:2, start_date:Date.new(2022,3,17), end_date:Date.new(2022,3,23), rating:4)
