@@ -21,6 +21,7 @@
                   required: false,
                   autofocus: true,
                   input_html: { autocomplete: "summary" }%>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
       <div class="form-actions">
         <%= f.button :submit, "Sign up" %>
