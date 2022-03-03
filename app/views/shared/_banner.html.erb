@@ -1,0 +1,17 @@
+<div class="banner" style="background-color: #803137 ">
+  <div class="container">
+    <h1>Don't wait Start waiting</h1>
+
+      <%= render 'shared/searchform' %>
+
+    <% unless user_signed_in? %>
+    <div>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-light" %>
+      <%= link_to "Sign-up", new_user_registration_path, class: "btn btn-dark" %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= image_tag("banner.svg") %>
+
+</div>

@@ -1,18 +1,13 @@
-<h1>WAITIST HOME PAGE</h1>
-
-<p>Find me in app/views/pages/home.html.erb</p>
+  <%= render 'shared/banner'  %>
 
 
-  <%= link_to  'RESTAURANTS INDEX', restaurants_path  %>
+    <h1 class="text-center">Wait here</h1>
+    <div class="home">
+      <div class="container">
+        <% @restaurants.each do |restaurant|%>
+          <%= render 'shared/card', resto: restaurant %>
+        <% end %>
+      </div>
+    </div>
 
-
-  <%= link_to 'WAITERS INDEX', waiters_path, class:"btn btn-light" %>
-  <div class="btn btn-primary">Button</div>
-  <div class="btn btn-light">Button</div>
-  <div class="btn btn-dark">Button</div>
-  <div class="btn btn-gray">Button</div>
-  <div class="btn-search">Button</div>
-<%# <div class="capsule">
-  <div class="capsule-empty">Button</div>
-  <div class="button-capsule">Capsule</div>
-</div> %>
+  <%= render 'shared/footer' %>
