@@ -1,1 +1,8 @@
 // Specific CSS for your home-page
+.container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+}
