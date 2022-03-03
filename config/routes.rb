@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   post '/waiter/:id/', to: 'applications#create_by_resto', as: :apply_resto
 
   patch '/booking/:id/confirm', to: 'users#approve', as: :approve
+  patch '/booking/:id/reject', to: 'users#reject', as: :reject
+
 end

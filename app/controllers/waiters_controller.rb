@@ -7,7 +7,7 @@ class WaitersController < ApplicationController
     if params[:query].present?
       @waiters = User.search_in_waiters(params[:query])
     else
-      @waiters = User.where(user_role: 0)
+      @waiters = User.waiter
     end
     # <---
   end
@@ -18,7 +18,6 @@ class WaitersController < ApplicationController
   private
 
   def set_waiter
-    @waiter = User.where(user_role: 0).find(params[:id])
+    @waiter = User.waiter.find(params[:id])
   end
-
 end
