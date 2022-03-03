@@ -21,18 +21,52 @@ $border-radius: 2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
+body {
+  margin: 0;
+  padding: 0;
+}
+//setting base font attributes
+h1 {
+  @include reset-spacing;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 48px !important;
+  line-height: 59px !important;
+  letter-spacing: -0.06em;
+}
+
+h2 {
+  @include reset-spacing;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 32px !important;
+  line-height: 39px !important;
+  letter-spacing: -0.08em;
+}
+
+h3 {
+  @include reset-spacing;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 24px !important;
+  line-height: 29px !important;
+  letter-spacing: -0.08em;
+}
 // Override other variables below!
 p {
-  font-size: 16px;
+  @include reset-spacing;
+  font-size: 16px !important;
 }
 
 a {
+  @include reset-spacing;
   color: $primary;
-  font-size: 16px;
+  font-size: 16px !important;
   font-weight: 600;
 }
 
 .a-link {
-  font-size: 16px;
+  @include reset-spacing;
+  font-size: 16px !important;
   font-weight: 600;
 }

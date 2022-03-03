@@ -1,24 +1,59 @@
 <%# REMINDER: CAN USE METHODS: %>
-<%# created_applications, applications_as_restaurant, applications_as_waiter %>
+<%# created_applications, applications_including_restaurant, applications_including_waiter
+waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
 
 <h1>PROFILE PAGE</h1>
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 
-<div class="container">
-  <div>
-      <% @user.created_applications.each do |application| %>
+<% if current_user.waiter? %>
+<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+<% else %>
+<h2><%= current_user.restaurant_name %></h2>
+<% end %>
+
+<div class="d-flex flex-row">
+  <div class="m-3 p-3">
+      <p>Applications submitted</p>
+      <% current_user.created_applications.each do |application| %>
         <ul>
           <li>
             <h3>
-              <%= application.id %> <%= application.status %>
+              <%= application.id %> <%= application.restaurant.restaurant_name %> <%= application.status %>
             </h3>
           </li>
+        </ul>
+      <% end %>
+  </div>
+  <div class="m-3 p-3">
+    <p>Applications received</p>
+    <% if current_user.waiter? %>
+      <% current_user.waiter_applications_received.each do |application| %>
+        <ul>
+          <li>
+            <h3>
+              <%= application.id %> <%= application.restaurant.restaurant_name %> <%= application.status %>
+            </h3>
+          </li>
+          <h3><%= application.start_date %></h3>
+          <h3><%= application.end_date %></h3>
           <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
           <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
         </ul>
       <% end %>
-  </div>
-  <div>
+    <% else %>
+      <% current_user.restaurant_applications_received.each do |application| %>
+        <ul>
+          <li>
+            <h3>
+              <%= application.id %> <%= application.restaurant.restaurant_name %> <%= application.status %>
+            </h3>
+          </li>
+          <h3><%= application.start_date %></h3>
+          <h3><%= application.end_date %></h3>
+          <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
+          <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+        </ul>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

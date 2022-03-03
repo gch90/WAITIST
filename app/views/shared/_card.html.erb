@@ -1,0 +1,38 @@
+
+
+<%# Descide the amount of times the rate logo should reapere depending on the price %>
+<% if resto.rate <= 16 %>
+  <% @rate_count = 1 %>
+<% elsif resto.rate > 16 && resto.rate <= 21 %>
+  <% @rate_count = 2 %>
+<% else %>
+  <% @rate_count = 3 %>
+<% end %>
+
+<%# card %>
+<div class="card">
+  <div class="card-head">
+    <%= image_tag 'joe.jpg'%>
+    <div class="rating">
+      <h3>5.4</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="name">
+      <h3><%= resto.restaurant_name %></h3>
+    </div>
+    <div class="desc">
+      <p class="summary"><strong><%= resto.summary %></strong></p>
+      <p class="location"><%= render 'icons/location' %><%= resto.address %></p>
+      <div class="card-foot">
+        <p class="type"><%= render 'icons/info' %><%= resto.restaurant_type %></p>
+        <p class="rate">
+          <% @rate_count.times do %>
+            <%= render 'icons/rate'%>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>

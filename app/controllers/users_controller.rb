@@ -1,5 +1,6 @@
 # REMINDER: CAN USE METHODS:
-# created_applications, applications_as_restaurant, applications_as_waiter
+# created_applications, applications_including_restaurant, applications_including_waiter
+# waiter_applications_received, restaurant_applications_received, waiter?, restaurant?
 
 class UsersController < ApplicationController
   before_action :set_applications, only: [:show]
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
   def set_applications
     @applications = Application.where(waiter: current_user).or(Application.where(restaurant: current_user))
   end
+
 
   def set_application
     @application = Application.find(params[:id])

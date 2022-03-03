@@ -1,0 +1,26 @@
+@mixin flex($x: center, $y: center) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin color-custom(
+  $color: transparent,
+  $back: transparent,
+  $border: transparent
+) {
+  color: $color;
+  background: $back;
+  border: 2px solid $border;
+}
+
+@mixin reset-spacing {
+  margin: 0 !important;
+}
+
+@mixin contain-text($lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}

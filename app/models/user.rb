@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :created_applications, class_name: "Application", foreign_key: :creator_id
-  has_many :applications_as_restaurant, class_name: "Application", foreign_key: :restaurant_id
-  has_many :applications_as_waiter, class_name: "Application", foreign_key: :waiter_id
+  has_many :applications_including_restaurant, class_name: "Application", foreign_key: :restaurant_id
+  has_many :applications_including_waiter, class_name: "Application", foreign_key: :waiter_id
 
   enum user_role: {
     waiter: 0,
@@ -27,4 +27,12 @@ class User < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def waiter_applications_received
+    applications_including_waiter - created_applications
+  end
+
+  def restaurant_applications_received
+    applications_including_restaurant - created_applications
+  end
 end

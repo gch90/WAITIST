@@ -1,3 +1,7 @@
+<%# REMINDER: CAN USE METHODS: %>
+<%# created_applications, applications_including_restaurant, applications_including_waiter
+waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
+
 <h1>RESTAURANTS INDEX</h1>
 <p>Find me in app/views/restaurants/index.html.erb</p>
 
@@ -6,9 +10,6 @@
 
 <ul>
   <% @restaurants.each do |restaurant|%>
-    <li>
-      <%= link_to 'SHOW', restaurant_path(restaurant) %>
-      <%= restaurant.restaurant_name %>
-    </li>
+    <%= render 'shared/card', resto: restaurant %>
   <% end %>
 </ul>
