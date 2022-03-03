@@ -2,6 +2,7 @@
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
+  <div data-controller="hide-view">
 
   <div class="form-inputs">
 
@@ -16,30 +17,24 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                required: false,
-                input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-                required: false,
-                input_html: { autocomplete: "last_name" }%>
-    <%= f.input :address,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "address" }%>
-    <%= f.input :description,
-                required: false,
-                input_html: { autocomplete: "description" }%>
-    <%= f.input :restaurant_name,
-                required: false,
-                input_html: { autocomplete: "restaurant_name" }%>
-    <%= f.input :rate,
-                required: false,
-                input_html: { autocomplete: "rate" }%>
   </div>
+    <div class="btn btn-light"
+      data-action="click->hide-view#waiterSignup"
+      >Waiter</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+    <div class="btn btn-light"
+      data-action="click->hide-view#restoSignup"
+      >Restaurant</div>
+
+
 <% end %>
+<div data-hide-view-target="waiter" class="d-none">
+  <%= render 'shared/newWaiterSignUp' %>
+</div>
 
+<div data-hide-view-target="resto" class="d-none">
+  <%= render 'shared/newRestSignUp'%>
+</div>
+
+  </div>
 <%= render "devise/shared/links" %>
