@@ -1,39 +1,58 @@
+@mixin btn-custom($color, $back, $border) {
+  color: $color;
+  background: $back;
+  border: 2px solid $border;
+}
+
 .btn {
   text-decoration: none;
   padding: 8px 14px;
   border-radius: 37px;
   font-size: 16px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: 100ms;
+  line-height: 20px;
+  &:hover {
+    transition: 300ms;
+  }
+  &:active {
+    box-shadow: $dark-shadow;
+  }
 }
 
 .btn-primary {
-  color: $white;
-  background: $primary;
-  border: 2px solid $secondary;
-  font-weight: 600;
-  box-shadow: $shadow;
+  @include btn-custom($white, $primary, $secondary);
+  &:hover {
+    @include btn-custom($white, $secondary, $secondary);
+  }
 }
 
 .btn-light {
-  color: $secondary;
-  background: $light-gray;
-  border: 2px solid $secondary;
-  font-weight: 600;
-  box-shadow: $shadow;
+  @include btn-custom($secondary, $white, $secondary);
+  &:hover {
+    @include btn-custom($secondary, $white, $white);
+  }
 }
 
 .btn-dark {
-  color: $white;
-  background: $black;
-  font-weight: 600;
-  box-shadow: $shadow;
+  @include btn-custom($white, $secondary, $secondary);
+  &:hover {
+    @include btn-custom($white, $black, $black);
+  }
 }
 
 .btn-gray {
-  color: $dark-gray;
-  background: $light-gray;
-  border: 2px solid $dark-gray;
-  font-weight: 600;
-  box-shadow: $shadow;
+  @include btn-custom($dark-gray, $white, $dark-gray);
+  &:checked {
+    @include btn-custom($dark-gray, $white, $white);
+  }
+}
+
+.btn-search {
+  width: 40px;
+  height: 40px;
+  @include btn-custom($secondary, $primary, $secondary);
 }
 
 .capsule {
@@ -43,14 +62,6 @@
   padding: 8px 14px;
   border-radius: 37px;
   font-size: 16px;
-
-  // color: $white;
-  // background: $dark-gray;
-  // font-weight: 600;
-  // text-decoration: none;
-  // padding: 8px 14px;
-  // border-radius: 37px;
-  // font-size: 16px;
 }
 
 .capsule-empty {
