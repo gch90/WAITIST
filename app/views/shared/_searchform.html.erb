@@ -1,4 +1,4 @@
-<%= form_tag (current_user.nil? || current_user.user?) ? restaurants_path : waiters_path, class: "search", method: :get do%>
+<%= form_tag (current_user.nil? || current_user.waiter?) ? restaurants_path : waiters_path, class: "search", method: :get do%>
   <%= text_field_tag :query,
     params[:query],
     class: "input",
