@@ -18,9 +18,9 @@
     </div>
   </div>
   <div class="card-body">
-    <div class="name">
+    <%= link_to  root_path, class: "name" do %>
       <h3><%= resto.restaurant_name %></h3>
-    </div>
+    <% end %>
     <div class="desc">
       <p class="summary"><strong><%= resto.summary %></strong></p>
       <p class="location"><%= render 'icons/location' %><%= resto.address %></p>

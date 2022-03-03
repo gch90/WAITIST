@@ -16,6 +16,7 @@
 
 @mixin reset-spacing {
   margin: 0 !important;
+  text-decoration: none !important;
 }
 
 @mixin contain-text($lines) {
