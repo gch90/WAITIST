@@ -8,8 +8,6 @@ class User < ApplicationRecord
   has_many :applications_as_restaurant, class_name: "Application", foreign_key: :restaurant_id
   has_many :applications_as_waiter, class_name: "Application", foreign_key: :waiter_id
 
-
-  # has_many :applications
   enum user_role: {
     user: 0,
     restaurant: 1
