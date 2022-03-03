@@ -1,16 +1,19 @@
+# REMINDER: CAN USE METHODS:
+# created_applications, applications_as_restaurant, applications_as_waiter
+
 class ApplicationsController < ApplicationController
   before_action :set_restaurant, only: [:create]
   before_action :set_waiter, only: [:create_by_resto]
 
   def index
-    @applications = Application.where(creator_id: current_user.id)
+    @applications = Application.where(creator: current_user)
   end
 
   def create
     @application = Application.new
-    @application.restaurant_id = @restaurant.id
-    @application.waiter_id = current_user.id
-    @application.creator_id = current_user.id
+    @application.restaurant = @restaurant
+    @application.waiter = current_user
+    @application.creator = current_user
     if @application.save!
       redirect_to user_path
     else
@@ -20,9 +23,9 @@ class ApplicationsController < ApplicationController
 
   def create_by_resto
     @application = Application.new
-    @application.restaurant_id = current_user.id
-    @application.waiter_id = @waiter.id
-    @application.creator_id = current_user.id
+    @application.restaurant = current_user
+    @application.waiter = @waiter
+    @application.creator = current_user
 
     if @application.save!
       redirect_to user_path
@@ -34,10 +37,10 @@ class ApplicationsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = User.where(user_role: 1).find(params[:id])
+    @restaurant = User.restaurant.find(params[:id])
   end
 
   def set_waiter
-    @waiter = User.where(user_role: 0).find(params[:id])
+    @waiter = User.waiter.find(params[:id])
   end
 end
