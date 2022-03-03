@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :applications_including_restaurant, class_name: "Application", foreign_key: :restaurant_id
   has_many :applications_including_waiter, class_name: "Application", foreign_key: :waiter_id
 
+  has_many_attached :photos
+
   enum user_role: {
     waiter: 0,
     restaurant: 1
@@ -35,4 +37,5 @@ class User < ApplicationRecord
   def restaurant_applications_received
     applications_including_restaurant - created_applications
   end
+
 end
