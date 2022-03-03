@@ -52,8 +52,9 @@
 }
 
 .card-foot {
-  @include flex(flex-start, center);
+  @include flex(space-between, center);
   gap: 12px;
+  width: 100%;
 }
 
 .rate {
