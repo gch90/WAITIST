@@ -7,8 +7,7 @@ class UsersController < ApplicationController
   before_action :set_application, only: [:application_update, :approve, :reject]
   before_action :set_user, only: [:show, :update, :approve, :reject]
 
-  def show
-  end
+  def show; end
 
   def edit; end
 
@@ -41,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :address)
+    params.require(:user).permit(:email, :first_name, :last_name, :address, photos: [])
   end
 
   def application_params
