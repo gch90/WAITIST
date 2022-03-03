@@ -20,6 +20,9 @@
       right: 12px;
     }
   }
+  .icon {
+    width: 24px;
+  }
 }
 
 .rating {
@@ -40,14 +43,33 @@
   padding: 0;
   .name {
     width: 100%;
-    padding: 16px 12px 8px 4px;
+    padding: 16px 8px 4px 8px;
     @include color-custom($white, $primary);
+    @include contain-text(1);
   }
   .desc {
     padding: 8px 16px;
     @include flex(flex-start, flex-start);
     flex-direction: column;
     gap: 2px;
+    .summary {
+      color: $dark-gray;
+      background: $light-gray;
+      border-top: 1.5px solid $dark-gray;
+      border-bottom: 1.5px solid $dark-gray;
+      font-style: italic;
+      padding: 4px 8px;
+      @include contain-text(2);
+      &::before {
+        content: "''";
+      }
+      &::after {
+        content: "''";
+      }
+    }
+    .location {
+      @include contain-text(1);
+    }
   }
 }
 
@@ -59,5 +81,4 @@
 
 .rate {
   @include flex;
-  gap: 2px;
 }
