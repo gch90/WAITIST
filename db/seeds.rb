@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 # users
 p "start seed"
@@ -12,21 +7,21 @@ Application.delete_all
 User.delete_all
 p "deleted"
 p "creating users"
-User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "5333 Av. Casgrain Apt 101", description: "new waiter", phone: "555-514-1234")
-User.create!(user_role: 0, email: "s@s.s", password: "qwerty", first_name: "Sedrak", last_name: "Nadzharyan", address: "5333 Av. Casgrain Apt 102", description: "new waiter", phone: "555-514-1234")
-User.create!(user_role: 0, email: "m@m.m", password: "qwerty", first_name: "Martyn", last_name: "McGowan", address: "5333 Av. Casgrain Apt 103", description: "new waiter", phone: "555-514-1234")
-User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "5333 Av. Casgrain Apt 104", description: "new waiter", phone: "555-514-1234")
+waiter_one = User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "5333 Av. Casgrain Apt 101", description: "new waiter", phone: "555-514-1234")
+waiter_two = User.create!(user_role: 0, email: "s@s.s", password: "qwerty", first_name: "Sedrak", last_name: "Nadzharyan", address: "5333 Av. Casgrain Apt 102", description: "new waiter", phone: "555-514-1234")
+waiter_three = User.create!(user_role: 0, email: "m@m.m", password: "qwerty", first_name: "Martyn", last_name: "McGowan", address: "5333 Av. Casgrain Apt 103", description: "new waiter", phone: "555-514-1234")
+waiter_four = User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "5333 Av. Casgrain Apt 104", description: "new waiter", phone: "555-514-1234")
 # restaurants owners
 p "creating restos"
 
 # creating more seeds for the restaurant owners
-User.create!(user_role: 1, email: "1@1.r", password: "qwerty", restaurant_name: "Trattoria Bellamore", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "White-tablecloth Italian BYOB serving classic meat, seafood & pasta dishes in a quaint space.", rate: 15, description: "
+resto_one = User.create!(user_role: 1, email: "1@1.r", password: "qwerty", restaurant_name: "Trattoria Bellamore", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "White-tablecloth Italian BYOB serving classic meat, seafood & pasta dishes in a quaint space.", rate: 15, description: "
 Lorem ipsum", phone: "555-514-1234")
-User.create!(user_role: 1, email: "2@2.r", password: "qwerty", restaurant_name: "Le Mitoyen", address: "652 Rue de la Place Publique, Laval", restaurant_type: "Canadian", summary: "Area-sourced Québec tasting menus starring game & decadent desserts in a genteel country house.", rate: 16, description: "
+resto_two = User.create!(user_role: 1, email: "2@2.r", password: "qwerty", restaurant_name: "Le Mitoyen", address: "652 Rue de la Place Publique, Laval", restaurant_type: "Canadian", summary: "Area-sourced Québec tasting menus starring game & decadent desserts in a genteel country house.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234")
-User.create!(user_role: 1, email: "3@3.r", password: "qwerty", restaurant_name: "Sterlings Steakhouse", address: "165 Prom. Du Centropolis, Laval", restaurant_type: "American", summary: "Aged USDA prime steaks, fresh fish & a private wine cellar are offered in a sophisticated setting.", rate: 16, description: "
+resto_three = User.create!(user_role: 1, email: "3@3.r", password: "qwerty", restaurant_name: "Sterlings Steakhouse", address: "165 Prom. Du Centropolis, Laval", restaurant_type: "American", summary: "Aged USDA prime steaks, fresh fish & a private wine cellar are offered in a sophisticated setting.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234")
-User.create!(user_role: 1, email: "4@4.r", password: "qwerty", restaurant_name: "Le Vieux Four de Laval", address: "St-Vincent-de-Paul, 5070 Bd Lévesque E, Laval", restaurant_type: "Italian", summary: "Sprawling family eatery for wood-fired, thin-crust pizzas, plus pastas & Italian classics.", rate: 18, description: "
+resto_four = User.create!(user_role: 1, email: "4@4.r", password: "qwerty", restaurant_name: "Le Vieux Four de Laval", address: "St-Vincent-de-Paul, 5070 Bd Lévesque E, Laval", restaurant_type: "Italian", summary: "Sprawling family eatery for wood-fired, thin-crust pizzas, plus pastas & Italian classics.", rate: 18, description: "
 Lorem ipsum", phone: "555-514-1234")
 User.create!(user_role: 1, email: "5@5.r", password: "qwerty", restaurant_name: "Restaurant Amato", address: "192 Bd Sainte-Rose, Laval", restaurant_type: "Italian", summary: "Set in an 1895 house, this refined white-tablecloth restaurant serves traditional Italian cuisine.", rate: 18, description: "
 Lorem ipsum", phone: "555-514-1234")
@@ -51,12 +46,12 @@ Lorem ipsum", phone: "555-514-1234")
 
 # application seeds
 p "creating applications"
-Application.create!(waiter_id:1, restaurant_id:1, start_date:Date.new(2022,3,3), end_date:Date.new(2022,3,7), rating:4, creator_id: 1)
-Application.create!(waiter_id:1, restaurant_id:4, start_date:Date.new(2022,3,12), end_date:Date.new(2022,3,16),creator_id: 1, rating:4)
-Application.create!(waiter_id:2, restaurant_id:4, start_date:Date.new(2022,3,8), end_date:Date.new(2022,3,15), creator_id:1, rating:3)
-Application.create!(waiter_id:2, restaurant_id:5, start_date:Date.new(2022,3,16), end_date:Date.new(2022,3,22),creator_id:5, rating:3)
-Application.create!(waiter_id:3, restaurant_id:5, start_date:Date.new(2022,3,3), end_date:Date.new(2022,3,7),creator_id:5, rating:5)
-Application.create!(waiter_id:3, restaurant_id:6, start_date:Date.new(2022,3,23), end_date:Date.new(2022,3,29),creator_id:6, rating:5)
-Application.create!(waiter_id:4, restaurant_id:6, start_date:Date.new(2022,3,8), end_date:Date.new(2022,3,15),creator_id:6, rating:4)
-Application.create!(waiter_id:4, restaurant_id:6, start_date:Date.new(2022,3,17), end_date:Date.new(2022,3,23),creator_id:6, rating:4)
+Application.create!(waiter: waiter_one, restaurant: resto_one, start_date: Date.new(2022,3,3), end_date: Date.new(2022,3,7), rating: 4, creator: waiter_one)
+Application.create!(waiter: waiter_one, restaurant: resto_one, start_date: Date.new(2022,3,12), end_date: Date.new(2022,3,16), rating: 4, creator: waiter_one)
+Application.create!(waiter: waiter_two, restaurant: resto_two, start_date: Date.new(2022,3,8), end_date: Date.new(2022,3,15), rating: 3, creator: waiter_one)
+Application.create!(waiter: waiter_two, restaurant: resto_two, start_date: Date.new(2022,3,16), end_date: Date.new(2022,3,22), rating: 3, creator: resto_one)
+Application.create!(waiter: waiter_three, restaurant: resto_three, start_date: Date.new(2022,3,3), end_date: Date.new(2022,3,7), rating: 5, creator: resto_one)
+Application.create!(waiter: waiter_three, restaurant: resto_four, start_date: Date.new(2022,3,23), end_date: Date.new(2022,3,29),rating: 5, creator: resto_two)
+Application.create!(waiter: waiter_four, restaurant: resto_four, start_date: Date.new(2022,3,8), end_date: Date.new(2022,3,15), rating: 4, creator: resto_two)
+Application.create!(waiter: waiter_four, restaurant: resto_four, start_date: Date.new(2022,3,17), end_date: Date.new(2022,3,23), rating: 4, creator: resto_two)
 p "applications created"

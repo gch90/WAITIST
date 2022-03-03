@@ -1,17 +1,25 @@
-<h1>USERS SHOW/PROFILE PAGE</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%# REMINDER: CAN USE METHODS: %>
+<%# created_applications, applications_as_restaurant, applications_as_waiter %>
+
+<h1>PROFILE PAGE</h1>
+<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+
+<div class="container">
+  <div>
+      <% @user.created_applications.each do |application| %>
+        <ul>
+          <li>
+            <h3>
+              <%= application.id %> <%= application.status %>
+            </h3>
+          </li>
+          <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
+          <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+        </ul>
+      <% end %>
+  </div>
+  <div>
+  </div>
+</div>
 
 <%= link_to 'EDIT YOUR PROFILE', '/profile/edit' %>
-
-<% @applications.each do |application| %>
-  <ul>
-    <li>
-      <h3>
-        <%= application.id %> <%= application.status %>
-      </h3>
-    </li>
-
-  <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-  </ul>
-
-<% end %>

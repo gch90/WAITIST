@@ -1,7 +1,10 @@
+# REMINDER: CAN USE METHODS:
+# created_applications, applications_as_restaurant, applications_as_waiter
+
 class UsersController < ApplicationController
   before_action :set_applications, only: [:show]
-  before_action :set_application, only: [:application_update, :approve]
-  before_action :set_user, only: [:show, :update, :approve]
+  before_action :set_application, only: [:application_update, :approve, :reject]
+  before_action :set_user, only: [:show, :update, :approve, :reject]
 
   def show
   end
@@ -29,6 +32,11 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def reject
+    @application.update(status: 2)
+    redirect_to @user
+  end
+
   private
 
   def user_params
@@ -40,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def set_applications
-    @applications = Application.where(waiter_id: current_user.id).or(Application.where(restaurant_id: current_user.id))
+    @applications = Application.where(waiter: current_user).or(Application.where(restaurant: current_user))
   end
 
   def set_application

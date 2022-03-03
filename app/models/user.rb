@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :applications_as_waiter, class_name: "Application", foreign_key: :waiter_id
 
   enum user_role: {
-    user: 0,
+    waiter: 0,
     restaurant: 1
   }
 
