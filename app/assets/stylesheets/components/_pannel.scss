@@ -22,9 +22,26 @@
     gap: 8px;
     padding-left: 32px;
     font-weight: 400;
+    cursor: pointer;
+    transition: 200ms;
+    .icon {
+      * {
+        fill: $light-gray;
+        stroke: $dark-gray;
+      }
+    }
   }
   .active {
     @include color-custom($secondary, $light-gray);
     box-shadow: 8px 0 0 0 $light-gray;
+    cursor: default;
+    transition: 200ms;
+    padding-left: 40px;
+    .icon {
+      * {
+        fill: $primary;
+        stroke: $secondary;
+      }
+    }
   }
 }

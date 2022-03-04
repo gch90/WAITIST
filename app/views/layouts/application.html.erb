@@ -12,7 +12,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body data-controller="pannel">
     <% unless controller_name == "users" %>
       <%= render 'shared/navbar' %>
     <% end %>

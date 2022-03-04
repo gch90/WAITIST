@@ -3,6 +3,10 @@
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
 <div class="d-flex">
   <%= render 'pannel' %>
-  <%= render 'profile' %>
-  <%= render 'application' %>
+  <div data-pannel-target="pages">
+    <%# Order is very important! %>
+    <%= render 'profile' %>
+    <%= render 'application' %>
+    <%= render 'users' %>
+  </div>
 </div>
