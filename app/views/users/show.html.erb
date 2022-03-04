@@ -1,7 +1,7 @@
 <%# REMINDER: CAN USE METHODS: %>
 <%# created_applications, applications_including_restaurant, applications_including_waiter
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
-<div class="d-flex">
+<div class="d-flex" data-controller="pannel" data-pannel-chosen-value="<%= @tab %>">
   <%= render 'pannel' %>
   <div data-pannel-target="pages">
     <%# Order is very important! %>

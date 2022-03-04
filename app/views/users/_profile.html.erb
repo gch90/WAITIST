@@ -1,4 +1,4 @@
-<div data-pannel-target="profile">
+<div class="d-none">
   <% if current_user.waiter? %>
   <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
   <% current_user.photos.each do |photo| %>

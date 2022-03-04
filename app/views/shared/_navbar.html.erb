@@ -15,8 +15,11 @@
         <div class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", user_path, class: "dropdown-item",data: {action: "click->pannel#select"} %>
-            <%= link_to "Applications", user_path, class: "dropdown-item",data: {action: "click->pannel#select"} %>
+            <%= link_to "Profile", user_path(tab: 0), class: "dropdown-item"%>
+            <%= link_to "Applications", user_path(tab: 1),  class: "dropdown-item" %>
+            <% if current_user.restaurant? %>
+              <%= link_to "Users", user_path(tab: 2),  class: "dropdown-item" %>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </div>
