@@ -25,3 +25,10 @@
   -webkit-line-clamp: $lines;
   -webkit-box-orient: vertical;
 }
+
+@mixin lil-container {
+  background: $white;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  padding: 12px 16px;
+}
