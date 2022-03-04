@@ -1,11 +1,38 @@
 <%# REMINDER: CAN USE METHODS: %>
 <%# created_applications, applications_including_restaurant, applications_including_waiter
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
+<div class="show-body">
+  <%= link_to 'Back', restaurants_path, class: "btn btn-gray" %>
+  <div class="info">
+    <div class="carousel">
+      <%= image_tag 'joe.jpg'%>
 
-<h1>RESTAURANT SHOW PAGE</h1>
-<%= @restaurant.restaurant_name %>
-
-<%= link_to 'HOME', root_path %>
-<%= link_to 'BACK', restaurants_path %>
-
-<%= link_to 'APPLY NOW', apply_path, method: 'create', data: { confirm: "Are you sure you want to apply"} %>
+    </div>
+    <div class="show-attr">
+      <h2 class="name"><%= @restaurant.restaurant_name %></h2>
+      <div class="attr-card">
+        <p><%= render 'icons/location' %><%= @restaurant.address %></p>
+        <p><%= render 'icons/info' %><%= @restaurant.restaurant_type %></p>
+        <p><%= render 'icons/rate' %><%= @restaurant.rate %>$/hour</p>
+        <p>
+          <%= render 'icons/rate' %>
+          <%= link_to "Placeholder.com", url_for(@restaurant.website), :target => "_blank" %>
+        </p>
+        <p><%= render 'icons/rate' %><%= @restaurant.phone %></p>
+      </div>
+      <div class="summary">
+        <h3>Summary</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's a popularised in the. 19992</p>
+      </div>
+      <div class="apply" data-controller="picker">
+        <%= simple_form_for(@application, url: apply_path, method: :post) do |f| %>
+            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.submit 'Apply', class: "btn btn-primary" %>
+          <% end %>
+        <div></div>
+        <%# <%= link_to 'APPLY NOW', apply_path, method: 'create',class: "btn btn-primary",data: { confirm: "Are you sure you want to apply"} %>
+      </div>
+    </div>
+  </div>
+</div>
