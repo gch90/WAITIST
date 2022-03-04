@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :address, photos: [])
+    params.require(:user).permit(:email, :first_name, :last_name, :address, :avatar, photos: [])
   end
 
   def application_params
@@ -52,7 +52,6 @@ class UsersController < ApplicationController
   def set_applications
     @applications = Application.where(waiter: current_user).or(Application.where(restaurant: current_user))
   end
-
 
   def set_application
     @application = Application.find(params[:id])
