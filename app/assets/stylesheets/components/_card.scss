@@ -5,6 +5,7 @@
   border: none;
   border-radius: $border-radius;
   width: 320px;
+  min-width: 240px;
   gap: 8px;
   .card-head {
     height: 240px;
