@@ -1,11 +1,11 @@
 <div class="d-none">
   <% if current_user.waiter? %>
-  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
   <% current_user.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
   <% else %>
-  <h2><%= current_user.restaurant_name %></h2>
+    <h2><%= current_user.restaurant_name %></h2>
   <% current_user.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
