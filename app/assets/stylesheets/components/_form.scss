@@ -12,6 +12,24 @@
   border: 1.5px solid $dark-gray;
 }
 
+
+#application_start_date,
+#application_end_date {
+  text-decoration: none;
+  color: $dark-gray !important;
+  background: $light-gray;
+  font-weight: 500;
+  padding: 8px 14px;
+  line-height: 21px !important;
+  border: 1.5px solid $dark-gray;
+  border-radius: 0;
+}
+
+#new_application {
+  display: grid;
+  margin: 0 auto;
+  gap: 8px;
+
 .container {
   @include flex(center, flex-start);
   align-items: stretch;
@@ -37,4 +55,5 @@
     color: $secondary;
     align-self: center;
   }
+
 }

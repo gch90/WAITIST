@@ -48,7 +48,7 @@
     @include flex(flex-start, flex-start);
     flex-direction: column;
     gap: 2px;
-    .summary {
+    .short-summary {
       color: $dark-gray;
       background: $light-gray;
       border-top: 1.5px solid $dark-gray;
