@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   before_action :set_application, only: [:application_update, :approve, :reject]
   before_action :set_user, only: [:show, :update, :approve, :reject]
 
-  def show; end
+  def show
+    @tab = params[:tab]
+  end
 
   def edit; end
 
