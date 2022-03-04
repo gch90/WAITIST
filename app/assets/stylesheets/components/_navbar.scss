@@ -6,20 +6,14 @@ nav {
   height: 64px;
   box-shadow: $shadow;
   padding: 0 32px;
+  .logo {
+    @include flex;
+    height: 100%;
+    width: 80px;
+  }
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-}
-
-.logo {
-  height: 100%;
-  width: 64px;
-  path {
-    fill: $primary;
-  }
-  polygon {
-    fill: $primary;
-  }
 }
