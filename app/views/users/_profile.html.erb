@@ -1,6 +1,7 @@
 <div class="d-none">
   <% if current_user.waiter? %>
     <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+
       <% if current_user.avatar.attached?%>
           <%= cl_image_tag avatar.key, height: 300, width: 400, crop: :fill %>
       <% end %>
