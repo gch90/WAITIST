@@ -27,11 +27,11 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
       <div class="apply">
         <%= simple_form_for(@application, url: apply_path, method: :post) do |f| %>
             <h5 class="form-title" >From: </h5>
-            <%= f.input :start_date, as: :string, required: false, class: "input", input_html: {class: "datepicker"} %>
+            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <h5 class="form-title">To:  </h5>
-            <%= f.input :end_date, class: "input", input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <div class="d-flex justify-content-between">
-              <%= f.submit 'APPlY NOW', class: "btn btn-primary" %>
+              <%= f.submit 'Apply', class: "btn btn-primary" %>
             </div>
 
           <% end %>
