@@ -2,8 +2,8 @@
   <%= link_to  root_path, class: "logo" do %>
       <%= render 'icons/logo'%>
   <% end %>
-  <div>
-    <div class="tab active" data-action="click->pannel#select"><%= render 'icons/profile' %>Profile</div>
+  <div data-pannel-target="tabs">
+    <div class="tab" data-action="click->pannel#select"><%= render 'icons/profile' %>Profile</div>
     <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Applications</div>
     <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Users</div>
   </div>
