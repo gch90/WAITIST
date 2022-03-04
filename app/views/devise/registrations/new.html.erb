@@ -29,13 +29,16 @@
 
 
     <div data-hide-view-target="waiter" class="d-none">
-      <%= render 'shared/newWaiterSignUp' %>
+      <%= render 'shared/newWaiterSignUp', f: f %>
     </div>
 
     <div data-hide-view-target="resto" class="d-none">
-      <%= render 'shared/newRestSignUp'%>
+      <%= render 'shared/newRestSignUp', f: f %>
     </div>
 
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up" %>
+    </div>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>

@@ -31,7 +31,7 @@ class User < ApplicationRecord
     }
 
   def waiter_applications_received
-    applications_including_waiter - created_applications
+    # applications_including_waiter - created_applications
   end
 
   def restaurant_applications_received

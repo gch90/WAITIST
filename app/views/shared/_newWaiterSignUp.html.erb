@@ -1,6 +1,4 @@
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :first_name,
@@ -21,10 +19,7 @@
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "summary" }%>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :avatar, as: :file %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
+
   </div>
-<% end %>
