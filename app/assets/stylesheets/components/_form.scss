@@ -12,6 +12,7 @@
   border: 1.5px solid $dark-gray;
 }
 
+
 #application_start_date,
 #application_end_date {
   text-decoration: none;
@@ -28,4 +29,31 @@
   display: grid;
   margin: 0 auto;
   gap: 8px;
+
+.container {
+  @include flex(center, flex-start);
+  align-items: stretch;
+  flex-direction: column;
+  height: auto;
+  background: $white;
+  width: 446px;
+  padding: 52px;
+  gap: 16px;
+  h1 {
+    color: $secondary;
+  }
+  .search {
+    width: 100%;
+    .input {
+      width: 100%;
+    }
+  }
+}
+.signup {
+  background: $primary;
+  h2 {
+    color: $secondary;
+    align-self: center;
+  }
+
 }
