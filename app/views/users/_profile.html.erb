@@ -1,14 +1,16 @@
 <div class="d-none">
   <% if current_user.waiter? %>
-  <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-  <% current_user.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+      <% if current_user.avatar.attached?%>
+          <%= cl_image_tag avatar.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
   <% else %>
-  <h2><%= current_user.restaurant_name %></h2>
-  <% current_user.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+    <h2><%= current_user.restaurant_name %></h2>
+      <% if current_user.photos.attached?%>
+        <% current_user.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+      <% end %>
   <% end %>
 
   <div class="d-flex flex-row">
