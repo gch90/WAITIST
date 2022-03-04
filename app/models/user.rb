@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :applications_including_waiter, class_name: "Application", foreign_key: :waiter_id
 
   has_many_attached :photos
+  has_one_attached :avatar
 
   enum user_role: {
     waiter: 0,
