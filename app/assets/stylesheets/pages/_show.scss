@@ -1,0 +1,47 @@
+.show-body {
+  width: 50%;
+  margin: 16px auto;
+  .info {
+    margin: 8px 0;
+    @include flex(center, flex-start);
+    gap: 16px;
+    .carousel {
+      width: 100%;
+      img {
+        height: 400px;
+        width: 100%;
+      }
+    }
+
+    .show-attr {
+      display: grid;
+      width: 100%;
+      gap: 8px;
+      .name {
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        @include contain-text(2);
+      }
+      .summary {
+        @include lil-container;
+        h3 {
+          color: $primary;
+        }
+        p {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+.attr-card {
+  @include lil-container;
+  display: grid;
+  gap: 8px;
+  p {
+    svg {
+      padding-right: 4px;
+    }
+  }
+}

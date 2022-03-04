@@ -16,7 +16,11 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @application = Application.new
+    @application.restaurant = @restaurant
   end
+
+
 
   private
 

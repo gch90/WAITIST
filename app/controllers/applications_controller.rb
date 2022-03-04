@@ -9,6 +9,7 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.where(creator: current_user)
+    redirect_to apply_path
   end
 
   def create
@@ -22,6 +23,7 @@ class ApplicationsController < ApplicationController
       render :create
     end
   end
+
 
   def create_by_resto
     @application = Application.new
