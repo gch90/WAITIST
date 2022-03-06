@@ -7,10 +7,10 @@ Application.delete_all
 User.delete_all
 p "deleted"
 p "creating users"
-waiter_one = User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "5333 Av. Casgrain Apt 101", description: "new waiter", phone: "555-514-1234")
-waiter_two = User.create!(user_role: 0, email: "s@s.s", password: "qwerty", first_name: "Sedrak", last_name: "Nadzharyan", address: "5333 Av. Casgrain Apt 102", description: "new waiter", phone: "555-514-1234")
-waiter_three = User.create!(user_role: 0, email: "m@m.m", password: "qwerty", first_name: "Martyn", last_name: "McGowan", address: "5333 Av. Casgrain Apt 103", description: "new waiter", phone: "555-514-1234")
-waiter_four = User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "5333 Av. Casgrain Apt 104", description: "new waiter", phone: "555-514-1234")
+waiter_one = User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "gohier st, Montreal", description: "new waiter", phone: "555-514-1234")
+waiter_two = User.create!(user_role: 0, email: "s@s.s", password: "qwerty", first_name: "Sedrak", last_name: "Nadzharyan", address: "rue dale, Laval", description: "new waiter", phone: "555-514-1234")
+waiter_three = User.create!(user_role: 0, email: "m@m.m", password: "qwerty", first_name: "Martyn", last_name: "McGowan", address: "Oxford Avenue, Montreal", description: "new waiter", phone: "555-514-1234")
+waiter_four = User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "chemin Guelph, Montreal", description: "new waiter", phone: "555-514-1234")
 # restaurants owners
 
 waiter_one.photos.attach(io: File.open('app/assets/images/georges.jpg'), filename: 'georges.jpg', content_type: 'image/jpg')

@@ -10,6 +10,14 @@ class WaitersController < ApplicationController
       @waiters = User.waiter
     end
     # <---
+    # Mapbox MM --->
+    @markers = @waiters.geocoded.map do |waiter|
+      {
+        lat: waiter.latitude,
+        lng: waiter.longitude
+      }
+    end
+    # <---
   end
 
   def show

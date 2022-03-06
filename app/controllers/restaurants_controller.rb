@@ -13,6 +13,14 @@ class RestaurantsController < ApplicationController
       @restaurants = User.restaurant
     end
     # <---
+    # mapbox MM --->
+    @markers = @restaurants.geocoded.map do |resto|
+      {
+        lat: resto.latitude,
+        lng: resto.longitude
+      }
+    end
+    # <---
   end
 
   def show
