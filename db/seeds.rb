@@ -13,13 +13,13 @@ waiter_three = User.create!(user_role: 0, email: "m@m.m", password: "qwerty", fi
 waiter_four = User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "chemin Guelph, Montreal", description: "new waiter", phone: "555-514-1234")
 # restaurants owners
 
-waiter_one.photos.attach(io: File.open('app/assets/images/georges.jpg'), filename: 'georges.jpg', content_type: 'image/jpg')
+waiter_one.avatar.attach(io: File.open('app/assets/images/georges.jpg'), filename: 'georges.jpg', content_type: 'image/jpg')
 waiter_one.save!
-waiter_two.photos.attach(io: File.open('app/assets/images/sedrak.jpg'), filename: 'sedrak.jpg', content_type: 'image/jpg')
+waiter_two.avatar.attach(io: File.open('app/assets/images/sedrak.jpg'), filename: 'sedrak.jpg', content_type: 'image/jpg')
 waiter_two.save!
-waiter_three.photos.attach(io: File.open('app/assets/images/martyn.jpg'), filename: 'martyn.jpg', content_type: 'image/jpg')
+waiter_three.avatar.attach(io: File.open('app/assets/images/martyn.jpg'), filename: 'martyn.jpg', content_type: 'image/jpg')
 waiter_three.save!
-waiter_four.photos.attach(io: File.open('app/assets/images/raphael.jpg'), filename: 'raphael.jpg', content_type: 'image/jpg')
+waiter_four.avatar.attach(io: File.open('app/assets/images/raphael.jpg'), filename: 'raphael.jpg', content_type: 'image/jpg')
 waiter_four.save!
 
 

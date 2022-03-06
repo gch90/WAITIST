@@ -14,7 +14,9 @@ class WaitersController < ApplicationController
     @markers = @waiters.geocoded.map do |waiter|
       {
         lat: waiter.latitude,
-        lng: waiter.longitude
+        lng: waiter.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { waiter: waiter }),
+        image_url: helpers.asset_url("Waitist-logo.svg")
       }
     end
     # <---
