@@ -67,8 +67,13 @@
 }
 
 .edit {
-  @include lil-container(16px, 64px);
+  @include lil-container(16px, 128px);
   @include flex;
+  width: 100%;
+  .edit_user {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .is-valid {
@@ -131,4 +136,8 @@
 .double {
   @include flex;
   gap: 16px;
+  width: 100%;
+  * {
+    width: 100%;
+  }
 }

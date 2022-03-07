@@ -10,7 +10,9 @@
         <% else %>
           <%= cl_image_tag @user.avatar.key %>
         <% end %>
-        <div class="shadow"></div>
+        <div class="gradient">
+          <%= render "icons/pen" %>
+        </div>
       </div>
       <%= f.input :email %>
     </div>
@@ -27,6 +29,6 @@
 
     <%= f.input :summary,as: :text %>
 
-    <%= f.button :submit, "Update", class: "btn btn-primary"%>
+    <%= f.button :submit, "Update", class: "btn-primary"%>
   <% end %>
 </div>
