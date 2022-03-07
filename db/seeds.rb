@@ -5,6 +5,7 @@
 p "start seed"
 Application.delete_all
 User.delete_all
+Chatroom.delete_all
 p "deleted"
 p "creating users"
 
@@ -33,6 +34,8 @@ my_restos << User.create!(user_role: 1, email: "1@1.r", password: "qwerty", rest
 my_restos << User.create!(user_role: 1, email: "2@2.r", password: "qwerty", restaurant_name: "Le Mitoyen", nickname: "Mitoyen", address: "652 Rue de la Place Publique, Laval", restaurant_type: "Canadian", summary: "Area-sourced Québec tasting menus starring game & decadent desserts in a genteel country house.", rate: 16, description: Faker::Restaurant.description, phone: "555-514-1234" , website: "https://restaurantlemitoyen.com/" )
 my_restos << User.create!(user_role: 1, email: "3@3.r", password: "qwerty", restaurant_name: "Sterlings Steakhouse", nickname: "Sterlings", address: "165 Prom. Du Centropolis, Laval", restaurant_type: "American", summary: "Aged USDA prime steaks, fresh fish & a private wine cellar are offered in a sophisticated setting.", rate: 16, description: Faker::Restaurant.description, phone: "555-514-1234", website: "http://www.sterlingsrestaurant.com/")
 my_restos << User.create!(user_role: 1, email: "4@4.r", password: "qwerty", restaurant_name: "Le Vieux Four de Laval", nickname: "LVFL", address: "St-Vincent-de-Paul, 5070 Bd Lévesque E, Laval", restaurant_type: "Italian", summary: "Sprawling family eatery for wood-fired, thin-crust pizzas, plus pastas & Italian classics.", rate: 18, description: Faker::Restaurant.description, phone: "555-514-1234", website: "http://www.levieuxfour.net/")
+my_restos << User.create!(user_role: 1, email: "15@15.r", password: "qwerty", restaurant_name: "Joe's Panini", nickname: "Joe's", address: "1404 Drummond St, Montreal", restaurant_type: "Italian", summary: "Enduring grilled sandwich specialist in a snug space prepping a range of combos 24/7.", rate: 18, description: "Located in the heart of downtown Montreal, Joe's Panini has been a staple in Montreal for over 30 years. Whether it's for breakfast, lunch breaks or late night snacks, the doors of Joe's Panini are open 24 hours a day, 7 days a week. Loved by people from all over the city, the restaurant was voted by the Gazette as the # 1 place serving the best paninis on the island! Come taste one of our 25 famous classic sandwiches as well as our salad varieties to understand why the Montrealers have given us this beautiful title.", phone: "555-514-1234", website: "https://joespanini.com/")
+
 
 
 all_restos = []
@@ -46,6 +49,7 @@ all_restos << User.create!(user_role: 1, email: "11@11.r", password: "qwerty", r
 all_restos << User.create!(user_role: 1, email: "12@12.r", password: "qwerty", restaurant_name: "Estiatorio Milos", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
 all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", restaurant_name: "Baton Rouge", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
 all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+
 
 
 
