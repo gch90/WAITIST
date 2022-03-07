@@ -3,7 +3,7 @@
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
 <div class="d-flex" data-controller="pannel" data-pannel-chosen-value="<%= @tab %>">
   <%= render 'pannel' %>
-  <div data-pannel-target="pages">
+  <div class="account" data-pannel-target="pages">
     <%# Order is very important! %>
     <%= render 'profile' %>
     <%= render 'application' %>

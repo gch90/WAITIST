@@ -9,78 +9,6 @@
       display: grid;
       gap: 16px;
     }
-    .carousel > {
-      .main-image {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        position: relative;
-        box-shadow: $shadow;
-        img {
-          height: 100%;
-          width: 100%;
-          border-radius: $border-radius;
-        }
-        .arrows {
-          position: absolute;
-          top: 50%;
-          bottom: 50%;
-          width: 100%;
-          @include flex(space-between, center);
-          box-shadow: $shadow;
-          .arrow {
-            @include flex;
-            width: 36px;
-            aspect-ratio: 1 / 1;
-            @include color-custom($secondary, $trans-white, $primary);
-            border-radius: 50%;
-            margin: 16px;
-            cursor: pointer;
-            &:hover {
-              background: white;
-            }
-            &:active {
-              box-shadow: $dark-shadow;
-              transform: translateY(2px);
-            }
-          }
-          #mirror {
-            transform: rotate(180deg);
-            &:active {
-              box-shadow: $dark-shadow;
-              transform: translateY(2px) rotate(180deg);
-            }
-          }
-        }
-      }
-      .all-imgs {
-        @include flex(flex-start, center);
-        gap: 16px;
-
-        .small-img {
-          box-shadow: $shadow;
-          width: 64px;
-          height: 64px;
-          position: relative;
-          border-radius: $border-radius;
-          img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            border-radius: $border-radius;
-          }
-          .gradient {
-            border-radius: $border-radius;
-          }
-          .bar {
-            width: 100%;
-            height: 4px;
-            border-radius: $border-radius;
-            background: $secondary;
-            margin-top: 4px;
-          }
-        }
-      }
-    }
 
     .show-attr {
       display: grid;
@@ -173,6 +101,79 @@
       * {
         fill: $white;
       }
+    }
+  }
+}
+
+.main-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  box-shadow: $shadow;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: $border-radius;
+  }
+  .arrows {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    width: 100%;
+    @include flex(space-between, center);
+    box-shadow: $shadow;
+    .arrow {
+      @include flex;
+      width: 36px;
+      aspect-ratio: 1 / 1;
+      @include color-custom($secondary, $trans-white, $primary);
+      border-radius: 50%;
+      margin: 16px;
+      cursor: pointer;
+      &:hover {
+        background: white;
+      }
+      &:active {
+        box-shadow: $dark-shadow;
+        transform: translateY(2px);
+      }
+    }
+    #mirror {
+      transform: rotate(180deg);
+      &:active {
+        box-shadow: $dark-shadow;
+        transform: translateY(2px) rotate(180deg);
+      }
+    }
+  }
+}
+
+.all-imgs {
+  @include flex(flex-start, center);
+  gap: 16px;
+
+  .small-img {
+    box-shadow: $shadow;
+    width: 64px;
+    height: 64px;
+    position: relative;
+    border-radius: $border-radius;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius;
+    }
+    .gradient {
+      border-radius: $border-radius;
+    }
+    .bar {
+      width: 100%;
+      height: 4px;
+      border-radius: $border-radius;
+      background: $secondary;
+      margin-top: 4px;
     }
   }
 }
