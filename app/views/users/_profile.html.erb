@@ -36,7 +36,9 @@
     <h1><%= render "icons/profile" %>Restaurant</h1>
     <div class="profile-head">
       <div class="image">
-        <%= cl_image_tag @user.photos[0].key %>
+        <% if @user.photos.attached? %>
+          <%= cl_image_tag @user.photos[0].key %>
+        <% end %>
         <div class="in-shadow"></div>
       </div>
       <div class="desc">
@@ -56,15 +58,16 @@
             </p>
           </div>
         </div>
-
       </div>
         <div class="btn btn-light">Edit</div>
     </div>
     <div class="all-imgs" >
-      <%  @user.photos.each do |photo| %>
-        <div class="small-img">
-          <%= cl_image_tag photo.key %>
-        </div>
+      <% if @user.photos.attached? %>
+        <%  @user.photos.each do |photo| %>
+          <div class="small-img">
+            <%= cl_image_tag photo.key %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="summary">
