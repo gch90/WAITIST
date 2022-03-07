@@ -5,6 +5,7 @@
   <div data-pannel-target="tabs">
     <div class="tab" data-action="click->pannel#select"><%= render 'icons/profile' %>Profile</div>
     <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Applications</div>
+    <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Messages</div>
     <% if current_user.restaurant? %>
       <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Waiters</div>
     <% end %>
