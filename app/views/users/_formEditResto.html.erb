@@ -1,0 +1,43 @@
+<div data-edit-target="form" class="edit">
+
+  <%= simple_form_for(current_user) do |f| %>
+    <h2 class="text-center">Edit</h2>
+    <div class="double">
+      <%= f.input :email %>
+      <%= f.input :rate %>
+    </div>
+
+    <div class="double">
+      <%= f.input :restaurant_name %>
+      <%= f.input :website %>
+    </div>
+
+    <div class="double">
+      <%= f.input :address %>
+      <%= f.input :phone %>
+    </div>
+
+      <div class="images-choser">
+        <strong>Images</strong>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <% if current_user.photos.nil? %>
+          <%= image_tag "blankUser.png" %>
+        <% else %>
+          <div class="images">
+            <% @user.photos.each do |photo|%>
+              <div class="small-img">
+                <%= cl_image_tag photo.key %>
+                <div class="gradient">
+                  <%= render "icons/pen" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+      </div>
+      <%= f.input :summary,as: :text %>
+      <%= f.input :description,as: :text %>
+    <%= f.button :submit, "Update", class: "btn-primary"%>
+  <% end %>
+</div>

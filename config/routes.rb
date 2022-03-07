@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   patch '/booking/:id/confirm', to: 'users#approve', as: :approve
   patch '/booking/:id/reject', to: 'users#reject', as: :reject
 
+  resources :chatrooms, only: [:new, :show, :create, :index] do
+    resources :messages, only: :create
+  end
 end

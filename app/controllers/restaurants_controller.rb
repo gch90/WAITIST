@@ -19,7 +19,9 @@ class RestaurantsController < ApplicationController
         lat: resto.latitude,
         lng: resto.longitude,
         info_window: render_to_string(partial: "info_window", locals: { resto: resto }),
+
         image_url: helpers.asset_url("icons/Waitist-logo.svg")
+
       }
     end
     # <---
