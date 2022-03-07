@@ -3,9 +3,9 @@
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
 
 <h1>RESTAURANTS INDEX</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<%# <p>Find me in app/views/restaurants/index.html.erb</p> %>
 
-<%= link_to 'HOME', root_path, class:"btn btn-primary" %>
+<%#= link_to 'HOME', root_path, class:"btn btn-primary" %>
 <%= @results %>
 
 <ul>
@@ -13,3 +13,9 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
     <%= render 'shared/card', resto: restaurant %>
   <% end %>
 </ul>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

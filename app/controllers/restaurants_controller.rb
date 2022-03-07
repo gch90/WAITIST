@@ -13,11 +13,22 @@ class RestaurantsController < ApplicationController
       @restaurants = User.restaurant
     end
     # <---
+    # mapbox MM --->
+    @markers = @restaurants.geocoded.map do |resto|
+      {
+        lat: resto.latitude,
+        lng: resto.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { resto: resto }),
+        image_url: helpers.asset_url("Waitist-logo.svg")
+      }
+    end
+    # <---
   end
 
   def show
     @application = Application.new
     @application.restaurant = @restaurant
+    @restaurants = User.restaurant.where(restaurant_type: @restaurant.restaurant_type).first(4)
   end
 
 

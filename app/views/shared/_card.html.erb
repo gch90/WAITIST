@@ -12,17 +12,24 @@
 <%# card %>
 <div class="card">
   <div class="card-head">
-    <%= image_tag 'joe.jpg'%>
-    <div class="rating">
-      <h3>5.4</h3>
-    </div>
+    <% if resto.photos.attached? %>
+      <%= cl_image_tag resto.photos[0].key %>
+      <div class="rating">
+        <h3>5.4</h3>
+      </div>
+    <% else %>
+      <div class="rating">
+        <h3>5.4</h3>
+      </div>
+    <% end %>
   </div>
+
   <div class="card-body">
     <%= link_to restaurant_path(resto), class: "name" do %>
       <h3><%= resto.restaurant_name %></h3>
     <% end %>
     <div class="desc">
-      <p class="summary"><strong><%= resto.summary %></strong></p>
+      <p class="short-summary"><strong><%= resto.summary %></strong></p>
       <p class="location"><%= render 'icons/location' %><%= resto.address %></p>
       <div class="card-foot">
         <p class="type"><%= render 'icons/info' %><%= resto.restaurant_type %></p>

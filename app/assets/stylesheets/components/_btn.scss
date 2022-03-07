@@ -5,10 +5,10 @@
   font-size: 16px;
   font-weight: 600;
   box-shadow: $shadow;
-  transition: 100ms;
+  transition: 50ms;
   line-height: 20px;
   &:hover {
-    transition: 300ms;
+    transition: 100ms;
   }
   &:active {
     box-shadow: $dark-shadow;
@@ -38,7 +38,7 @@
 
 .btn-gray {
   @include color-custom($dark-gray, $white, $dark-gray);
-  &:checked {
+  &:hover {
     @include color-custom($dark-gray, $white, $white);
   }
 }

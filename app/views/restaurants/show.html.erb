@@ -4,9 +4,24 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
 <div class="show-body">
   <%= link_to 'Back', restaurants_path, class: "btn btn-gray" %>
   <div class="info">
-    <div class="carousel">
-      <%= image_tag 'joe.jpg'%>
-
+    <div class="carousel" data-controller="carousel">
+      <div class="main-image" data-carousel-target="main">
+        <%= cl_image_tag @restaurant.photos[0].key %>
+        <div class="arrows">
+          <div class="arrow" id="mirror" data-action="click->carousel#back"><%= render 'icons/arrow' %></div>
+          <div class="arrow" data-action="click->carousel#forward"><%= render 'icons/arrow' %></div>
+        </div>
+      </div>
+      <div class="all-imgs" data-carousel-target="images">
+        <%  @restaurant.photos.each do |photo| %>
+          <div class="small-img">
+            <%= cl_image_tag photo.key %>
+            <div class="gradient"></div>
+            <div class="bar d-none">
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="show-attr">
       <h2 class="name"><%= @restaurant.restaurant_name %></h2>
@@ -22,17 +37,37 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
       </div>
       <div class="summary">
         <h3>Summary</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's a popularised in the. 19992</p>
+        <p><%= @restaurant.summary %></p>
       </div>
       <div class="apply" data-controller="picker">
         <%= simple_form_for(@application, url: apply_path, method: :post) do |f| %>
-            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+              <div class="dates-pick">
+                <div class="date-pick">
+                  <%= f.input :start_date, placeholder: "Start Date", as: :string, required: false, input_html: {class: "datepicker"},data: { confirm: "Are you sure you want to apply"}  %>
+                  <div class="btn-search"></div>
+                </div>
+                <div class="date-pick">
+                  <%= f.input :end_date, placeholder: "End Date", as: :string, required: false, input_html: {class: "datepicker"},data: { confirm: "Are you sure you want to apply"}  %>
+                  <div class="btn-search"></div>
+                </div>
+              </div>
             <%= f.submit 'Apply', class: "btn btn-primary" %>
           <% end %>
         <div></div>
         <%# <%= link_to 'APPLY NOW', apply_path, method: 'create',class: "btn btn-primary",data: { confirm: "Are you sure you want to apply"} %>
       </div>
     </div>
+  </div>
+  <div class="summary">
+    <h3>Description</h3>
+    <p><%= @restaurant.description %></p>
+  </div>
+</div>
+<div class="show-legs">
+  <h2>Similar Restaurants - <%= @restaurant.restaurant_type %></h2>
+  <div class="lil-cards">
+    <% @restaurants.each do |restaurant|%>
+      <%= render 'shared/card', resto: restaurant %>
+    <% end %>
   </div>
 </div>
