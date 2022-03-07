@@ -86,4 +86,7 @@ Application.create!(waiter: waiter_four, restaurant: all_restos[3], start_date: 
 p "applications created"
 
 p "creating test chatroom"
-Chatroom.create!(name: 'test')
+chat1 = Chatroom.new(name: 'test')
+chat1.waiter = waiter_three
+chat1.restaurant = all_restos.first
+chat1.save!

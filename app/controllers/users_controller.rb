@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def show
     @tab = params[:tab]
+    if current_user.waiter?
+      @chatrooms = current_user.waiter_chatrooms
+    else
+      @chatrooms = current_user.restaurant_chatrooms
+    end
   end
 
   def edit; end
