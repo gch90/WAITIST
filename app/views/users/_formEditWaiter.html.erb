@@ -1,20 +1,34 @@
-<%= @user = current_user %>
+<div data-edit-target="form" class="edit">
 
-<%= simple_form_for(@user) do |f| %>
-  <h1 class="text-center">Edit Profile</h1>
-  <h5 class="form-title" >Email: </h5>
-  <%= f.input :email %>
-  <h5 class="form-title" >First name: </h5>
-  <%= f.input :first_name %>
-  <h5 class="form-title" >Last name: </h5>
-  <%= f.input :last_name %>
-  <h5 class="form-title" >Address: </h5>
-  <%= f.input :address %>
-  <h5 class="form-title" >Phone Number: </h5>
-  <%= f.input :phone %>
-  <%= f.input :avatar, as: :file %>
+  <%= simple_form_for(current_user) do |f| %>
+    <h2 class="text-center">Edit</h2>
+    <div class="form-head">
+      <div class="image">
+        <%= f.input :avatar, as: :file %>
+        <% if current_user.avatar.key.nil? %>
+          <%= image_tag "blankUser.png" %>
+        <% else %>
+          <%= cl_image_tag @user.avatar.key %>
+        <% end %>
+        <div class="gradient">
+          <%= render "icons/pen" %>
+        </div>
+      </div>
+      <%= f.input :email %>
+    </div>
 
-  <div class="my-submit">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="double">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+    </div>
+
+    <div class="double">
+      <%= f.input :address %>
+      <%= f.input :phone %>
+    </div>
+
+    <%= f.input :summary,as: :text %>
+
+    <%= f.button :submit, "Update", class: "btn-primary"%>
+  <% end %>
+</div>

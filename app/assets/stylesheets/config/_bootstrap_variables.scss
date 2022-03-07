@@ -79,6 +79,7 @@ a {
   top: 0;
   left: 0;
   background: $trans-black;
+  @include flex;
 }
 
 .mirror {
