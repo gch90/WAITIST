@@ -31,39 +31,39 @@
     <%= render 'formEditWaiter'%>
   <% else %>
     <h1><%= render "icons/profile" %>Restaurant</h1>
-    <div class="profile-head">
-      <div class="image">
-        <% if @user.photos.attached? %>
-          <%= cl_image_tag @user.photos[0].key %>
+    <div class="profile" data-edit-target="profile">
+      <div class="profile-head">
+        <div class="image">
+          <%= cl_image_tag current_user.photos[0].key %>
+          <div class="in-shadow"></div>
+        </div>
+        <div class="desc">
+          <h2><%= current_user.restaurant_name %></h2>
+          <div class="attr">
+            <div>
+              <p><%= render 'icons/location' %><%= current_user.address %></p>
+              <p><%= render 'icons/rate' %><%= current_user.phone %></p>
+              <p><%= render 'icons/rate' %><%= current_user.email %></p>
+              <p><%= render 'icons/rate' %><%= current_user.rate %>$/hour</p>
+            </div>
+            <div>
+              <p><%= render 'icons/info' %><%= current_user.restaurant_type %></p>
+              <p>
+                <%= render 'icons/rate' %>
+                <%= link_to "Placeholder.com", url_for(current_user.website), :target => "_blank" %>
+              </p>
+            </div>
+          </div>
+
+        </div>
+          <div class="btn btn-light" data-action="click->edit#open">Edit</div>
+      </div>
+      <div class="all-imgs" >
+        <%  current_user.photos.each do |photo| %>
+          <div class="small-img">
+            <%= cl_image_tag photo.key %>
+          </div>
         <% end %>
-        <div class="in-shadow"></div>
-      </div>
-      <div class="desc">
-        <h2><%= current_user.restaurant_name %></h2>
-        <div class="attr">
-          <div>
-            <p><%= render 'icons/location' %><%= current_user.address %></p>
-            <p><%= render 'icons/rate' %><%= current_user.phone %></p>
-            <p><%= render 'icons/rate' %><%= current_user.email %></p>
-            <p><%= render 'icons/rate' %><%= current_user.rate %>$/hour</p>
-          </div>
-          <div>
-            <p><%= render 'icons/info' %><%= current_user.restaurant_type %></p>
-            <p>
-              <%= render 'icons/rate' %>
-              <%= link_to "Placeholder.com", url_for(current_user.website), :target => "_blank" %>
-            </p>
-          </div>
-        </div>
-      </div>
-        <div class="btn btn-light">Edit</div>
-    </div>
-    <div class="all-imgs" >
-      <%  @user.photos.each do |photo| %>
-        <div class="small-img">
-          <%= cl_image_tag photo.key %>
-        </div>
-      <% end %>
       </div>
       <div class="summary">
         <h2>Summary</h2>
