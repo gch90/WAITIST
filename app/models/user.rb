@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :created_applications, class_name: "Application", foreign_key: :creator_id
   has_many :applications_including_restaurant, class_name: "Application", foreign_key: :restaurant_id
   has_many :applications_including_waiter, class_name: "Application", foreign_key: :waiter_id
+  has_many :restaurant_chatrooms, class_name: "Chatroom", foreign_key: :restaurant_id
+  has_many :waiter_chatrooms, class_name: "Chatroom", foreign_key: :waiter_id
 
   has_many_attached :photos
   has_one_attached :avatar
