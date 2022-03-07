@@ -9,7 +9,6 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.where(creator: current_user)
-    redirect_to apply_path
   end
 
   def create
@@ -18,7 +17,7 @@ class ApplicationsController < ApplicationController
     @application.waiter = current_user
     @application.creator = current_user
     if @application.save!
-      redirect_to user_path
+      redirect_to user_path(tab: 1)
     else
       render :create
     end
@@ -32,7 +31,7 @@ class ApplicationsController < ApplicationController
     @application.creator = current_user
 
     if @application.save!
-      redirect_to user_path
+      redirect_to user_path(tab: 1)
     else
       render :create_by_resto
     end
