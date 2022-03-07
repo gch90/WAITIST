@@ -12,11 +12,18 @@
 <%# card %>
 <div class="card">
   <div class="card-head">
-    <%= cl_image_tag resto.photos[0].key %>
-    <div class="rating">
-      <h3>5.4</h3>
-    </div>
+    <% if resto.photos.attached? %>
+      <%= cl_image_tag resto.photos[0].key %>
+      <div class="rating">
+        <h3>5.4</h3>
+      </div>
+    <% else %>
+      <div class="rating">
+        <h3>5.4</h3>
+      </div>
+    <% end %>
   </div>
+
   <div class="card-body">
     <%= link_to restaurant_path(resto), class: "name" do %>
       <h3><%= resto.restaurant_name %></h3>
