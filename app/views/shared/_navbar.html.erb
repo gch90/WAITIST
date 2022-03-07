@@ -21,16 +21,24 @@
             <% end %>
           <% elsif current_user.restaurant? %>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f5b6bcd6ba4d555a62c19b0de8b4c299b7e4fc3
             <% if current_user.photos[0].key.nil? %>
               <%= image_tag "blankUser.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= cl_image_tag current_user.photos[0].key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+<<<<<<< HEAD
 =======
             <% if current_user.avatar.key.nil? %>
               <%= image_tag "blankUser.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 >>>>>>> c66ceb649f9e48c6b696daad2e7a0ac7ce66616e
+=======
+
+>>>>>>> 4f5b6bcd6ba4d555a62c19b0de8b4c299b7e4fc3
             <% end %>
           <% end %>
 
