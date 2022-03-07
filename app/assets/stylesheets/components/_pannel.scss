@@ -1,8 +1,11 @@
 .pannel {
   background: $white;
   width: 256px;
+  min-width: 256px;
   height: 100vh;
   position: sticky;
+  top: 0;
+  left: 0;
   box-shadow: $shadow;
   border-right: 2px solid $secondary;
   .logo {

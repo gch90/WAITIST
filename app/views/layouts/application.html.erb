@@ -20,6 +20,8 @@
     <%= render 'shared/flashes' %>
 
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <% unless controller_name == "users" %>
+      <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>
