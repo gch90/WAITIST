@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     else
       @chatrooms = current_user.restaurant_chatrooms
     end
+    @waiters = User.where(user_role: "waiter")
   end
 
   def edit; end
