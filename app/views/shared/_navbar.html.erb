@@ -20,10 +20,17 @@
               <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
           <% elsif current_user.restaurant? %>
+<<<<<<< HEAD
             <% if current_user.photos[0].key.nil? %>
               <%= image_tag "blankUser.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= cl_image_tag current_user.photos[0].key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+=======
+            <% if current_user.avatar.key.nil? %>
+              <%= image_tag "blankUser.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+>>>>>>> c66ceb649f9e48c6b696daad2e7a0ac7ce66616e
             <% end %>
           <% end %>
 
@@ -31,7 +38,7 @@
             <%= link_to "Profile", user_path(tab: 0), class: "dropdown-item"%>
             <%= link_to "Applications", user_path(tab: 1),  class: "dropdown-item" %>
             <% if current_user.restaurant? %>
-              <%= link_to "Waiters", user_path(tab: 2),  class: "dropdown-item" %>
+              <%= link_to "Waiters", waiters_path(tab: 2),  class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
