@@ -4,6 +4,12 @@
   }
 }
 
+.icon-white {
+  * {
+    fill: $white;
+  }
+}
+
 .no-fill {
   fill: none !important;
 }

@@ -1,7 +1,8 @@
 .account {
   max-width: 66%;
+  width: 66%;
   padding: 32px;
-  padding-left: 10%;
+  padding-left: 5%;
   color: $secondary;
 
   h1 {
@@ -17,8 +18,10 @@
     .profile-head {
       @include lil-container(8px, 8px);
       @include flex(flex-start, space-between);
+      gap: 16px;
       .image {
         position: relative;
+        height: 256px;
         aspect-ratio: 1 / 1;
         object-fit: contain;
         box-shadow: $shadow;
@@ -36,7 +39,7 @@
       }
       .desc {
         flex-grow: 1;
-        padding: 16px 8px 0px 16px;
+        padding-top: 16px;
         @include flex(space-between, space-between);
         flex-direction: column;
         h2 {

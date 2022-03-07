@@ -23,6 +23,8 @@ $border-radius-sm: 2px;
 body {
   margin: 0;
   padding: 0;
+  position: relative;
+  min-height: 100vh;
 }
 //setting base font attributes
 h1 {
@@ -79,6 +81,7 @@ a {
   top: 0;
   left: 0;
   background: $trans-black;
+  @include flex;
 }
 
 .mirror {

@@ -20,15 +20,12 @@
               <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
           <% elsif current_user.restaurant? %>
-
             <% if current_user.photos[0].key.nil? %>
               <%= image_tag "blankUser.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
               <%= cl_image_tag current_user.photos[0].key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
             <% end %>
           <% end %>
-
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Profile", user_path(tab: 0), class: "dropdown-item"%>
             <%= link_to "Applications", user_path(tab: 1),  class: "dropdown-item" %>
