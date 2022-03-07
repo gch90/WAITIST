@@ -65,3 +65,70 @@
   border: 1px solid #ced4da;
   line-height: 1.5;
 }
+
+.edit {
+  @include lil-container(16px, 64px);
+  @include flex;
+}
+
+.is-valid {
+  border: 1.5px solid $primary;
+  border-color: $primary !important;
+  border-radius: 0;
+  background-image: url("icons/Check.svg") !important;
+  background-size: 24px 24px !important;
+}
+
+#user_summary {
+  border: 1.5px solid $primary;
+  border-color: $primary !important;
+  border-radius: 0;
+  height: 128px;
+  // @include flex(flex-start, flex-start);
+}
+
+.form-label {
+  color: $black;
+  margin-bottom: 4px;
+}
+
+.form-head {
+  @include flex(flex-start, flex-start);
+  gap: 16px;
+  margin-bottom: 16px;
+  .image {
+    width: 128px;
+    height: 128px;
+    position: relative;
+
+    .user_avatar > {
+      label {
+        display: none;
+      }
+      input {
+        position: relative;
+        width: 100%;
+        min-height: 128px;
+        z-index: 2;
+      }
+    }
+    .user_avatar {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+}
+
+.double {
+  @include flex;
+  gap: 16px;
+}

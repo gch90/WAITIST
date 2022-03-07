@@ -32,3 +32,20 @@
   box-shadow: $shadow;
   padding: $y $x;
 }
+
+@mixin button {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 37px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: $shadow;
+  transition: 50ms;
+  line-height: 20px;
+  &:hover {
+    transition: 100ms;
+  }
+  &:active {
+    box-shadow: $dark-shadow;
+  }
+}

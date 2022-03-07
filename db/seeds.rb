@@ -56,7 +56,8 @@ Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
 all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
 
-nums = (1..4).to_a
+amountOfImages = 4
+nums = (1..amountOfImages).to_a
 all_restos.each do |user|
   5.times do
     num = nums.sample
