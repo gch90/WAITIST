@@ -12,7 +12,7 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    @application = Application.new
+    @application = Application.new(application_params)
     @application.restaurant = @restaurant
     @application.waiter = current_user
     @application.creator = current_user
@@ -25,11 +25,10 @@ class ApplicationsController < ApplicationController
 
 
   def create_by_resto
-    @application = Application.new
+    @application = Application.new(application_params)
     @application.restaurant = current_user
     @application.waiter = @waiter
     @application.creator = current_user
-
     if @application.save!
       redirect_to user_path(tab: 1)
     else
@@ -38,6 +37,10 @@ class ApplicationsController < ApplicationController
   end
 
   private
+
+  def application_params
+    params.require(:application).permit(:start_date, :end_date)
+  end
 
   def set_restaurant
     @restaurant = User.restaurant.find(params[:id])

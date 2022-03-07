@@ -36,12 +36,12 @@ class UsersController < ApplicationController
 
   def approve
     @application.update(status: 1)
-    redirect_to @user
+    redirect_to user_path(tab: 1)
   end
 
   def reject
     @application.update(status: 2)
-    redirect_to @user
+    redirect_to user_path(tab: 1)
   end
 
   private
