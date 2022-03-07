@@ -1,63 +1,74 @@
-<div class="d-none">
+<div class="d-none profile">
   <% if current_user.waiter? %>
-    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <h1><%= render "icons/profile" %>Waiter</h1>
+    <div class="profile-head">
+      <div class="image">
+        <%= cl_image_tag @user.avatar.key %>
+        <div class="in-shadow"></div>
+      </div>
+      <div class="desc">
+        <h2><%= current_user.restaurant_name %></h2>
+        <div class="attr">
+          <div>
+            <p><%= render 'icons/location' %><%= current_user.address %></p>
+            <p><%= render 'icons/rate' %><%= current_user.phone %></p>
+            <p><%= render 'icons/rate' %><%= current_user.email %></p>
+          </div>
+        </div>
 
-      <% if current_user.avatar.attached?%>
-          <%= cl_image_tag avatar.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+      </div>
+        <div class="btn btn-light">Edit</div>
+    </div>
+    <div class="summary">
+      <h2>Summary</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio fugit aperiam neque sunt, dolores nisi earum temporibus aliquam reprehenderit odio delectus facilis repellat assumenda tempora? Voluptatum obcaecati inventore doloremque.</p>
+    </div>
+    <div class="summary">
+      <h2>Description</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis consequuntur et aperiam ea iste ut ipsum, ullam voluptatibus minima quaerat mollitia suscipit laudantium, asperiores sapiente facere aspernatur velit nam similique! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio fugit aperiam neque sunt, dolores nisi earum temporibus aliquam reprehenderit odio delectus facilis repellat assumenda tempora? Voluptatum obcaecati inventore doloremque.</p>
+    </div>>
   <% else %>
-    <h2><%= current_user.restaurant_name %></h2>
-      <% if current_user.photos.attached?%>
-        <% current_user.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-      <% end %>
-  <% end %>
+    <h1><%= render "icons/profile" %>Restaurant</h1>
+    <div class="profile-head">
+      <div class="image">
+        <%= cl_image_tag @user.photos[0].key %>
+        <div class="in-shadow"></div>
+      </div>
+      <div class="desc">
+        <h2><%= current_user.restaurant_name %></h2>
+        <div class="attr">
+          <div>
+            <p><%= render 'icons/location' %><%= current_user.address %></p>
+            <p><%= render 'icons/rate' %><%= current_user.phone %></p>
+            <p><%= render 'icons/rate' %><%= current_user.email %></p>
+            <p><%= render 'icons/rate' %><%= current_user.rate %>$/hour</p>
+          </div>
+          <div>
+            <p><%= render 'icons/info' %><%= current_user.restaurant_type %></p>
+            <p>
+              <%= render 'icons/rate' %>
+              <%= link_to "Placeholder.com", url_for(current_user.website), :target => "_blank" %>
+            </p>
+          </div>
+        </div>
 
-  <div class="d-flex flex-row">
-    <div class="m-3 p-3">
-        <p>Applications submitted</p>
-        <% current_user.created_applications.each do |application| %>
-          <ul>
-            <li>
-              <h3>
-                <%= application.id %> <%= application.restaurant.restaurant_name %> <%= application.status %>
-              </h3>
-            </li>
-          </ul>
-        <% end %>
+      </div>
+        <div class="btn btn-light">Edit</div>
     </div>
-    <div class="m-3 p-3">
-      <p>Applications received</p>
-      <% if current_user.waiter? %>
-        <% current_user.waiter_applications_received.each do |application| %>
-          <ul>
-            <li>
-              <h3>
-                <%= application.id %> <%= application.restaurant.restaurant_name %> <%= application.status %>
-              </h3>
-            </li>
-            <h3><%= application.start_date %></h3>
-            <h3><%= application.end_date %></h3>
-            <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-            <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
-          </ul>
-        <% end %>
-      <% else %>
-        <% current_user.restaurant_applications_received.each do |application| %>
-          <ul>
-            <li>
-              <h3>
-                <%= application.id %> <%= application.restaurant.restaurant_name %> <%= application.status %>
-              </h3>
-            </li>
-            <h3><%= application.start_date %></h3>
-            <h3><%= application.end_date %></h3>
-            <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-            <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
-          </ul>
-        <% end %>
+    <div class="all-imgs" >
+      <%  @user.photos.each do |photo| %>
+        <div class="small-img">
+          <%= cl_image_tag photo.key %>
+        </div>
       <% end %>
     </div>
-  </div>
+    <div class="summary">
+      <h2>Summary</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio fugit aperiam neque sunt, dolores nisi earum temporibus aliquam reprehenderit odio delectus facilis repellat assumenda tempora? Voluptatum obcaecati inventore doloremque.</p>
+    </div>
+    <div class="summary">
+      <h2>Description</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis consequuntur et aperiam ea iste ut ipsum, ullam voluptatibus minima quaerat mollitia suscipit laudantium, asperiores sapiente facere aspernatur velit nam similique! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio fugit aperiam neque sunt, dolores nisi earum temporibus aliquam reprehenderit odio delectus facilis repellat assumenda tempora? Voluptatum obcaecati inventore doloremque.</p>
+    </div>
+  <% end %>
 </div>
