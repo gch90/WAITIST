@@ -46,6 +46,7 @@ all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", r
 all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
 
 
+
 my_restos.each_with_index do |user, resto_num|
   5.times do |i|
     p i
