@@ -4,11 +4,22 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
 <div class="show-body">
   <%= link_to 'Back', restaurants_path, class: "btn btn-gray" %>
   <div class="info">
-    <div class="carousel">
-      <%= cl_image_tag @restaurant.photos[0].key %>
-      <div class="all-imgs">
+    <div class="carousel" data-controller="carousel">
+      <div class="main-image" data-carousel-target="main">
+        <%= cl_image_tag @restaurant.photos[0].key %>
+        <div class="arrows">
+          <div class="arrow" id="mirror" data-action="click->carousel#back"><%= render 'icons/arrow' %></div>
+          <div class="arrow" data-action="click->carousel#forward"><%= render 'icons/arrow' %></div>
+        </div>
+      </div>
+      <div class="all-imgs" data-carousel-target="images">
         <%  @restaurant.photos.each do |photo| %>
-          <%= cl_image_tag photo.key %>
+          <div class="small-img">
+            <%= cl_image_tag photo.key %>
+            <div class="gradient"></div>
+            <div class="bar d-none">
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
@@ -50,5 +61,13 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
   <div class="summary">
     <h3>Description</h3>
     <p><%= @restaurant.description %></p>
+  </div>
+</div>
+<div class="show-legs">
+  <h2>Similar Restaurants - <%= @restaurant.restaurant_type %></h2>
+  <div class="lil-cards">
+    <% @restaurants.each do |restaurant|%>
+      <%= render 'shared/card', resto: restaurant %>
+    <% end %>
   </div>
 </div>

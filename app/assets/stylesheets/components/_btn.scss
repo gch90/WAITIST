@@ -38,7 +38,7 @@
 
 .btn-gray {
   @include color-custom($dark-gray, $white, $dark-gray);
-  &:checked {
+  &:hover {
     @include color-custom($dark-gray, $white, $white);
   }
 }

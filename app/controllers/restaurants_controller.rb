@@ -28,6 +28,7 @@ class RestaurantsController < ApplicationController
   def show
     @application = Application.new
     @application.restaurant = @restaurant
+    @restaurants = User.restaurant.where(restaurant_type: @restaurant.restaurant_type).first(4)
   end
 
 
