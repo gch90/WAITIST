@@ -3,11 +3,16 @@
     <h1><%= render "icons/profile" %>Waiter</h1>
     <div class="profile-head">
       <div class="image">
-        <%= cl_image_tag @user.avatar.key %>
+        <% if current_user.avatar.key.nil? %>
+          <%= image_tag "blankUser.png" %>
+        <% else %>
+          <%= cl_image_tag @user.avatar.key %>
+        <% end %>
+
         <div class="in-shadow"></div>
       </div>
       <div class="desc">
-        <h2><%= current_user.restaurant_name %></h2>
+        <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
         <div class="attr">
           <div>
             <p><%= render 'icons/location' %><%= current_user.address %></p>
