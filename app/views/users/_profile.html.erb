@@ -20,7 +20,6 @@
               <p><%= render 'icons/rate' %><%= current_user.email %></p>
             </div>
           </div>
-
         </div>
         <div class="btn btn-light" data-action="click->edit#open">Edit</div>
       </div>
@@ -60,12 +59,11 @@
         <div class="btn btn-light">Edit</div>
     </div>
     <div class="all-imgs" >
-      <% if @user.photos.attached? %>
-        <%  @user.photos.each do |photo| %>
-          <div class="small-img">
-            <%= cl_image_tag photo.key %>
-          </div>
-        <% end %>
+      <%  @user.photos.each do |photo| %>
+        <div class="small-img">
+          <%= cl_image_tag photo.key %>
+        </div>
+      <% end %>
       </div>
       <div class="summary">
         <h2>Summary</h2>
@@ -77,6 +75,5 @@
       </div>
     </div>
     <%= render 'formEditResto'%>
-      <% end %>
   <% end %>
 </div>
