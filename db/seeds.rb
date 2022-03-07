@@ -7,10 +7,10 @@ Application.delete_all
 User.delete_all
 p "deleted"
 p "creating users"
-waiter_one = User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "gohier st, Montreal", description: "new waiter", phone: "555-514-1234")
-waiter_two = User.create!(user_role: 0, email: "s@s.s", password: "qwerty", first_name: "Sedrak", last_name: "Nadzharyan", address: "rue dale, Laval", description: "new waiter", phone: "555-514-1234")
-waiter_three = User.create!(user_role: 0, email: "m@m.m", password: "qwerty", first_name: "Martyn", last_name: "McGowan", address: "Oxford Avenue, Montreal", description: "new waiter", phone: "555-514-1234")
-waiter_four = User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "chemin Guelph, Montreal", description: "new waiter", phone: "555-514-1234")
+waiter_one = User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "gohier st, Montreal", description: "new waiter", phone: "555-514-1234", nickname: "George")
+waiter_two = User.create!(user_role: 0, email: "s@s.s", password: "qwerty", first_name: "Sedrak", last_name: "Nadzharyan", address: "rue dale, Laval", description: "new waiter", phone: "555-514-1234", nickname: "Sedrak")
+waiter_three = User.create!(user_role: 0, email: "m@m.m", password: "qwerty", first_name: "Martyn", last_name: "McGowan", address: "Oxford Avenue, Montreal", description: "new waiter", phone: "555-514-1234", nickname: "Martyn")
+waiter_four = User.create!(user_role: 0, email: "r@r.r", password: "qwerty", first_name: "Raphael", last_name: "Cohen", address: "chemin Guelph, Montreal", description: "new waiter", phone: "555-514-1234", nickname: "Raphael")
 # restaurants owners
 
 waiter_one.avatar.attach(io: File.open('app/assets/images/georges.jpg'), filename: 'georges.jpg', content_type: 'image/jpg')
@@ -27,33 +27,33 @@ p "creating restos"
 
 # creating more seeds for the restaurant owners
 all_restos = []
-all_restos << User.create!(user_role: 1, email: "1@1.r", password: "qwerty", restaurant_name: "Trattoria Bellamore", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "White-tablecloth Italian BYOB serving classic meat, seafood & pasta dishes in a quaint space.", rate: 15, description: "
+all_restos << User.create!(user_role: 1, email: "1@1.r", password: "qwerty", restaurant_name: "Trattoria Bellamore", nickname: "Trattoria", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "White-tablecloth Italian BYOB serving classic meat, seafood & pasta dishes in a quaint space.", rate: 15, description: "
 Lorem ipsum", phone: "555-514-1234", website: "https://trattoriabellamore.com/")
-all_restos << User.create!(user_role: 1, email: "2@2.r", password: "qwerty", restaurant_name: "Le Mitoyen", address: "652 Rue de la Place Publique, Laval", restaurant_type: "Canadian", summary: "Area-sourced Québec tasting menus starring game & decadent desserts in a genteel country house.", rate: 16, description: "
+all_restos << User.create!(user_role: 1, email: "2@2.r", password: "qwerty", restaurant_name: "Le Mitoyen", nickname: "Mitoyen", address: "652 Rue de la Place Publique, Laval", restaurant_type: "Canadian", summary: "Area-sourced Québec tasting menus starring game & decadent desserts in a genteel country house.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234" , website: "https://restaurantlemitoyen.com/" )
-all_restos << User.create!(user_role: 1, email: "3@3.r", password: "qwerty", restaurant_name: "Sterlings Steakhouse", address: "165 Prom. Du Centropolis, Laval", restaurant_type: "American", summary: "Aged USDA prime steaks, fresh fish & a private wine cellar are offered in a sophisticated setting.", rate: 16, description: "
+all_restos << User.create!(user_role: 1, email: "3@3.r", password: "qwerty", restaurant_name: "Sterlings Steakhouse", nickname: "Sterlings", address: "165 Prom. Du Centropolis, Laval", restaurant_type: "American", summary: "Aged USDA prime steaks, fresh fish & a private wine cellar are offered in a sophisticated setting.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234", website: "http://www.sterlingsrestaurant.com/")
-all_restos << User.create!(user_role: 1, email: "4@4.r", password: "qwerty", restaurant_name: "Le Vieux Four de Laval", address: "St-Vincent-de-Paul, 5070 Bd Lévesque E, Laval", restaurant_type: "Italian", summary: "Sprawling family eatery for wood-fired, thin-crust pizzas, plus pastas & Italian classics.", rate: 18, description: "
+all_restos << User.create!(user_role: 1, email: "4@4.r", password: "qwerty", restaurant_name: "Le Vieux Four de Laval", nickname: "VFL", address: "St-Vincent-de-Paul, 5070 Bd Lévesque E, Laval", restaurant_type: "Italian", summary: "Sprawling family eatery for wood-fired, thin-crust pizzas, plus pastas & Italian classics.", rate: 18, description: "
 Lorem ipsum", phone: "555-514-1234", website: "http://www.levieuxfour.net/")
-all_restos << User.create!(user_role: 1, email: "5@5.r", password: "qwerty", restaurant_name: "Restaurant Amato", address: "192 Bd Sainte-Rose, Laval", restaurant_type: "Italian", summary: "Set in an 1895 house, this refined white-tablecloth restaurant serves traditional Italian cuisine.", rate: 18, description: "
+all_restos << User.create!(user_role: 1, email: "5@5.r", password: "qwerty", restaurant_name: "Restaurant Amato", nickname: "Amato", address: "192 Bd Sainte-Rose, Laval", restaurant_type: "Italian", summary: "Set in an 1895 house, this refined white-tablecloth restaurant serves traditional Italian cuisine.", rate: 18, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "La Serenata Restaurant", address: "53 Brunswick Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Fixture offering Italian wines & traditional dishes with a serenading accordion player on weekends.", rate: 19, description: "
+all_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "La Serenata Restaurant", nickname: "Serenata", address: "53 Brunswick Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Fixture offering Italian wines & traditional dishes with a serenading accordion player on weekends.", rate: 19, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "7@7.r", password: "qwerty", restaurant_name: "Enoteca Monza Pizzeria Moderna", address: "3800 Boul Saint-Jean, Dollard-des-Ormeaux, Montreal", restaurant_type: "Italian", summary: "Polished Italian specialist for wood-fired panini & pizza, plus classic dishes & wines by the glass.", rate: 18, description: "
+all_restos << User.create!(user_role: 1, email: "7@7.r", password: "qwerty", restaurant_name: "Enoteca Monza Pizzeria Moderna", nickname: "EMPM", address: "3800 Boul Saint-Jean, Dollard-des-Ormeaux, Montreal", restaurant_type: "Italian", summary: "Polished Italian specialist for wood-fired panini & pizza, plus classic dishes & wines by the glass.", rate: 18, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "8@8.r", password: "qwerty", restaurant_name: "Del Friscos", address: "3237 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Hefty portions of familiar pastas & grilled meats (plus wood-oven pizzas) in an inviting room.", rate: 17, description: "
+all_restos << User.create!(user_role: 1, email: "8@8.r", password: "qwerty", restaurant_name: "Del Friscos", nickname: "Friscos", address: "3237 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Hefty portions of familiar pastas & grilled meats (plus wood-oven pizzas) in an inviting room.", rate: 17, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "9@9.r", password: "qwerty", restaurant_name: "Madisons Restaurant & Bar", address: "11590 Salaberry Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Canadian", summary: "cozy place. nice service. delicious food ...", rate: 15, description: "
+all_restos << User.create!(user_role: 1, email: "9@9.r", password: "qwerty", restaurant_name: "Madisons Restaurant & Bar", nickname: "Madisons", address: "11590 Salaberry Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Canadian", summary: "cozy place. nice service. delicious food ...", rate: 15, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "10@10.r", password: "qwerty", restaurant_name: "Pastamore", address: "M-3343 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Good portions, great atmosphere, great service at a great price", rate: 14, description: "
+all_restos << User.create!(user_role: 1, email: "10@10.r", password: "qwerty", restaurant_name: "Pastamore", nickname: "Pastamore", address: "M-3343 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Good portions, great atmosphere, great service at a great price", rate: 14, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "11@11.r", password: "qwerty", restaurant_name: "Renoir Restaurant", address: "1155 Serbrook, Montreal", restaurant_type: "French", summary: "Eclectic-New French recipes offered in a high-end hotel restaurant with a terrace.", rate: 15, description: "
+all_restos << User.create!(user_role: 1, email: "11@11.r", password: "qwerty", restaurant_name: "Renoir Restaurant", nickname: "Renoir", address: "1155 Serbrook, Montreal", restaurant_type: "French", summary: "Eclectic-New French recipes offered in a high-end hotel restaurant with a terrace.", rate: 15, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "12@12.r", password: "qwerty", restaurant_name: "Estiatorio Milos", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: "
+all_restos << User.create!(user_role: 1, email: "12@12.r", password: "qwerty", restaurant_name: "Estiatorio Milos", nickname: "Estiatorio", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", restaurant_name: "Baton Rouge", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: "
+all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", restaurant_name: "Baton Rouge", nickname: "BR", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
-all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: "
+all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", nickname: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: "
 Lorem ipsum", phone: "555-514-1234", website:"https://www.google.com/")
 
 nums = (1..4).to_a
@@ -84,3 +84,6 @@ Application.create!(waiter: waiter_three, restaurant: all_restos[2], start_date:
 Application.create!(waiter: waiter_four, restaurant: all_restos[3], start_date: Date.new(2022,3,8), end_date: Date.new(2022,3,15), rating: 4, creator: all_restos[3])
 Application.create!(waiter: waiter_four, restaurant: all_restos[3], start_date: Date.new(2022,3,17), end_date: Date.new(2022,3,23), rating: 4, creator: all_restos[3])
 p "applications created"
+
+p "creating test chatroom"
+Chatroom.create!(name: 'test')

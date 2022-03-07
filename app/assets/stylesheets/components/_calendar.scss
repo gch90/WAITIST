@@ -1,0 +1,16 @@
+.flatpickr-calendar {
+  border-radius: $border-radius;
+  @include color-custom($dark-gray, $white, $light-gray);
+  box-shadow: $shadow;
+  .flatpickr-days {
+    @include color-custom($dark-gray, $white, $light-gray);
+  }
+  .flatpickr-current-month {
+    color: $primary;
+    font-weight: 400;
+  }
+}
+
+.today {
+  border-bottom: 1px solid $primary !important;
+}
