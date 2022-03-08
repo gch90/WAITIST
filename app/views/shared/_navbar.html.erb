@@ -30,7 +30,7 @@
             <%= link_to "Profile", user_path(tab: 0), class: "dropdown-item"%>
             <%= link_to "Applications", user_path(tab: 1),  class: "dropdown-item" %>
             <% if current_user.restaurant? %>
-              <%= link_to "Waiters", user_path(tab: 2),  class: "dropdown-item" %>
+              <%= link_to "Waiters", user_path(tab: 3),  class: "dropdown-item" %>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

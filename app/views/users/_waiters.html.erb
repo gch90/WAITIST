@@ -1,5 +1,6 @@
-<div class="d-none waiters">
+<div class="d-none waiters"  >
   <h1><%= render "icons/profile" %>Waiters</h1>
+  <%= render "shared/searchform" %>
   <% @waiters.each do |waiter|%>
     <%= render "shared/waiterCard", wait: waiter %>
   <% end %>

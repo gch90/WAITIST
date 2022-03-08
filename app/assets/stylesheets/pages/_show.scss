@@ -123,22 +123,6 @@
     width: 100%;
     @include flex(space-between, center);
     box-shadow: $shadow;
-    .arrow {
-      @include flex;
-      width: 36px;
-      aspect-ratio: 1 / 1;
-      @include color-custom($secondary, $trans-white, $primary);
-      border-radius: 50%;
-      margin: 16px;
-      cursor: pointer;
-      &:hover {
-        background: white;
-      }
-      &:active {
-        box-shadow: $dark-shadow;
-        transform: translateY(2px);
-      }
-    }
     #mirror {
       transform: rotate(180deg);
       &:active {

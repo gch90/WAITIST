@@ -88,30 +88,67 @@
 }
 
 .waiter-card {
-  @include flex(space-between, flex-start);
-  background: $white;
-  box-shadow: $shadow;
+  display: grid;
   width: 100%;
-  gap: 16px;
-  border-radius: $border-radius;
-  .card-head {
-    height: 160px;
-    position: relative;
-    img {
-      border-radius: $border-radius 0 0 $border-radius;
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
-      height: 100%;
+  gap: 4px;
+  .top {
+    @include flex(space-between, flex-start);
+    gap: 16px;
+    background: $white;
+    box-shadow: $shadow;
+    border-radius: $border-radius;
+
+    .card-head {
+      height: 160px;
+      position: relative;
+      img {
+        border-radius: $border-radius 0 0 $border-radius;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+        height: 100%;
+      }
+      .rating {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+      }
     }
-    .rating {
-      position: absolute;
-      top: 8px;
-      left: 8px;
+    .card-body {
+      height: 100%;
+      @include flex(space-between, space-between);
+      flex-direction: column;
+      .mid {
+        flex-grow: 1;
+        padding: 8px;
+        padding-right: 12px;
+        @include flex(space-between, space-between);
+
+        .btn,
+        .bottom {
+          align-self: flex-end;
+          @include flex(center, center);
+          h3 {
+            color: $primary;
+          }
+        }
+      }
+      .attr {
+        @include flex(flex-start, flex-end);
+        flex-wrap: wrap;
+        gap: 8px;
+        align-self: flex-start;
+        .icon {
+          padding-right: 4px;
+        }
+      }
     }
   }
-
-  .card-tail {
-    width: 320px;
-    padding: 8px;
+  .rotate {
+    transform: rotate(90deg) !important;
+  }
+  .arrow {
+    transition: 200ms;
+    transform: none;
+    margin-left: 4px;
   }
 }
