@@ -27,7 +27,8 @@ waiter_three.save!
 waiter_four.avatar.attach(io: File.open('app/assets/images/waiters/raphael.jpg'), filename: 'raphael.jpg', content_type: 'image/jpg')
 waiter_four.save!
 
-
+waiter_one.cv.attach(io: File.open('app/assets/images/CVGeorge1.jpg'), filename: 'CVGeorge1.jpg', content_type: 'image/jpg')
+waiter_one.save!
 p "creating restos"
 
 # creating more seeds for the restaurant owners
