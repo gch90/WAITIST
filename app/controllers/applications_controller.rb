@@ -16,8 +16,13 @@ class ApplicationsController < ApplicationController
     @application.restaurant = @restaurant
     @application.waiter = current_user
     @application.creator = current_user
-    if @application.save!
-      redirect_to user_path(tab: 1)
+
+    @chatroom = Chatroom.new
+    @chatroom.restaurant = @restaurant
+    @chatroom.waiter = current_user
+    @chatroom.name = "hello"
+    if @application.save! && @chatroom.save!
+      redirect_to user_path(tab: 2)
     else
       render :create
     end
@@ -40,6 +45,10 @@ class ApplicationsController < ApplicationController
 
   def application_params
     params.require(:application).permit(:start_date, :end_date)
+  end
+
+  def chatroom_params
+    params.require(:chatroom).permit(:name)
   end
 
   def set_restaurant
