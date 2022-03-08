@@ -2,22 +2,33 @@
 <%# created_applications, applications_including_restaurant, applications_including_waiter
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
 
-<h1 class="text-center">Wait here</h1>
+
 <%# <p>Find me in app/views/restaurants/index.html.erb</p> %>
 
 <%#= link_to 'HOME', root_path, class:"btn btn-primary" %>
-<div class="index">
-  <%= @results %>
-
-  <ul class="container">
-    <% @restaurants.each do |restaurant|%>
-      <%= render 'shared/card', resto: restaurant %>
+<div class="index" data-controller="map-toggle">
+  <h1 class="text-center">Wait here</h1>
+  <div class="btns">
+    <%= render "shared/capsule" %>
+    <% unless @result.nil? %>
+      <a>Search: <%= @result %></a>
     <% end %>
-  </ul>
 
-  <div style="width: 100%; height: 600px;"
+  </div>
+  <div class="container">
+
+    <div class="cards-v" data-map-toggle-target="cards">
+      <% @restaurants.each do |restaurant|%>
+        <%= render 'shared/card', resto: restaurant %>
+      <% end %>
+    </div>
+    <div class="map"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-toggle-target="map">
   </div>
+  </div>
+
+
 </div>

@@ -11,5 +11,6 @@ export default class extends Controller {
       e.target.parentNode.classList.toggle("rotate");
     }
     this.summaryTarget.classList.toggle("d-none");
+    this.summaryTarget.classList.toggle("fade-in");
   }
 }
