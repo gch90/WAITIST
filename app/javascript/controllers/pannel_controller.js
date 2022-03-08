@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["pages", "tabs"];
   static values = { chosen: Number };
   connect() {
-    console.log(this.chosenValue);
     this.initialTab(this.chosenValue);
   }
 
@@ -16,6 +15,7 @@ export default class extends Controller {
   initialTab(num) {
     const tabSelected = this.tabsTarget.children[num];
     const pageSelected = this.pagesTarget.children[num];
+    console.log(this.pagesTarget.children);
     tabSelected.classList.add("active");
     pageSelected.classList.remove("d-none");
   }

@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     @tab = params[:tab]
     if current_user.waiter?
       @chatrooms = current_user.waiter_chatrooms
-      @message = Message.new
     else
       @chatrooms = current_user.restaurant_chatrooms
     end
+    @message = Message.new
     @waiters = User.where(user_role: "waiter")
+
   end
 
   def edit; end
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :address, :phone, :summary, :restaurant_name, :website, :rate, :nickname, :avatar, photos: [])
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :address, :phone, :summary, :restaurant_name, :website, :rate, :nickname, :avatar, :cv, photos: [])
   end
 
   def application_params

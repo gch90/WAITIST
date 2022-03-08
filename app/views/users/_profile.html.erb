@@ -18,6 +18,10 @@
               <p><%= render 'icons/location' %><%= current_user.address %></p>
               <p><%= render 'icons/rate' %><%= current_user.phone %></p>
               <p><%= render 'icons/rate' %><%= current_user.email %></p>
+              <% if current_user.cv.attached? %>
+                <p><%= render 'icons/rate' %><%= link_to 'CV', current_user.cv %></p>
+              <% end %>
+
             </div>
           </div>
         </div>
