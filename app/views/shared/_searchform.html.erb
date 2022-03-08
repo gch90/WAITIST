@@ -1,8 +1,8 @@
-<%= form_tag (current_user.nil? || current_user.waiter?) ? restaurants_path : user_path(tab: 3), class: "search", method: :get do%>
+<%= form_tag (current_user.nil? || current_user.waiter?) ? restaurants_path : user_path(tab: 3), class: "search", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "input",
-    placeholder: "What are you looking for?"
+    placeholder: "Search..."
   %>
   <%= submit_tag "", class: "btn-search" %>
 <% end %>

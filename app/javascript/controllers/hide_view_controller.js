@@ -3,7 +3,7 @@ import { renderChunkModules } from "webpack/lib/Template"
 
 export default class extends Controller {
 
-  static targets = ["waiter", "resto"]
+  static targets = ["waiter", "resto", "role"]
 
   connect() {
     console.log("connected")
@@ -18,6 +18,7 @@ export default class extends Controller {
     this.waiterTarget.classList.add("d-block")
     this.restoTarget.classList.add("d-none")
     this.restoTarget.classList.remove("d-block")
+    this.roleTarget.value = "waiter"
   };
 
   restoSignup() {
@@ -25,5 +26,6 @@ export default class extends Controller {
     this.restoTarget.classList.add("d-block")
     this.waiterTarget.classList.add("d-none")
     this.waiterTarget.classList.remove("d-block")
+    this.roleTarget.value = "restaurant"
   };
 };

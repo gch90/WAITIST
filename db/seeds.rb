@@ -5,6 +5,8 @@
 p "start seed"
 Application.delete_all
 p "deleted applications"
+Message.delete_all
+p "messages deleted"
 Chatroom.delete_all
 p "deleted chatrooms"
 User.delete_all
@@ -86,7 +88,7 @@ end
 
 # application seeds
 p "creating applications"
-Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_date: Date.new(2022,3,3), end_date: Date.new(2022,3,7), rating: 4, creator: waiter_one)
+Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_date: Date.new(2022,3,3), end_date: Date.new(2022,3,7), rating: 4, creator: waiter_one, status: 1)
 Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_date: Date.new(2022,3,12), end_date: Date.new(2022,3,16), rating: 4, creator: waiter_one)
 Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_date: Date.new(2022,3,8), end_date: Date.new(2022,3,15), rating: 3, creator: my_restos[0])
 Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_date: Date.new(2022,3,16), end_date: Date.new(2022,3,22), rating: 3, creator: my_restos[0])

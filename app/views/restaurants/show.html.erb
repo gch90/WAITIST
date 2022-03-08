@@ -44,11 +44,9 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
               <div class="dates-pick">
                 <div class="date-pick">
                   <%= f.input :start_date, placeholder: "Start Date", as: :string, required: false, input_html: {class: "datepicker"},data: { confirm: "Are you sure you want to apply"}  %>
-                  <div class="btn-search"></div>
                 </div>
                 <div class="date-pick">
                   <%= f.input :end_date, placeholder: "End Date", as: :string, required: false, input_html: {class: "datepicker"},data: { confirm: "Are you sure you want to apply"}  %>
-                  <div class="btn-search"></div>
                 </div>
               </div>
             <%= f.submit 'Apply', class: "btn btn-primary" %>
