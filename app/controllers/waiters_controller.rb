@@ -16,7 +16,7 @@ class WaitersController < ApplicationController
         lat: waiter.latitude,
         lng: waiter.longitude,
         info_window: render_to_string(partial: "info_window", locals: { waiter: waiter }),
-        image_url: helpers.asset_url("/home/marmcg/code/gch90/WAITIST/app/assets/images/icons/Waitist-logo.svg")
+        image_url: helpers.asset_url("icons/Waitist-logo")
       }
     end
     # <---

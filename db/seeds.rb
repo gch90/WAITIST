@@ -4,6 +4,7 @@
 # users
 p "start seed"
 Application.delete_all
+Chatroom.delete_all
 User.delete_all
 p "deleted"
 p "creating users"
