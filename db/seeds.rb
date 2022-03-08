@@ -5,6 +5,8 @@
 p "start seed"
 Application.delete_all
 p "deleted applications"
+Message.delete_all
+p "messages deleted"
 Chatroom.delete_all
 p "deleted chatrooms"
 User.delete_all
