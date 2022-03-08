@@ -22,10 +22,8 @@
       </div>
     </div>
   <% end %>
-</div>
   <h3>Restaurants interested in you</h3>
   <% current_user.waiter_applications_received.each do |application| %>
-  <div class="application">
     <div class="long-card">
       <div class="card-head">
         <% if application.restaurant.photos.attached? %>

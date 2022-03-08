@@ -3,11 +3,6 @@
 <div class="d-none">
   <% if current_user.waiter? %>
     <%= render 'waiter_application'%>
-  </div>
-
-
-
-
   <% else %>
     <%= render 'resto_application' %>
   <% end %>
