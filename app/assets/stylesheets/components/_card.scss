@@ -4,8 +4,8 @@
   box-shadow: $shadow;
   border: none;
   border-radius: $border-radius;
-  width: 280px;
-  min-width: 200px;
+  width: 320px;
+  min-width: 240px;
   gap: 8px;
   .card-head {
     height: 240px;
@@ -48,6 +48,7 @@
     @include flex(flex-start, flex-start);
     flex-direction: column;
     gap: 2px;
+    color: $black;
     .short-summary {
       color: $dark-gray;
       background: $light-gray;
@@ -88,10 +89,13 @@
 }
 
 .waiter-card {
+  position: relative;
+
   display: grid;
   width: 100%;
   gap: 4px;
   .top {
+    z-index: 1;
     @include flex(space-between, flex-start);
     gap: 16px;
     background: $white;
@@ -150,5 +154,9 @@
     transition: 200ms;
     transform: none;
     margin-left: 4px;
+  }
+  .summary {
+    position: relative;
+    z-index: 0;
   }
 }
