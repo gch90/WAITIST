@@ -1,12 +1,19 @@
-<div data-controller="chatbox-view">
-  <ul>
+<div class="d-none">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis saepe aut voluptas odit adipisci reprehenderit consequatur expedita, culpa maiores, dicta perferendis quis velit, incidunt sed ducimus et. At, qui ullam.</p>
     <% chatrooms.each do |chatroom| %>
-      <div data-action="click->chatbox-view#showChat">
-        <li><%= chatroom.name %></li>
+      <div data-controller="chatbox-view">
+        <div  data-action="click->chatbox-view#showChat">
+          Hello
+          <% if current_user.waiter? %>
+            <%= chatroom.restaurant.restaurant_name %>
+          <% else %>
+            <%= chatroom.waiter.nickname %>
+          <% end %>
+
+        </div>
+        <div data-chatbox-view-target="chatbox" class="d-none">
+          <%= render 'shared/chatbox', chatroom: chatroom %>
+        </div>
       </div>
-    <div data-chatbox-view-target="chatbox" class="d-none">
-      <%= render 'shared/chatbox', chatroom: chatroom %>
-    </div>
     <% end %>
-  </ul>
 </div>

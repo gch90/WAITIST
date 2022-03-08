@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     @tab = params[:tab]
     if current_user.waiter?
       @chatrooms = current_user.waiter_chatrooms
-      @message = Message.new
     else
       @chatrooms = current_user.restaurant_chatrooms
     end
+    @message = Message.new
     @waiters = User.where(user_role: "waiter")
+
   end
 
   def edit; end

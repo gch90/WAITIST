@@ -1,5 +1,12 @@
 <div class="container chatroom">
-    <h1>#<%= chatroom.name %></h1>
+    <h3>
+
+      <% if current_user.waiter? %>
+        <%= chatroom.restaurant.restaurant_name %>
+      <% else %>
+        <%= chatroom.waiter.nickname %>
+      <% end %>
+    </h3>
 
     <div class="messages" data-controller="chatroom-subscription"
                           data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>">
