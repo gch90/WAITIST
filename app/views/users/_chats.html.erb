@@ -1,8 +1,12 @@
-<ul>
-  <% chatrooms.each do |chatroom|%>
-    <li>
-      <%= link_to chatroom.name, chatroom_path(chatroom) %>
-
-    </li>
-  <% end %>
-</ul>
+<div data-controller="chatbox-view">
+  <ul>
+    <% chatrooms.each do |chatroom| %>
+      <div data-action="click->chatbox-view#showChat">
+        <li><%= chatroom.name %></li>
+      </div>
+    <div data-chatbox-view-target="chatbox" class="d-none">
+      <%= render 'shared/chatbox', chatroom: chatroom %>
+    </div>
+    <% end %>
+  </ul>
+</div>

@@ -4,9 +4,11 @@
 # users
 p "start seed"
 Application.delete_all
+p "deleted applications"
 Chatroom.delete_all
+p "deleted chatrooms"
 User.delete_all
-p "deleted"
+p "deleted users"
 p "creating users"
 
 waiter_one = User.create!(user_role: 0, email: "g@g.g", password: "qwerty", first_name: "Georges", last_name: "Chami", address: "gohier st, Montreal", description: "Dedicated waiter with six years of exemplary service in the food service industry. Committed to providing helpful, fast, and accurate service to patrons. Demonstrate active listening and communication skills to ensure patrons are satisfied and happy. Experience in various settings, including family restaurants, bars, cafeterias, banquets, and room service. Comfortable serving patrons of various age ranges and backgrounds. Determined team player striving to deliver the highest quality service alongside food service staff.", phone: "555-514-1234", nickname: "George")

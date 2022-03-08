@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @tab = params[:tab]
     if current_user.waiter?
       @chatrooms = current_user.waiter_chatrooms
+      @message = Message.new
     else
       @chatrooms = current_user.restaurant_chatrooms
     end
