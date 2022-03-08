@@ -4,63 +4,6 @@
   <% if current_user.waiter? %>
     <%= render 'waiter_application'%>
   <% else %>
-    <%# <%= render 'resto_application' %> %>
-<div class="application">
-
-  <h3>Waiters you are interested in</h3>
-
-  <% current_user.created_applications.each do |application| %>
-
-
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.waiter.avatar.attached? %>
-          <%= cl_image_tag application.waiter.avatar.key %>
-        <% end %>
-      </div>
-
-      <div class="card-body">
-        <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
-        <%= application.start_date %>
-        <%= application.end_date %>
-      </div>
-
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-      </div>
-    </div>
-  <% end %>
-
-
-  <h3>Waiters interested in you</h3>
-
-  <% current_user.restaurant_applications_received.each do |application| %>
-
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.waiter.avatar.attached? %>
-          <%= cl_image_tag application.waiter.avatar.key%>
-        <% end %>
-      <div>
-
-      <div class="card-body">
-        <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
-        <%= application.start_date %>
-        <%= application.end_date %>
-      </div>
-
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-        <h3><%= application.start_date %></h3>
-        <h3><%= application.end_date %></h3>
-        <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-        <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
-
-</div>
+    <%= render 'resto_application' %>
   <% end %>
 </div>
