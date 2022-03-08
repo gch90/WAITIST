@@ -1,11 +1,11 @@
 .application {
-  overflow: hidden;
+  // overflow: hidden;
   background: $white;
   box-shadow: $shadow;
   border: none;
   border-radius: $border-radius;
   width: 100%;
-  min-width: 240px;
+  // min-width: 240px;
   gap: 8px;
 
   .long-card{

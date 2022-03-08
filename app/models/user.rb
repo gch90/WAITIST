@@ -45,5 +45,4 @@ class User < ApplicationRecord
   def restaurant_applications_received
     applications_including_restaurant - created_applications
   end
-
 end

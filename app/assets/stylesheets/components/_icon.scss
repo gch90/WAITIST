@@ -10,6 +10,12 @@
   }
 }
 
+.stroke > {
+  * {
+    stroke: $primary;
+  }
+}
+
 .no-fill {
   fill: none !important;
 }

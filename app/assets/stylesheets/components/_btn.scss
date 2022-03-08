@@ -65,3 +65,20 @@
   border-radius: 37px;
   font-size: 16px;
 }
+
+.arrow {
+  @include flex;
+  width: 40px;
+  aspect-ratio: 1 / 1;
+  @include color-custom($secondary, $trans-white, $secondary);
+  border-radius: 50%;
+  margin: 0 16px;
+  cursor: pointer;
+  &:hover {
+    background: white;
+  }
+  &:active {
+    box-shadow: $dark-shadow;
+    transform: translateY(2px);
+  }
+}
