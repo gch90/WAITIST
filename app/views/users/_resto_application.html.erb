@@ -21,10 +21,18 @@
       <div class="card-tail">
         <h4>Status:</h4>
         <%= application.status %>
+        <% if Date.today > application.end_date && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+            <%= simple_form_for(application) do |f| %>
+              <%= f.input :restaurant_comment, label: "Comment on your experience"  %>
+              <%= f.input :restaurant_rating, label: "Rate your experience"  %>
+              <%= f.submit %>
+            <% end %>
+        <% elsif (Date.today > application.end_date && application.approved?) %>
+          <h4>Review completed</h4>
+        <% end %>
       </div>
     </div>
   <% end %>
-
 
   <h3>Waiters interested in you</h3>
 
@@ -46,10 +54,19 @@
       <div class="card-tail">
         <h4>Status:</h4>
         <%= application.status %>
-        <h3><%= application.start_date %></h3>
-        <h3><%= application.end_date %></h3>
-        <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-        <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+        <% if application.status == 'pending' %>
+          <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
+          <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+        <% end %>
+        <% if Date.today > application.end_date && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+            <%= simple_form_for(application) do |f| %>
+              <%= f.input :restaurant_comment, label: "Comment on your experience"  %>
+              <%= f.input :restaurant_rating, label: "Rate your experience"  %>
+              <%= f.submit %>
+            <% end %>
+        <% elsif (Date.today > application.end_date && application.approved?) %>
+          <h4>Review completed</h4>
+        <% end %>
       </div>
     </div>
   <% end %>

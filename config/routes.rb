@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/waiters/:id', to: 'waiters#show', as: :waiter
 
   get '/applications', to: 'applications#index', as: :applications
+  patch '/application/:id', to: 'applications#update', as: :application
+
 
   get '/profile', to: 'users#show', as: :user
 

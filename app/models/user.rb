@@ -40,10 +40,18 @@ class User < ApplicationRecord
     }
 
   def waiter_applications_received
-    applications_including_waiter - created_applications
+    applications_including_waiter.order(start_date: :desc) - created_applications
   end
 
   def restaurant_applications_received
-    applications_including_restaurant - created_applications
+    applications_including_restaurant.order(start_date: :desc) - created_applications
+  end
+
+  def waiter_reviews
+    applications_including_waiter
+      .where(status: 1)
+      .where.not(restaurant_comment: nil)
+      .where.not(restaurant_rating: nil)
+      .where("end_date < ?", Date.today)
   end
 end
