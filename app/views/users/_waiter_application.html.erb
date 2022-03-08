@@ -29,7 +29,7 @@
         <% if application.restaurant.photos.attached? %>
           <%= cl_image_tag application.restaurant.photos[0].key%>
         <% end %>
-      <div>
+      </div>
 
       <div class="card-body">
         <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
