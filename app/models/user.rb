@@ -54,4 +54,42 @@ class User < ApplicationRecord
       .where.not(restaurant_rating: nil)
       .where("end_date < ?", Date.today)
   end
+
+  def restaurant_reviews
+    applications_including_restaurant
+      .where(status: 1)
+      .where.not(waiter_comment: nil)
+      .where.not(waiter_rating: nil)
+      .where("end_date < ?", Date.today)
+  end
+
+  def restaurant_avg
+    avg = []
+    restaurant_reviews.each do |review|
+      if review.waiter_rating.nil?
+      else
+        avg << review.waiter_rating
+      end
+    end
+    if avg.count == 0
+      return "N/A"
+    else
+      return avg.sum / avg.count
+    end
+  end
+
+  def waiter_avg
+    avg = []
+    waiter_reviews.each do |review|
+      if review.restaurant_rating.nil?
+      else
+        avg << review.restaurant_rating
+      end
+    end
+    if avg.count == 0
+      return "N/A"
+    else
+      return avg.sum / avg.count
+    end
+  end
 end
