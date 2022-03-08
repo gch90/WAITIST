@@ -91,3 +91,16 @@ a {
 .mirror {
   transform: rotate(180deg);
 }
+
+.column {
+  @include flex(center, flex-end);
+  flex-direction: column;
+}
+
+.h-line {
+  align-self: center;
+  min-height: 100%;
+  height: 100%;
+  width: 2px;
+  background: $dark-gray;
+}
