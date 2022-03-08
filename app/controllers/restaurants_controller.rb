@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
     # pg_search MM --->
     if params[:query].present?
       @restaurants = User.search_in_restaurants(params[:query])
+      @result = params[:query]
     else
       @restaurants = User.restaurant
     end
@@ -20,7 +21,7 @@ class RestaurantsController < ApplicationController
         lng: resto.longitude,
         info_window: render_to_string(partial: "info_window", locals: { resto: resto }),
 
-        image_url: helpers.asset_url("icons/Waitist-logo.svg")
+        image_url: helpers.asset_url("marker.png")
 
       }
     end

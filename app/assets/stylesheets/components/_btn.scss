@@ -38,32 +38,27 @@
 }
 
 .capsule {
-  display: flex;
-  border: 2px solid $dark-gray;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 37px;
-  font-size: 16px;
+  position: relative;
+  @include flex;
+  @include color-custom($white, $dark-gray, $dark-gray);
+  @include button;
+  padding: 2px;
+  a {
+    padding: 0 4px;
+  }
+  .btn-capsule {
+    @include color-custom($white, $white);
+    @include button;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    box-shadow: none;
+  }
 }
 
-.capsule-empty {
-  color: $white;
-  background: $dark-gray;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 37px;
-  font-size: 16px;
-}
-
-.button-capsule {
-  color: $white;
-  background: $dark-gray;
-  font-weight: 600;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 37px;
-  font-size: 16px;
+.toggle {
+  flex-direction: row-reverse;
+  @include color-custom($white, $primary, $primary);
 }
 
 .arrow {
