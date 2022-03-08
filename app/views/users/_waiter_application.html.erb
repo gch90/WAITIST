@@ -1,27 +1,29 @@
 <div class="application ">
 
-  <h3>Restaurants you are interested in</h3>
-  <% current_user.created_applications.each do |application| %>
+  <h3>Restaurants you are interested inn</h3>
+  <div class="long-cards">
+    <% current_user.created_applications.each do |application| %>
+      <div class="long-card">
+        <div class="card-head">
+          <% if application.restaurant.photos.attached? %>
+            <%= cl_image_tag application.restaurant.photos[0].key%>
+          <% end %>
+        </div>
 
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.restaurant.photos.attached? %>
-          <%= cl_image_tag application.restaurant.photos[0].key%>
-        <% end %>
-      </div>
+        <div class="card-body">
+          <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+          <%= application.start_date %>
+          <%= application.end_date %>
+        </div>
 
-      <div class="card-body">
-        <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
-        <%= application.start_date %>
-        <%= application.end_date %>
+        <div class="card-tail">
+          <h4>Status:</h4>
+          <%= application.status %>
+        </div>
       </div>
+    <% end %>
+  </div>
 
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-      </div>
-    </div>
-  <% end %>
   <h3>Restaurants interested in you</h3>
   <% current_user.waiter_applications_received.each do |application| %>
     <div class="long-card">

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @message = Message.new
     @waiters = User.where(user_role: "waiter")
 
+    @application = Application.new
   end
 
   def edit; end

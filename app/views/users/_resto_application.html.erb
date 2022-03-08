@@ -1,57 +1,79 @@
 <div class="application">
 
-  <h3>Waiters you are interested in</h3>
 
-  <% current_user.created_applications.each do |application| %>
+  <div class="cards">
+    <h3>Waiters you are interested ine</h3>
+    <% current_user.created_applications.each do |application| %>
+      <div class="waiter-card">
+        <div class="top">
+          <div class="card-head">
+            <% if application.waiter.avatar.attached? %>
+              <%= cl_image_tag application.waiter.avatar.key %>
+            <% else %>
 
+            <% end %>
+          </div>
 
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.waiter.avatar.attached? %>
-          <%= cl_image_tag application.waiter.avatar.key %>
-        <% end %>
+          <div class="card-body">
+            <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
+            <div class="mid">
+              <div class="attr">
+                <div class="column">
+                  <a><span>Start-date:</span> <%= application.start_date %></a>
+                  <a><span>End-date:</span> <%= application.end_date %></a>
+                </div>
+              </div>
+              <div class="bottom">
+                <h3><%= application.status.capitalize %></h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    <% end %>
+  </div>
 
-      <div class="card-body">
-        <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
-        <%= application.start_date %>
-        <%= application.end_date %>
+
+  <div class="h-line"></div>
+  <div class="cards">
+    <h3>Waiters interested in you</h3>
+    <% current_user.restaurant_applications_received.each do |application| %>
+
+      <div class="waiter-card">
+        <div class="top">
+          <div class="card-head">
+            <% if application.waiter.avatar.attached? %>
+              <%= cl_image_tag application.waiter.avatar.key %>
+              <div class="rating">
+                <h3>5.4</h3>
+              </div>
+            <% else %>
+            <% end %>
+          </div>
+
+          <div class="card-body">
+            <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
+            <div class="mid">
+              <div class="attr">
+                <div class="column">
+                  <a><span>Start-date:</span> <%= application.start_date %></a>
+                  <a><span>End-date:</span> <%= application.end_date %></a>
+                </div>
+              </div>
+              <div class="card-tail">
+                <h3><%= application.status.capitalize %></h3>
+                <div class="bottom">
+
+                  <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
+                  <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-dark" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-      </div>
-    </div>
-  <% end %>
-
-
-  <h3>Waiters interested in you</h3>
-
-  <% current_user.restaurant_applications_received.each do |application| %>
-
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.waiter.avatar.attached? %>
-          <%= cl_image_tag application.waiter.avatar.key%>
-        <% end %>
-      </div>
-
-      <div class="card-body">
-        <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
-        <%= application.start_date %>
-        <%= application.end_date %>
-      </div>
-
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-        <h3><%= application.start_date %></h3>
-        <h3><%= application.end_date %></h3>
-        <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-        <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
 </div>

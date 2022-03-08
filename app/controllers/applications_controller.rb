@@ -20,7 +20,6 @@ class ApplicationsController < ApplicationController
     @chatroom = Chatroom.new
     @chatroom.restaurant = @restaurant
     @chatroom.waiter = current_user
-    @chatroom.name = "hello"
     if @application.save! && @chatroom.save!
       redirect_to user_path(tab: 2)
     else
@@ -34,7 +33,12 @@ class ApplicationsController < ApplicationController
     @application.restaurant = current_user
     @application.waiter = @waiter
     @application.creator = current_user
-    if @application.save!
+
+    @chatroom = Chatroom.new
+    @chatroom.restaurant = current_user
+    @chatroom.waiter = @waiter
+
+    if @application.save! && @chatroom.save!
       redirect_to user_path(tab: 1)
     else
       render :create_by_resto

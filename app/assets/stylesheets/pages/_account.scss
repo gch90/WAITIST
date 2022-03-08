@@ -1,6 +1,6 @@
 .account {
-  max-width: 66%;
-  width: 66%;
+  max-width: 80%;
+  width: 80%;
   padding: 32px;
   padding-left: 5%;
   color: $secondary;
@@ -78,4 +78,8 @@
 .waiters {
   display: grid;
   gap: 32px;
+  .sort {
+    @include flex(flex-start);
+    gap: 8px;
+  }
 }
