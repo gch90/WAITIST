@@ -49,4 +49,5 @@ class ApplicationsController < ApplicationController
   def set_waiter
     @waiter = User.waiter.find(params[:id])
   end
+
 end
