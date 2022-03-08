@@ -10,7 +10,7 @@
                   required: false,
                   autofocus: true,
                   input_html: { data: { geocoder_target: "address" }, class: "d-none"},
-                  wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+                  wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }%>
       <%= f.input :phone,
                   required: false,
                   autofocus: true,
@@ -20,6 +20,5 @@
                   autofocus: true,
                   input_html: { autocomplete: "summary" }%>
       <%= f.input :avatar, as: :file %>
-
-
+      <%= f.input :cv, as: :file %>
     </div>

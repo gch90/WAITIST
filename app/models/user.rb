@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :restaurant_chatrooms, class_name: "Chatroom", foreign_key: :restaurant_id
   has_many :waiter_chatrooms, class_name: "Chatroom", foreign_key: :waiter_id
 
+  has_one_attached :cv
   has_many_attached :photos
   has_one_attached :avatar
 
