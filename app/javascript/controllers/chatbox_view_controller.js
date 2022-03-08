@@ -9,6 +9,7 @@ export default class extends Controller {
 
   showChat() {
     this.chatboxTarget.classList.remove("d-none")
+    this.chatboxTarget.classList.add("d-block")
   }
 
 }
