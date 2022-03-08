@@ -10,6 +10,7 @@
 <% end %>
 
 <%# card %>
+<%= link_to restaurant_path(resto) do %>
 <div class="card">
   <div class="card-head">
     <% if resto.photos.attached? %>
@@ -25,9 +26,7 @@
   </div>
 
   <div class="card-body">
-    <%= link_to restaurant_path(resto), class: "name" do %>
-      <h3><%= resto.restaurant_name %></h3>
-    <% end %>
+      <h3 class="name"><%= resto.restaurant_name %></h3>
     <div class="desc">
       <p class="short-summary"><strong><%= resto.summary %></strong></p>
       <p class="location"><%= render 'icons/location' %><%= resto.address %></p>
@@ -43,3 +42,4 @@
   </div>
 
 </div>
+<% end %>

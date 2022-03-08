@@ -82,7 +82,36 @@
 
 .name {
   width: 100%;
-  padding: 16px 8px 4px 8px;
+  padding: 12px 8px 4px 8px;
   @include color-custom($white, $primary);
   @include contain-text(1);
+}
+
+.waiter-card {
+  @include flex(space-between, flex-start);
+  background: $white;
+  box-shadow: $shadow;
+  width: 100%;
+  gap: 16px;
+  border-radius: $border-radius;
+  .card-head {
+    height: 160px;
+    position: relative;
+    img {
+      border-radius: $border-radius 0 0 $border-radius;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+      height: 100%;
+    }
+    .rating {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+  }
+
+  .card-tail {
+    width: 320px;
+    padding: 8px;
+  }
 }
