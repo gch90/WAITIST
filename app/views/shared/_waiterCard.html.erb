@@ -1,31 +1,51 @@
 
-<div class="waiter-card">
-  <div class="card-head">
-    <% if wait.avatar.attached? %>
-      <%= cl_image_tag wait.avatar.key %>
-      <div class="rating">
-        <h3>5.4</h3>
-      </div>
-    <% else %>
-      <div class="rating">
-        <h3>5.4</h3>
-      </div>
-    <% end %>
-  </div>
+<div class="waiter-card" data-controller="summary">
+  <div class="top">
+    <div class="card-head">
+      <% if wait.avatar.attached? %>
+        <%= cl_image_tag wait.avatar.key %>
+        <div class="rating">
+          <h3>5.4</h3>
+        </div>
+      <% else %>
+        <div class="rating">
+          <h3>5.4</h3>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="card-body">
-    <div class="name">
-      <h3><%= wait.first_name %><%= wait.last_name %></h3>
+    <div class="card-body">
+      <div class="name">
+        <h3><%= wait.first_name %><%= wait.last_name %></h3>
+      </div>
+      <div class="mid">
+        <div class="attr">
+          <div>
+            <p class="location"><%= render 'icons/location' %><%= wait.address %></p>
+            <p class="type"><%= render 'icons/phone' %><%= wait.phone %></p>
+          </div>
+          <div>
+            <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
+            <p class="type"><%= render 'icons/file' %>Resume.pdf</p>
+          </div>
+        </div>
+        <div class="bottom">
+          <a>summary</a>
+          <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
+          <% @app = Application.where(waiter: wait).where(restaurant: current_user) %>
+          <% if @app.count.zero? %>
+            <div class="btn btn-primary">Consider</div>
+          <% else %>
+            <h3><%= @app.take.status.capitalize %></h3>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="card-tail">
-    <div class="desc">
-      <p class="location"><%= render 'icons/location' %><%= wait.address %></p>
-      <p class="type"><%= render 'icons/phone' %><%= wait.phone %></p>
-      <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
-      <p class="type"><%= render 'icons/info' %>Resume.pdf</p>
-    </div>
+  <div class="summary d-none" data-summary-target="summary">
+    <h3>Summary: </h3>
+    <p><%= wait.description %></p>
   </div>
+
 
 </div>
