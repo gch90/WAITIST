@@ -1,25 +1,24 @@
+<div class="form-inputs">
 
-    <div class="form-inputs">
-      <%= f.input :first_name,
-                  required: false,
-                  input_html: { autocomplete: "first_name" }%>
-      <%= f.input :last_name,
-                  required: false,
-                  input_html: { autocomplete: "last_name" }%>
-      <%= f.input :address,
-                  required: false,
-                  autofocus: true,
-                  input_html: { data: { geocoder_target: "address" }, class: "d-none"},
-                  wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-      <%= f.input :phone,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "phone" }%>
-      <%= f.input :summary,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "summary" }%>
-      <%= f.input :avatar, as: :file %>
+  <%= f.input :first_name,
+              required: false,
+              input_html: { autocomplete: "first_name" }%>
+  <%= f.input :last_name,
+              required: false,
+              input_html: { autocomplete: "last_name" }%>
+  <%= f.input :address,
+              input_html: { data: { geocoder_target: "address" }, class: "d-none"},
+              wrapper_html: { data: { controller: "geocoder",
+              geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+  <%= f.input :phone,
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "phone" }%>
+  <%= f.input :summary,
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "summary" }%>
+  <%= f.input :avatar, as: :file %>
 
 
-    </div>
+</div>
