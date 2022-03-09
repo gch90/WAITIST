@@ -64,32 +64,30 @@ class User < ApplicationRecord
   end
 
   def restaurant_avg
-    avg = []
-    restaurant_reviews.each do |review|
-      if review.waiter_rating.nil?
-      else
-        avg << review.waiter_rating
-      end
-    end
-    if avg.count == 0
-      return "N/A"
-    else
-      return avg.sum / avg.count
-    end
+     # round 1
+    # reviews = restaurant_reviews.pluck(:waiter_rating)
+    # return "N/A" if reviews.empty?
+
+    # return reviews.reduce(:+) / reviews.count
+
+    # round 3
+    restaurant_reviews.average(:waiter_rating) || "N/A"
   end
 
   def waiter_avg
-    avg = []
-    waiter_reviews.each do |review|
-      if review.restaurant_rating.nil?
-      else
-        avg << review.restaurant_rating
-      end
-    end
-    if avg.count == 0
-      return "N/A"
-    else
-      return avg.sum / avg.count
-    end
+    #   avg = []
+    #   waiter_reviews.each do |review|
+    #     if review.restaurant_rating.nil?
+    #     else
+    #       avg << review.restaurant_rating
+    #     end
+    #   end
+    #   if avg.count == 0
+    #     return "N/A"
+    #   else
+    #     return avg.sum / avg.count
+    #   end
+
+    waiter_reviews.average(:restaurant_rating) || "N/A"
   end
 end

@@ -30,6 +30,9 @@ gem 'faker'
 gem 'pg_search', '~> 2.3.0'
 # WAITIST geocoder
 gem 'geocoder'
+# WAITIST turbolink with render
+gem "turbolinks_render"
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
