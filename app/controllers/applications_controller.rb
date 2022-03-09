@@ -57,7 +57,7 @@ class ApplicationsController < ApplicationController
   private
 
   def application_params
-    params.require(:application).permit(:start_date, :end_date, :restaurant_comment, :waiter_comment, :waiter_rating, :restaurant_rating)
+    params.require(:application).permit(:start_time, :end_time, :restaurant_comment, :waiter_comment, :waiter_rating, :restaurant_rating)
   end
 
   def chatroom_params
