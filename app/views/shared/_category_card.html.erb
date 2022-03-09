@@ -1,5 +1,5 @@
 <%= link_to "#{restaurants_path}?query=#{type}&commit=" do %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_url("#{type}.jpg") %>)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(255,0,0,0.3)), url(<%= asset_url("#{type}.jpg") %>)">
     <%= type.capitalize %>
   </div>
 <% end %>
