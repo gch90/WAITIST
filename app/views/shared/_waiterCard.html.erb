@@ -31,7 +31,11 @@
         </div>
         <div class="bottom">
           <div class="summary-tab">
-            <a>summary</a>
+            <a>Ratings</a>
+            <div class="arrow" data-action="click->summary#open_ratings"><%= render 'icons/arrow' %></div>
+          </div>
+          <div class="summary-tab">
+            <a>Summary</a>
             <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
           </div>
           <% @app = Application.where(waiter: wait).where(restaurant: current_user) %>
@@ -54,11 +58,8 @@
             <h3><%= @app.take.status.capitalize %></h3>
           <% end %>
         </div>
-      </div>
-      <% wait.waiter_reviews.each do |review| %>
-        <%= review.restaurant_rating %>
-        <%= review.restaurant_comment %>
-      <% end %>
+      </div >
+
 
     </div>
   </div>
@@ -66,6 +67,11 @@
     <h3>Summary: </h3>
     <p><%= wait.description %></p>
   </div>
-
+  <div class="summary d-none" data-summary-target="ratings">
+        <% wait.waiter_reviews.each do |review|  %>
+          <%= review.restaurant_rating %>
+          <%= review.restaurant_comment %>
+        <% end %>
+  </div>
 
 </div>
