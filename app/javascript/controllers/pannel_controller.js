@@ -3,19 +3,24 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = ["pages", "tabs"];
   static values = { chosen: Number };
+  #url = window.location.href;
+
   connect() {
+    console.log(this.#url);
     this.initialTab(this.chosenValue);
   }
 
   select(event) {
     const num = this.tabStyleSwitch(event);
     this.chosePage(num);
+    this.#url = this.#url.split("?")[0] + `?tab=${num}`;
+    console.log(this.#url);
+    window.history.pushState("", "", this.#url);
   }
 
   initialTab(num) {
     const tabSelected = this.tabsTarget.children[num];
     const pageSelected = this.pagesTarget.children[num];
-    console.log(this.pagesTarget.children);
     tabSelected.classList.add("active");
     pageSelected.classList.remove("d-none");
   }
