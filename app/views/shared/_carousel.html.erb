@@ -1,0 +1,15 @@
+<div class="home">
+  <div class="container">
+    <div class="carousel1">
+      <div class="slider">
+      <div class="slide-track">
+          <% @restaurants.each do |restaurant|%>
+            <div class="slide">
+              <%= render 'shared/card', resto: restaurant %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

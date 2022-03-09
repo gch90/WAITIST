@@ -30,11 +30,26 @@
           </div>
         </div>
         <div class="bottom">
-          <a>summary</a>
-          <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
+          <div class="summary-tab">
+            <a>summary</a>
+            <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
+          </div>
           <% @app = Application.where(waiter: wait).where(restaurant: current_user) %>
           <% if @app.count.zero? %>
-            <div class="btn btn-primary">Consider</div>
+            <div class="consider" data-controller="picker">
+              <% @application.waiter = wait %>
+              <%= simple_form_for(@application, url: apply_resto_path(wait), method: :post) do |f| %>
+                <div class="dates-pick">
+                  <div class="date-pick">
+                    <%= f.input :start_date, placeholder: "Start Date", as: :string, required: false, input_html: {class: "datepicker"},data: { confirm: "Are you sure you want to apply"}  %>
+                  </div>
+                  <div class="date-pick">
+                    <%= f.input :end_date, placeholder: "End Date", as: :string, required: false, input_html: {class: "datepicker"},data: { confirm: "Are you sure you want to apply"}  %>
+                  </div>
+                </div>
+                <%= f.submit 'Consider', class: "btn btn-primary" %>
+              <% end %>
+            </div>
           <% else %>
             <h3><%= @app.take.status.capitalize %></h3>
           <% end %>

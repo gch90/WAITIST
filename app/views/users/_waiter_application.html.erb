@@ -1,36 +1,37 @@
 <div class="application ">
 
-  <h3>Restaurants you are interested in</h3>
-  <% current_user.created_applications.each do |application| %>
+  <h3>Restaurants you are interested inn</h3>
+  <div class="long-cards">
+    <% current_user.created_applications.each do |application| %>
+      <div class="long-card">
+        <div class="card-head">
+          <% if application.restaurant.photos.attached? %>
+            <%= cl_image_tag application.restaurant.photos[0].key%>
+          <% end %>
+        </div>
 
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.restaurant.photos.attached? %>
-          <%= cl_image_tag application.restaurant.photos[0].key%>
-        <% end %>
-      </div>
+        <div class="card-body">
+          <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+          <%= application.start_date %>
+          <%= application.end_date %>
+        </div>
 
-      <div class="card-body">
-        <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
-        <%= application.start_date %>
-        <%= application.end_date %>
+        <div class="card-tail">
+          <h4>Status:</h4>
+          <%= application.status %>
+          <% if Date.today > application.end_date && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
+              <%= simple_form_for(application) do |f| %>
+                <%= f.input :waiter_comment, label: "Comment on your experience"  %>
+                <%= f.input :waiter_rating, label: "Rate your experience"  %>
+                <%= f.submit %>
+              <% end %>
+          <% elsif (Date.today > application.end_date && application.approved?) %>
+            <h4>Review completed</h4>
+          <% end %>
+        </div>
       </div>
-
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-        <% if Date.today > application.end_date && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-            <%= simple_form_for(application) do |f| %>
-              <%= f.input :waiter_comment, label: "Comment on your experience"  %>
-              <%= f.input :waiter_rating, label: "Rate your experience"  %>
-              <%= f.submit %>
-            <% end %>
-        <% elsif (Date.today > application.end_date && application.approved?) %>
-          <h4>Review completed</h4>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <h3>Restaurants interested in you</h3>
   <% current_user.waiter_applications_received.each do |application| %>

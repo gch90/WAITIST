@@ -19,24 +19,6 @@
         box-shadow: $shadow;
         @include contain-text(2);
       }
-
-      .apply {
-        @include lil-container(12px, 48px);
-        .dates-pick {
-          @include flex;
-          gap: 16px;
-          .date-pick {
-            @include flex;
-            * {
-              @include reset-spacing;
-            }
-          }
-        }
-
-        .form-label {
-          display: none;
-        }
-      }
     }
   }
 }
@@ -60,6 +42,24 @@
   p {
     color: $black;
   }
+}
+
+.apply {
+  @include lil-container(12px, 48px);
+}
+.dates-pick {
+  @include flex;
+  gap: 16px;
+  .date-pick {
+    @include flex;
+    * {
+      @include reset-spacing;
+    }
+  }
+}
+
+.form-label {
+  display: none;
 }
 
 .show-legs {
