@@ -5,6 +5,7 @@ class Application < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
+  validates :waiter_rating, inclusion: { in: (1..10).to_a }
 
   enum status: {
     pending: 0,
