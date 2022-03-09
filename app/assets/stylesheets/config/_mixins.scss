@@ -33,9 +33,9 @@
   padding: $y $x;
 }
 
-@mixin button {
+@mixin button($px: 14px, $py: 8px) {
   text-decoration: none;
-  padding: 8px 14px;
+  padding: $py $px;
   border-radius: 37px;
   font-size: 16px;
   font-weight: 600;
