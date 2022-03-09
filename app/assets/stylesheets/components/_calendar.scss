@@ -22,6 +22,15 @@
   border-bottom: 2px solid $secondary !important;
 }
 
+.table {
+  border: none !important;
+  * {
+    border: none !important;
+    border-left-width: 0 !important;
+    border-right-width: 0 !important;
+  }
+}
+
 .meeting {
   @include button(6px, 2px);
   @include color-custom($white, $primary);
