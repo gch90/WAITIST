@@ -19,19 +19,19 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_date %></a>
-                  <a><span>End-date:</span> <%= application.end_date %></a>
+                  <a><span>Start-date:</span> <%= application.start_time %></a>
+                  <a><span>End-date:</span> <%= application.end_time %></a>
                 </div>
               </div>
               <div class="bottom">
                 <h3><%= application.status.capitalize %></h3>
-                <% if Date.today > application.end_date && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
                   <%= simple_form_for(application) do |f| %>
                     <%= f.input :restaurant_comment, label: "Comment on your experience"  %>
                     <%= f.input :restaurant_rating, label: "Rate your experience"  %>
                     <%= f.submit %>
                   <% end %>
-                <% elsif (Date.today > application.end_date && application.approved?) %>
+                <% elsif (Date.today > application.end_time && application.approved?) %>
                   <h4>Review completed</h4>
                 <% end %>
               </div>
@@ -65,8 +65,8 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_date %></a>
-                  <a><span>End-date:</span> <%= application.end_date %></a>
+                  <a><span>Start-date:</span> <%= application.start_time %></a>
+                  <a><span>End-date:</span> <%= application.end_time %></a>
                 </div>
               </div>
               <div class="card-tail">
@@ -75,13 +75,13 @@
                   <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
                   <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
                 <% end %>
-                <% if Date.today > application.end_date && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
                     <%= simple_form_for(application) do |f| %>
                       <%= f.input :restaurant_comment, label: "Comment on your experience"  %>
                       <%= f.input :restaurant_rating, label: "Rate your experience"  %>
                       <%= f.submit %>
                     <% end %>
-                <% elsif (Date.today > application.end_date && application.approved?) %>
+                <% elsif (Date.today > application.end_time && application.approved?) %>
                   <h4>Review completed</h4>
                 <% end %>
                 <div class="bottom">

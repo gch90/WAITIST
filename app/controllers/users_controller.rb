@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @waiters = User.where(user_role: "waiter")
 
     @application = Application.new
+    calendar()
   end
 
   def edit; end
@@ -50,6 +51,16 @@ class UsersController < ApplicationController
 
   private
 
+  def calendar
+    start_time = params.fetch(:start_time, Date.today).to_date
+
+    # For a monthly view:
+    if(current_user.waiter? )
+      @meetings = Application.where(waiter: current_user)
+    else
+      @meetings = Application.where(restaurant: current_user)
+    end
+  end
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name, :address, :phone, :summary, :restaurant_name, :website, :rate, :nickname, :avatar, :cv, photos: [])
   end
