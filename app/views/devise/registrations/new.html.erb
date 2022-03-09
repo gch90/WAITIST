@@ -19,15 +19,9 @@
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
         </div>
-        <div class="btn btn-light"
-          data-action="click->hide-view#waiterSignup"
-          >Waiter
-        </div>
 
-        <div class="btn btn-light"
-          data-action="click->hide-view#restoSignup"
-          >Restaurant
-        </div>
+        <%= render "shared/capsule", action: "click->hide-view#chose", value: "waiter", value_2: "Restaurant" %>
+
 
 
 
@@ -41,7 +35,7 @@
          <%= f.input :user_role, as: :hidden, input_html: { value: "waiter", data: { "hide-view-target" => "role" } } %>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
         </div>
 
       </div>
