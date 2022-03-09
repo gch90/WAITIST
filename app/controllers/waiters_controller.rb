@@ -6,6 +6,7 @@ class WaitersController < ApplicationController
     # pg_search MM --->
     if params[:query].present?
       @waiters = User.search_in_waiters(params[:query])
+      @waiters = @waiters.where(user_role: 0)
     else
       @waiters = User.waiter
     end

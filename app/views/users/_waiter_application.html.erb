@@ -16,16 +16,16 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_time %></a>
-                  <a><span>End-date:</span> <%= application.end_time %></a>
+                  <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
+                  <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
                 </div>
               </div>
               <div class="bottom">
                 <h3><%= application.status.capitalize %></h3>
                 <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
                   <%= simple_form_for(application, remote: true) do |f| %>
-                    <%= f.input :waiter_comment, label: "Comment on your experience"  %>
-                    <%= f.input :waiter_rating, label: "Rate your experience"  %>
+                    <%= f.input :waiter_comment, label: "Comment on your experience", class: "input" %>
+                    <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
                     <%= f.submit %>
                   <% end %>
                 <% elsif (Date.today > application.end_time && application.approved?) %>
@@ -60,20 +60,66 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_time %></a>
-                  <a><span>End-date:</span> <%= application.end_time %></a>
+                  <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
+                  <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
                 </div>
               </div>
               <div class="card-tail">
                 <h3><%= application.status.capitalize %></h3>
                 <% if application.status == 'pending' %>
-                  <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-                  <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+                  <!-- Approve Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#approveModal">
+                    Approve
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="approveModalLabel">Are you sure?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Please approve or close
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
+                          <%= link_to "Approve", approve_path(application), method: 'patch', class:"btn btn-primary"%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Reject Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reject<%=application.id%>Modal">
+                    Reject
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="reject<%=application.id%>Modal" tabindex="-1" aria-labelledby="reject<%=application.id%>ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="reject<%=application.id%>ModalLabel">Are you sure?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Please reject or close
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
+                          <%= link_to "Reject", reject_path(application), method: 'patch', class:"btn btn-primary" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 <% end %>
                 <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
                   <%= simple_form_for(application) do |f| %>
-                    <%= f.input :waiter_comment, label: "Comment on your experience"  %>
-                    <%= f.input :waiter_rating, label: "Rate your experience"  %>
+                    <%= f.input :waiter_comment, label: "Comment on your experience", class: "input"  %>
+                    <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
                     <%= f.submit %>
                   <% end %>
                 <% elsif (Date.today > application.end_time && application.approved?) %>

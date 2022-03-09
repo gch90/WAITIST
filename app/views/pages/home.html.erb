@@ -7,14 +7,10 @@
 
 <div class="genres">
   <div class="container">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.dailymail.co.uk/i/pix/2014/07/14/article-2691314-1FA17FBA00000578-480_634x443.jpg)">
-      <%= link_to "French", "http://localhost:3000/restaurants?query=french&commit=" %>
-    </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2016/01/29/20/24/american-diner-1168606_1280.jpg)">
-      <%= link_to "American", "http://localhost:3000/restaurants?query=american&commit=" %>
-    </div>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://static.stacker.com/s3fs-public/croppedshutterstock1054754711D6WYjpg_130.JPEG)">
-      <%= link_to "Italian", "http://localhost:3000/restaurants?query=italian&commit=" %>
-    </div>
+    <%= render "shared/category_card", type: "french" %>
+    <%= render "shared/category_card", type: "american" %>
+    <%= render "shared/category_card", type: "canadian" %>
+    <%= render "shared/category_card", type: "italian" %>
+    <%= render "shared/category_card", type: "korean" %>
   </div>
 </div>
