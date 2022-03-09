@@ -38,6 +38,7 @@
         <div data-hide-view-target="resto" class="d-none">
           <%= render 'shared/newRestSignUp', f: f %>
         </div>
+         <%= f.input :user_role, as: :hidden, input_html: { value: "waiter", data: { "hide-view-target" => "role" } } %>
 
         <div class="form-actions">
           <%= f.button :submit, "Sign up" %>

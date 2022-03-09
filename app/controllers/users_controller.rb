@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @message = Message.new
     @waiters = User.where(user_role: "waiter")
 
+    @application = Application.new
   end
 
   def edit; end
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def application_params
-    params.require(:application).permit(:status, :waiter_id, :restaurant_id, :rating, :creator_id)
+    params.require(:application).permit(:status, :waiter_id, :restaurant_id, :rating, :creator_id, :waiter_rating, :restaurant_rating, :waiter_comment, :restaurant_comment)
   end
 
   def set_applications

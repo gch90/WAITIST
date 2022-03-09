@@ -77,6 +77,13 @@
         <h2>Description</h2>
         <p><%= current_user.description %></p>
       </div>
+      <% current_user.restaurant_reviews.each do |review| %>
+        <div class="summary">
+          <h2>Review</h2>
+          <p><%= review.waiter_comment %></p>
+          <p><%= review.waiter_rating %></p>
+        </div>
+      <% end %>
     </div>
     <%= render 'formEditResto'%>
   <% end %>

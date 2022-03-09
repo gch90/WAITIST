@@ -1,0 +1,21 @@
+.mapboxgl-popup {
+  .mapboxgl-popup-content {
+    max-width: 200px;
+    box-shadow: $shadow;
+    h3 {
+      a {
+        font-size: 24px !important;
+      }
+    }
+    p {
+      @include reset-spacing;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      font-family: $body-font;
+    }
+    .mapboxgl-popup-close-button {
+      font-size: 26px;
+      color: $primary;
+    }
+  }
+}

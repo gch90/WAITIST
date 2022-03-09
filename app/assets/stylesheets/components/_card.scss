@@ -4,8 +4,8 @@
   box-shadow: $shadow;
   border: none;
   border-radius: $border-radius;
-  width: 280px;
-  min-width: 200px;
+  width: 320px;
+  min-width: 240px;
   gap: 8px;
   .card-head {
     height: 240px;
@@ -48,6 +48,7 @@
     @include flex(flex-start, flex-start);
     flex-direction: column;
     gap: 2px;
+    color: $black;
     .short-summary {
       color: $dark-gray;
       background: $light-gray;
@@ -88,10 +89,13 @@
 }
 
 .waiter-card {
+  position: relative;
+  min-width: 480px;
   display: grid;
-  width: 100%;
+  max-width: 100%;
   gap: 4px;
   .top {
+    z-index: 1;
     @include flex(space-between, flex-start);
     gap: 16px;
     background: $white;
@@ -126,10 +130,22 @@
         .btn,
         .bottom {
           align-self: flex-end;
-          @include flex(center, center);
+          @include flex(flex-start, center);
+          gap: 8px;
           h3 {
             color: $primary;
           }
+          .consider {
+            width: 248px;
+            .btn {
+              text-align: left;
+            }
+          }
+        }
+        .card-tail {
+          @include flex(flex-end, flex-end);
+          flex-direction: column;
+          gap: 8px;
         }
       }
       .attr {
@@ -139,6 +155,11 @@
         align-self: flex-start;
         .icon {
           padding-right: 4px;
+        }
+        .column {
+          span {
+            color: $dark-gray;
+          }
         }
       }
     }
@@ -150,5 +171,13 @@
     transition: 200ms;
     transform: none;
     margin-left: 4px;
+  }
+  .summary-tab {
+    @include flex;
+    gap: 4px;
+  }
+  .summary {
+    position: relative;
+    z-index: 0;
   }
 }

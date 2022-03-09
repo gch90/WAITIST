@@ -40,10 +40,56 @@ class User < ApplicationRecord
     }
 
   def waiter_applications_received
-    applications_including_waiter - created_applications
+    applications_including_waiter.order(start_date: :desc) - created_applications
   end
 
   def restaurant_applications_received
-    applications_including_restaurant - created_applications
+    applications_including_restaurant.order(start_date: :desc) - created_applications
+  end
+
+  def waiter_reviews
+    applications_including_waiter
+      .where(status: 1)
+      .where.not(restaurant_comment: nil)
+      .where.not(restaurant_rating: nil)
+      .where("end_date < ?", Date.today)
+  end
+
+  def restaurant_reviews
+    applications_including_restaurant
+      .where(status: 1)
+      .where.not(waiter_comment: nil)
+      .where.not(waiter_rating: nil)
+      .where("end_date < ?", Date.today)
+  end
+
+  def restaurant_avg
+    avg = []
+    restaurant_reviews.each do |review|
+      if review.waiter_rating.nil?
+      else
+        avg << review.waiter_rating
+      end
+    end
+    if avg.count == 0
+      return "N/A"
+    else
+      return avg.sum / avg.count
+    end
+  end
+
+  def waiter_avg
+    avg = []
+    waiter_reviews.each do |review|
+      if review.restaurant_rating.nil?
+      else
+        avg << review.restaurant_rating
+      end
+    end
+    if avg.count == 0
+      return "N/A"
+    else
+      return avg.sum / avg.count
+    end
   end
 end
