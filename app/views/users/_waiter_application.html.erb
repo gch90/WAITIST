@@ -20,7 +20,7 @@
           <h4>Status:</h4>
           <%= application.status %>
           <% if Date.today > application.end_date && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-              <%= simple_form_for(application) do |f| %>
+              <%= simple_form_for(application, remote: true) do |f| %>
                 <%= f.input :waiter_comment, label: "Comment on your experience"  %>
                 <%= f.input :waiter_rating, label: "Rate your experience"  %>
                 <%= f.submit %>
@@ -56,7 +56,7 @@
           <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
         <% end %>
         <% if Date.today > application.end_date && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-            <%= simple_form_for(application) do |f| %>
+            <%= simple_form_for(application, remote: true) do |f| %>
               <%= f.input :waiter_comment, label: "Comment on your experience"  %>
               <%= f.input :waiter_rating, label: "Rate your experience"  %>
               <%= f.submit %>
