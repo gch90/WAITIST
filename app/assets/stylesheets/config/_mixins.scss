@@ -62,5 +62,6 @@
   &:focus {
     border: 2px solid $primary;
     box-shadow: $shadow !important;
+    color: $dark-gray !important;
   }
 }
