@@ -11,6 +11,58 @@
   }
 }
 
+.calendar-heading {
+  padding: 8px 0;
+  @include flex(flex-start);
+  gap: 8px;
+}
+
 .today {
-  border-bottom: 1px solid $primary !important;
+  background: $light-red !important;
+  border-bottom: 2px solid $secondary !important;
+}
+
+.table {
+  border: none !important;
+  * {
+    border: none !important;
+    border-left-width: 0 !important;
+    border-right-width: 0 !important;
+  }
+}
+
+.meeting {
+  @include button(6px, 2px);
+  @include color-custom($white, $primary);
+  overflow: hidden;
+  width: 100%;
+  border-radius: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin-bottom: 4px;
+}
+
+.color_0 {
+  background: $primary;
+}
+
+.color_1 {
+  background: $secondary;
+}
+
+.color_2 {
+  background: $black;
+}
+
+.color_3 {
+  background: $dark-gray;
+}
+
+.color_4 {
+  background: $trans-black;
+}
+
+.day {
+  width: 100%;
 }

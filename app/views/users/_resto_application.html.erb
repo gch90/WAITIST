@@ -19,8 +19,8 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_date %></a>
-                  <a><span>End-date:</span> <%= application.end_date %></a>
+                  <a><span>Start-date:</span> <%= application.start_time %></a>
+                  <a><span>End-date:</span> <%= application.end_time %></a>
                 </div>
               </div>
               <div class="bottom">
@@ -31,7 +31,7 @@
                     <%= f.input :restaurant_rating, label: "Rate your experience"  %>
                     <%= f.submit %>
                   <% end %>
-                <% elsif (Date.today > application.end_date && application.approved?) %>
+                <% elsif (Date.today > application.end_time && application.approved?) %>
                   <h4>Review completed</h4>
                 <% end %>
               </div>
@@ -65,8 +65,8 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_date %></a>
-                  <a><span>End-date:</span> <%= application.end_date %></a>
+                  <a><span>Start-date:</span> <%= application.start_time %></a>
+                  <a><span>End-date:</span> <%= application.end_time %></a>
                 </div>
               </div>
               <div class="card-tail">
@@ -81,7 +81,7 @@
                       <%= f.input :restaurant_rating, label: "Rate your experience"  %>
                       <%= f.submit %>
                     <% end %>
-                <% elsif (Date.today > application.end_date && application.approved?) %>
+                <% elsif (Date.today > application.end_time && application.approved?) %>
                   <h4>Review completed</h4>
                 <% end %>
                 <div class="bottom">

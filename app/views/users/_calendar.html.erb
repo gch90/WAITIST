@@ -1,0 +1,17 @@
+<div class="calendar d-none">
+  <h1>Calender</h1>
+  <%= month_calendar(events: @meetings, end_attribute: :end_time) do |date, meetings| %>
+  <%= date %>
+
+  <% meetings.each do |meeting| %>
+    <div class="meeting color_<%= meeting.id.to_s[1]  %>">
+      <% if current_user.waiter? %>
+        <a><%= meeting.restaurant.restaurant_name %></a>
+      <% else %>
+        <a><%= meeting.waiter.first_name %></a>
+      <% end %>
+
+    </div>
+  <% end %>
+<% end %>
+</div>
