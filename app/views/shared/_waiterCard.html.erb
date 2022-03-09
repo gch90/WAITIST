@@ -60,19 +60,18 @@
         </div>
       </div >
 
-      <div class="summary d-none" data-summary-target="ratings">
-        <% wait.waiter_reviews.each do |review|  %>
-          <%= review.restaurant_rating %>
-          <%= review.restaurant_comment %>
-        <% end %>
-      </div>
-
 
     </div>
   </div>
   <div class="summary d-none" data-summary-target="summary">
     <h3>Summary: </h3>
     <p><%= wait.description %></p>
+  </div>
+  <div class="summary d-none" data-summary-target="ratings">
+        <% wait.waiter_reviews.each do |review|  %>
+          <%= review.restaurant_rating %>
+          <%= review.restaurant_comment %>
+        <% end %>
   </div>
 
 </div>
