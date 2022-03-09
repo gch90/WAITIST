@@ -71,7 +71,11 @@ class User < ApplicationRecord
     # return reviews.reduce(:+) / reviews.count
 
     # round 3
-    restaurant_reviews.average(:waiter_rating).round(1) || "N/A"
+    if restaurant_reviews.average(:waiter_rating).nil?
+      "N/A"
+    else
+      restaurant_reviews.average(:waiter_rating).round(1)
+    end
   end
 
   def waiter_avg
@@ -87,7 +91,11 @@ class User < ApplicationRecord
     #   else
     #     return avg.sum / avg.count
     #   end
+  if waiter_reviews.average(:restaurant_rating).nil?
+      "N/A"
+  else
+    waiter_reviews.average(:restaurant_rating).round(1)
+  end
 
-    waiter_reviews.average(:restaurant_rating).round(1) || "N/A"
   end
 end
