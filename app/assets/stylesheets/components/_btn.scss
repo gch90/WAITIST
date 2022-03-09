@@ -39,8 +39,10 @@
 
 .capsule {
   position: relative;
+  width: fit-content;
   @include flex;
-  @include color-custom($white, $dark-gray, $dark-gray);
+  @include color-custom($white, $primary, $primary);
+
   @include button;
   padding: 2px;
   a {
@@ -58,7 +60,12 @@
 
 .toggle {
   flex-direction: row-reverse;
-  @include color-custom($white, $primary, $primary);
+  @include color-custom($white, $dark-gray, $dark-gray);
+}
+
+.toggle_two {
+  flex-direction: row-reverse;
+  @include color-custom($white, $black, $black);
 }
 
 .arrow {

@@ -46,6 +46,9 @@
 
 .apply {
   @include lil-container(12px, 48px);
+  .form-label {
+    display: none;
+  }
 }
 .dates-pick {
   @include flex;
@@ -56,10 +59,6 @@
       @include reset-spacing;
     }
   }
-}
-
-.form-label {
-  display: none;
 }
 
 .show-legs {

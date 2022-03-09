@@ -20,14 +20,18 @@ $border-radius: 2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
-html {
+html,
+body {
+  height: fit-content;
   min-height: 100vh;
+}
+
+html {
   position: relative;
 }
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   position: relative;
 }
 //setting base font attributes
@@ -97,10 +101,6 @@ a {
   flex-direction: column;
 }
 
-.h-line {
-  align-self: center;
-  min-height: 100%;
-  height: 100%;
-  width: 2px;
-  background: $dark-gray;
+input {
+  @include input;
 }
