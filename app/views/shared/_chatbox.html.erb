@@ -1,20 +1,11 @@
 <div class="container chatroom">
-    <h3>
-
-      <% if current_user.waiter? %>
-        <%= chatroom.restaurant.restaurant_name %>
-      <% else %>
-        <%= chatroom.waiter.nickname %>
-      <% end %>
-    </h3>
-
-    <div class="messages" data-controller="chatroom-subscription"
-                          data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>">
-      <% chatroom.messages.each do |message| %>
-        <%= render 'messages/message', message: message %>
-      <% end %>
-    </div>
-    <%= simple_form_for [chatroom, @message], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "type your message here" %>
+  <div class="messages" data-controller="chatroom-subscription"
+                        data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>">
+    <% chatroom.messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
     <% end %>
   </div>
+  <%= simple_form_for [chatroom, @message], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "type your message here" %>
+  <% end %>
+</div>
