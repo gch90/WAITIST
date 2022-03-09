@@ -26,7 +26,10 @@
           </div>
           <div>
             <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
-            <p class="type"><%= render 'icons/file' %>Resume.pdf</p>
+            <p class="type"><%= render 'icons/file' %>
+            <% if wait.cv.attached? %>
+              <%= link_to 'CV', wait.cv %>
+            <% end %></p>
           </div>
         </div>
         <div class="bottom">
