@@ -1,5 +1,5 @@
 .show-body {
-  width: 50%;
+  width: 75%;
   margin: 16px auto;
   .info {
     margin: 8px 0;
@@ -27,9 +27,16 @@
   @include lil-container;
   display: grid;
   gap: 8px;
+  .icon,
+  .stroke {
+    min-height: 24px;
+    min-width: 24px;
+    max-width: 24px;
+    max-height: 24px;
+  }
   p {
     svg {
-      padding-right: 4px;
+      margin-right: 4px;
     }
   }
 }
@@ -45,15 +52,31 @@
 }
 
 .apply {
-  @include lil-container(12px, 48px);
+  @include lil-container;
+  text-align: center;
+  @include flex;
+  form {
+    @include flex;
+    justify-self: center;
+    text-align: center;
+
+    flex-direction: column;
+  }
   .form-label {
     display: none;
   }
+
+  .btn {
+    min-width: 100%;
+  }
 }
 .dates-pick {
-  @include flex;
+  @include flex(space-between);
   gap: 16px;
+  width: 256px;
   .date-pick {
+    flex-grow: 1;
+    width: 100%;
     @include flex;
     * {
       @include reset-spacing;

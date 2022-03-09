@@ -2,7 +2,7 @@
 <%# created_applications, applications_including_restaurant, applications_including_waiter
 waiter_applications_received, restaurant_applications_received, waiter?, restaurant? %>
 <div class="show-body">
-  <%= link_to 'Back', restaurants_path, class: "btn btn-gray" %>
+  <%= link_to 'Back', restaurants_path, class: "btn btn-light" %>
   <div class="info">
     <div class="carousel" data-controller="carousel">
       <div class="main-image" data-carousel-target="main">
@@ -30,10 +30,10 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
         <p><%= render 'icons/info' %><%= @restaurant.restaurant_type %></p>
         <p><%= render 'icons/rate' %><%= @restaurant.rate %>$/hour</p>
         <p>
-          <%= render 'icons/rate' %>
-          <%= link_to "Placeholder.com", url_for(@restaurant.website), :target => "_blank" %>
+          <%= render "icons/plannet" %>
+          <%= link_to @restaurant.website, url_for(@restaurant.website), :target => "_blank" %>
         </p>
-        <p><%= render 'icons/rate' %><%= @restaurant.phone %></p>
+        <p><%= render 'icons/phone' %><%= @restaurant.phone %></p>
       </div>
       <div class="summary">
         <h3>Summary</h3>

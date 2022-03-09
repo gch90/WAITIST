@@ -41,6 +41,7 @@ gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
+gem "font-awesome-rails"
 gem 'simple_form'
 gem 'cloudinary'
 gem "simple_calendar", "~> 2.4"
