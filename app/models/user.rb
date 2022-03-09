@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many_attached :photos
   has_one_attached :avatar
 
-  # Geocoder MM --->
+    # Geocoder MM --->
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   # <---
@@ -34,10 +34,11 @@ class User < ApplicationRecord
     }
 
   pg_search_scope :search_in_restaurants,
-    against: [ :restaurant_name, :address, :restaurant_type, :summary ],
+    against: [ :restaurant_name, :address, :restaurant_type, :description ],
     using: {
       tsearch: { prefix: true }
     }
+    # <---
 
   def waiter_applications_received
     applications_including_waiter.order(start_time: :desc) - created_applications
@@ -71,7 +72,11 @@ class User < ApplicationRecord
     # return reviews.reduce(:+) / reviews.count
 
     # round 3
-    restaurant_reviews.average(:waiter_rating) || "N/A"
+    if restaurant_reviews.average(:waiter_rating).nil?
+      "N/A"
+    else
+      restaurant_reviews.average(:waiter_rating).round(1)
+    end
   end
 
   def waiter_avg
@@ -87,7 +92,11 @@ class User < ApplicationRecord
     #   else
     #     return avg.sum / avg.count
     #   end
+  if waiter_reviews.average(:restaurant_rating).nil?
+      "N/A"
+  else
+    waiter_reviews.average(:restaurant_rating).round(1)
+  end
 
-    waiter_reviews.average(:restaurant_rating) || "N/A"
   end
 end
