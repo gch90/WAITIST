@@ -21,17 +21,17 @@ class ApplicationsController < ApplicationController
     @chatroom = Chatroom.new
     @chatroom.restaurant = @restaurant
     @chatroom.waiter = current_user
-    if @application.save! && @chatroom.save!
+    if @application.save && @chatroom.save
       redirect_to user_path(tab: 2)
     else
-      render :create
+      redirect_to restaurant_path(@restaurant), notice: "Please input start and end dates"
     end
   end
 
   def update
     if @application.update(application_params)
       # raise
-      redirect_to user_path(tab: 1), notice: "you have completed your review"
+      redirect_to user_path(tab: 1), notice: "You have completed your review"
     else
       render user_path(tab: 1)
     end
@@ -47,10 +47,10 @@ class ApplicationsController < ApplicationController
     @chatroom.restaurant = current_user
     @chatroom.waiter = @waiter
 
-    if @application.save! && @chatroom.save!
+    if @application.save && @chatroom.save
       redirect_to user_path(tab: 1)
     else
-      render :create_by_resto
+      redirect_to user_path(tab: 4), notice: "Please input start and end dates"
     end
   end
 
