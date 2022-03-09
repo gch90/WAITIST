@@ -32,7 +32,7 @@
         <div class="bottom">
           <div class="summary-tab">
             <a>Ratings</a>
-            <div class="arrow" data-action="click->summary#open_rating"><%= render 'icons/arrow' %></div>
+            <div class="arrow" data-action="click->summary#open_ratings"><%= render 'icons/arrow' %></div>
           </div>
           <div class="summary-tab">
             <a>Summary</a>
@@ -60,11 +60,11 @@
         </div>
       </div >
 
-      <div class="summary d-none" data-summary-target="summary">
+      <div class="summary d-none" data-summary-target="ratings">
         <% wait.waiter_reviews.each do |review|  %>
-        <%= review.restaurant_rating %>
-        <%= review.restaurant_comment %>
-      <% end %>
+          <%= review.restaurant_rating %>
+          <%= review.restaurant_comment %>
+        <% end %>
       </div>
 
 
@@ -74,6 +74,5 @@
     <h3>Summary: </h3>
     <p><%= wait.description %></p>
   </div>
-
 
 </div>
