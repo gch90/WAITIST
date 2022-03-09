@@ -23,14 +23,14 @@
   </head>
 
   <body>
-    <% unless controller_name == "users" %>
+    <% unless controller_name == "users" || controller_name == "registrations"%>
       <%= render 'shared/navbar' %>
     <% end %>
 
     <%= render 'shared/flashes' %>
 
     <%= yield %>
-    <% unless controller_name == "users" %>
+    <% unless controller_name == "users" || controller_name == "registrations"%>
       <%= render 'shared/footer' %>
     <% end %>
   </body>

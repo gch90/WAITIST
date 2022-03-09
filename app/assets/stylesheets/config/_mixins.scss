@@ -9,9 +9,9 @@
   $back: transparent,
   $border: transparent
 ) {
-  color: $color;
-  background: $back;
-  border: 2px solid $border;
+  color: $color !important;
+  background: $back !important;
+  border: 2px solid $border !important;
 }
 
 @mixin reset-spacing {
@@ -47,5 +47,20 @@
   }
   &:active {
     box-shadow: $dark-shadow;
+  }
+}
+
+@mixin input {
+  text-decoration: none;
+  color: $dark-gray !important;
+  background: $light-gray;
+  font-weight: 500;
+  padding: 8px 14px;
+  line-height: 21px !important;
+  border: 1.5px solid $dark-gray;
+  border-radius: 0;
+  &:focus {
+    border: 2px solid $primary;
+    box-shadow: $shadow !important;
   }
 }

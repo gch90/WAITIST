@@ -3,25 +3,12 @@
 }
 
 .input {
-  text-decoration: none;
-  color: $dark-gray !important;
-  background: $light-gray;
-  font-weight: 500;
-  padding: 8px 14px;
-  line-height: 21px !important;
-  border: 1.5px solid $dark-gray;
+  @include input;
 }
 
 #application_start_time,
 #application_end_time {
-  text-decoration: none;
-  color: $dark-gray !important;
-  background: $light-gray;
-  font-weight: 500;
-  padding: 8px 14px;
-  line-height: 21px !important;
-  border: 1.5px solid $dark-gray;
-  border-radius: 0;
+  @include input;
 }
 
 #new_application {
@@ -49,6 +36,7 @@
     }
   }
   .signup {
+    height: 100%;
     background: $primary;
     h2 {
       color: $secondary;
@@ -70,7 +58,14 @@
   @include lil-container(16px, 128px);
   @include flex;
   width: 100%;
-
+  #user_summary,
+  #user_description {
+    border: 1.5px solid $primary;
+    border-color: $primary !important;
+    border-radius: 0;
+    height: 128px;
+    // @include flex(flex-start, flex-start);
+  }
   .images-choser {
     position: relative;
     .user_photos {
@@ -80,9 +75,6 @@
       margin: 0 !important;
       z-index: 1;
       opacity: 0;
-      .form-label {
-        display: none;
-      }
       #user_photos {
         position: absolute;
         min-height: 100% !important;
@@ -150,15 +142,6 @@
   background-size: 24px 24px !important;
 }
 
-#user_summary,
-#user_description {
-  border: 1.5px solid $primary;
-  border-color: $primary !important;
-  border-radius: 0;
-  height: 128px;
-  // @include flex(flex-start, flex-start);
-}
-
 .form-label {
   color: $black;
   margin-bottom: 4px;
@@ -168,6 +151,29 @@
   @include flex(flex-start, flex-start);
   gap: 16px;
   margin-bottom: 16px;
+}
+
+.form-inputs {
+  min-width: 420px;
+  width: 320px;
+}
+
+.form-control {
+  @include input;
+}
+
+.mapboxgl-ctrl-geocoder,
+.mapboxgl-ctrl {
+  border: none !important;
+}
+.mapboxgl-ctrl-geocoder--input {
+  text-decoration: none;
+  color: $dark-gray !important;
+  background: $light-gray;
+  font-weight: 500;
+  padding: 20px 32px;
+  line-height: 21px !important;
+  border: 1.5px solid $dark-gray;
 }
 
 .double {
@@ -180,8 +186,9 @@
 }
 
 .signup {
-  flex-grow: 1;
   background: $primary;
+  height: 100%;
+  min-height: 100%;
   h2 {
     color: $secondary;
     align-self: center;
@@ -190,13 +197,16 @@
     @include flex(center, flex-start);
     align-items: stretch;
     flex-direction: column;
-    height: auto;
+    min-height: 100%;
     background: $white;
-    width: 446px;
+    width: fit-content;
     padding: 52px;
     gap: 16px;
     h1 {
       color: $secondary;
+    }
+    .capsule {
+      margin: 8px 0;
     }
     .search {
       width: 100%;

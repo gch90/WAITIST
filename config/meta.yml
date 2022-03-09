@@ -1,6 +1,4 @@
-# config/meta.yml
-
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_product_name: "Waitist"
+meta_title: "Waitist - Find a waiter or find a restaurant to wait tables"
+meta_description: "Waitist facilitates the hiring and finding of waiters in the restauration business"
+meta_image: "waitist-logo.svg" # should exist in `app/assets/images/`

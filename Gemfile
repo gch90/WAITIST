@@ -31,7 +31,7 @@ gem 'pg_search', '~> 2.3.0'
 # WAITIST geocoder
 gem 'geocoder'
 # WAITIST turbolink with render
-gem "turbolinks_render"
+# gem "turbolinks_render"
 
 
 # Reduces boot times through caching; required in config/boot.rb
