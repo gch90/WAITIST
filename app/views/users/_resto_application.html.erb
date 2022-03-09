@@ -67,8 +67,53 @@
               <div class="card-tail">
                 <h3><%= application.status.capitalize %></h3>
                 <% if application.status == 'pending' %>
-                  <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-                  <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#approveModal">
+                    Approve
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="approveModalLabel">Are you sure?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Please approve or close
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
+                          <%= link_to "Approve", approve_path(application), method: 'patch', class:"btn btn-primary"%>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Reject Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reject<%=application.id%>Modal">
+                    Reject
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="reject<%=application.id%>Modal" tabindex="-1" aria-labelledby="reject<%=application.id%>ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="reject<%=application.id%>ModalLabel">Are you sure?</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Please reject or close
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
+                          <%= link_to "Reject", reject_path(application), method: 'patch', class:"btn btn-primary" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 <% end %>
                 <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
                     <%= simple_form_for(application) do |f| %>
