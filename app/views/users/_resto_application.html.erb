@@ -16,8 +16,8 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_time %></a>
-                  <a><span>End-date:</span> <%= application.end_time %></a>
+                  <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
+                  <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
                 </div>
               </div>
               <div class="bottom">
@@ -60,8 +60,8 @@
             <div class="mid">
               <div class="attr">
                 <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_time %></a>
-                  <a><span>End-date:</span> <%= application.end_time %></a>
+                  <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
+                  <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
                 </div>
               </div>
               <div class="card-tail">
