@@ -34,10 +34,11 @@ class User < ApplicationRecord
     }
 
   pg_search_scope :search_in_restaurants,
-    against: [ :restaurant_name, :address, :restaurant_type, :summary ],
+    against: [ :restaurant_name, :address, :restaurant_type, :description ],
     using: {
       tsearch: { prefix: true }
     }
+    # <---
 
   def waiter_applications_received
     applications_including_waiter.order(start_time: :desc) - created_applications

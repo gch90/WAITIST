@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
     if params[:query].present?
       @restaurants = User.search_in_restaurants(params[:query])
       @result = params[:query]
+      @restaurants = @restaurants.where(user_role: 1)
     else
       @restaurants = User.restaurant
     end

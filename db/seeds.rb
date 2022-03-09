@@ -54,6 +54,9 @@ all_restos << User.create!(user_role: 1, email: "11@11.r", password: "qwerty", r
 all_restos << User.create!(user_role: 1, email: "12@12.r", password: "qwerty", restaurant_name: "Estiatorio Milos", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
 all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", restaurant_name: "Baton Rouge", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
 all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+all_restos << User.create!(user_role: 1, email: "16@16.r", password: "qwerty", restaurant_name: "Gaja Restaurant", address: "177 Rue Bernard O, Montréal", restaurant_type: "Korean", summary: "Korean family recipes, with bulgogi & bibimbop, in a welcoming corner venue with quirky accents.", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+all_restos << User.create!(user_role: 1, email: "17@17.r", password: "qwerty", restaurant_name: "Petit Seoul", address: "5245 St Laurent Blvd, Montreal", restaurant_type: "Korean", summary: "Warm, stylish outpost offering homey Korean fare such as spicy noodles, BBQ & beef tartare.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+all_restos << User.create!(user_role: 1, email: "18@18.r", password: "qwerty", restaurant_name: "Omma", address: "51 Rue Ontario O, Montréal", restaurant_type: "Korean", summary: "Relaxed yet refined dining room where classic Korean cooking is featured with beer & soju.", rate: 17, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
 
 
 
@@ -67,11 +70,11 @@ my_restos.each_with_index do |user, resto_num|
 end
 
 
-nums = (5..14).to_a
+nums = (5..17).to_a
 all_restos.each do |user|
   5.times do
     num = nums.sample
-    user.photos.attach(io: File.open("app/assets/images/resto#{num}.jpg"), filename: "resto#{num}.jpg", content_type: 'image/jpg')
+    user.photos.attach(io: File.open("app/assets/images/rand_restos/resto#{num}.jpg"), filename: "resto#{num}.jpg", content_type: 'image/jpg')
     user.save!
   end
 end
@@ -88,18 +91,21 @@ end
 
 # application seeds
 p "creating applications"
-Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,3,3), end_time: Date.new(2022,3,7), rating: 4, creator: waiter_one, status: 1)
-Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,3,12), end_time: Date.new(2022,3,16), rating: 4, creator: waiter_one)
-Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,3,8), end_time: Date.new(2022,3,15), rating: 3, creator: my_restos[0])
-Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,3,16), end_time: Date.new(2022,3,22), rating: 3, creator: my_restos[0])
-Application.create!(waiter: waiter_three, restaurant: my_restos[0], start_time: Date.new(2022,3,3), end_time: Date.new(2022,3,7), rating: 5, creator: waiter_three)
-Application.create!(waiter: waiter_three, restaurant: my_restos[0], start_time: Date.new(2022,3,23), end_time: Date.new(2022,3,29),rating: 5, creator: waiter_three)
-Application.create!(waiter: waiter_four, restaurant: my_restos[0], start_time: Date.new(2022,3,8), end_time: Date.new(2022,3,15), rating: 4, creator: my_restos[0])
-Application.create!(waiter: waiter_four, restaurant: my_restos[0], start_time: Date.new(2022,3,17), end_time: Date.new(2022,3,23), rating: 4, creator: my_restos[0])
+Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: waiter_one, status: 1)
+Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4, creator: waiter_one, status: 1)
+Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,3,7), end_time: Date.new(2022,3,11), rating: 3, creator: my_restos[0], status: 1)
+Application.create!(waiter: waiter_one, restaurant: my_restos[0], start_time: Date.new(2022,3,14), end_time: Date.new(2022,3,18), rating: 3, creator: my_restos[0])
+Application.create!(waiter: waiter_three, restaurant: my_restos[0], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5, creator: waiter_three)
+Application.create!(waiter: waiter_three, restaurant: my_restos[0], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5, creator: waiter_three)
+Application.create!(waiter: waiter_four, restaurant: my_restos[0], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4, creator: my_restos[0])
+Application.create!(waiter: waiter_four, restaurant: my_restos[0], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4, creator: my_restos[0])
 p "applications created"
 
-p "creating test chatroom"
-chat1 = Chatroom.new(name: 'test')
-chat1.waiter = waiter_three
-chat1.restaurant = all_restos.first
-chat1.save!
+Chatroom.create!(waiter: waiter_one, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_one, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_one, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_one, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_three, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_three, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_four, restaurant: my_restos[0])
+Chatroom.create!(waiter: waiter_four, restaurant: my_restos[0])
