@@ -162,6 +162,18 @@
   @include input;
 }
 
+.form-check {
+  @include flex(start, flex-start);
+  gap: 8px;
+  .boolean[type="checkbox"] {
+    padding: 4px;
+    border: 1.5px solid $dark-gray;
+    border-radius: 0;
+    &:checked {
+      border-color: $secondary !important;
+    }
+  }
+}
 .mapboxgl-ctrl-geocoder,
 .mapboxgl-ctrl {
   border: none !important;
@@ -188,7 +200,7 @@
 .signup {
   background: $primary;
   height: 100%;
-  min-height: 100%;
+  min-height: inherit;
   h2 {
     color: $secondary;
     align-self: center;
@@ -197,7 +209,7 @@
     @include flex(center, flex-start);
     align-items: stretch;
     flex-direction: column;
-    min-height: 100%;
+    min-height: inherit;
     background: $white;
     width: fit-content;
     padding: 52px;
