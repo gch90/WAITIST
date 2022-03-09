@@ -9,7 +9,9 @@ class MessagesController < ApplicationController
         @chatroom,
       render_to_string(partial: "message", locals: {message: @message})
       )
-      render user_path(tab: 2, anchor: "message-#{@message.id}")
+      # head :ok
+      # (tab: 2, anchor: "message-#{@message.id}")
+      render "clear_form"
     else
       redirect_to user_path(tab: 2)
     end
