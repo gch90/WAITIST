@@ -5,10 +5,15 @@ export default class extends Controller {
   static values = {};
   #i = 0;
   connect() {
-    console.log(this.mainTarget.querySelector("img"));
     this.gradientAdd();
   }
-
+  chose(e) {
+    this.gradientRemove();
+    const el = e.target.parentNode;
+    this.#i = [...el.parentElement.children].indexOf(el);
+    this.gradientAdd();
+    this.imageReplace();
+  }
   forward() {
     this.gradientRemove();
     if (this.#i >= this.imagesTotal() - 1) {

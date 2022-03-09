@@ -14,7 +14,7 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
       </div>
       <div class="all-imgs" data-carousel-target="images">
         <%  @restaurant.photos.each do |photo| %>
-          <div class="small-img">
+          <div class="small-img" data-action="click->carousel#chose">
             <%= cl_image_tag photo.key %>
             <div class="gradient"></div>
             <div class="bar d-none">
