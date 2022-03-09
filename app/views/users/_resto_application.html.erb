@@ -1,6 +1,5 @@
 <div class="application">
 
-
   <div class="cards">
     <h3>Waiters you are interested in</h3>
     <% current_user.created_applications.each do |application| %>
@@ -9,8 +8,6 @@
           <div class="card-head">
             <% if application.waiter.avatar.attached? %>
               <%= cl_image_tag application.waiter.avatar.key %>
-            <% else %>
-
             <% end %>
           </div>
 
@@ -53,12 +50,10 @@
             <% if application.waiter.avatar.attached? %>
               <%= cl_image_tag application.waiter.avatar.key %>
               <div class="rating">
-                <h3>5.4</h3>
+                <h3> <%= application.waiter.waiter_avg %></h3>
               </div>
-            <% else %>
             <% end %>
           </div>
-
 
           <div class="card-body">
             <h3 class="name"><%= application.waiter.first_name %> <%= application.waiter.last_name %></h3>
@@ -90,9 +85,7 @@
             </div>
           </div>
         </div>
-
       </div>
     <% end %>
   </div>
-
 </div>
