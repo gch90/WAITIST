@@ -1,70 +1,91 @@
 <div class="application ">
 
-  <h3>Restaurants you are interested inn</h3>
-  <div class="long-cards">
+  <div class="cards">
+    <h3>Restaurants you are interested in</h3>
     <% current_user.created_applications.each do |application| %>
-      <div class="long-card">
-        <div class="card-head">
-          <% if application.restaurant.photos.attached? %>
-            <%= cl_image_tag application.restaurant.photos[0].key%>
-          <% end %>
-        </div>
+      <div class="waiter-card">
+        <div class="top">
+          <div class="card-head">
+            <% if application.restaurant.photos.attached? %>
+              <%= cl_image_tag application.restaurant.photos[0].key%>
+            <% end %>
+          </div>
 
-        <div class="card-body">
-          <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
-          <%= application.start_time %>
-          <%= application.end_time %>
-        </div>
-
-        <div class="card-tail">
-          <h4>Status:</h4>
-          <%= application.status %>
-          <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-              <%= simple_form_for(application, remote: true) do |f| %>
-                <%= f.input :waiter_comment, label: "Comment on your experience"  %>
-                <%= f.input :waiter_rating, label: "Rate your experience"  %>
-                <%= f.submit %>
-              <% end %>
-          <% elsif (Date.today > application.end_time && application.approved?) %>
-            <h4>Review completed</h4>
-          <% end %>
+          <div class="card-body">
+            <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <div class="mid">
+              <div class="attr">
+                <div class="column">
+                  <a><span>Start-date:</span> <%= application.start_time %></a>
+                  <a><span>End-date:</span> <%= application.end_time %></a>
+                </div>
+              </div>
+              <div class="bottom">
+                <h3><%= application.status.capitalize %></h3>
+                <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
+                  <%= simple_form_for(application, remote: true) do |f| %>
+                    <%= f.input :waiter_comment, label: "Comment on your experience"  %>
+                    <%= f.input :waiter_rating, label: "Rate your experience"  %>
+                    <%= f.submit %>
+                  <% end %>
+                <% elsif (Date.today > application.end_time && application.approved?) %>
+                  <h4>Review completed</h4>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 
-  <h3>Restaurants interested in you</h3>
-  <% current_user.waiter_applications_received.each do |application| %>
-    <div class="long-card">
-      <div class="card-head">
-        <% if application.restaurant.photos.attached? %>
-          <%= cl_image_tag application.restaurant.photos[0].key%>
-        <% end %>
-      </div>
+  <div class="h-line"></div>
+  <div class="cards">
+    <h3>Restaurants interested in you</h3>
+    <% current_user.waiter_applications_received.each do |application| %>
 
-      <div class="card-body">
-        <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
-        <%= application.start_time %>
-        <%= application.end_time %>
-      </div>
-
-      <div class="card-tail">
-        <h4>Status:</h4>
-        <%= application.status %>
-        <% if application.status == 'pending' %>
-          <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
-          <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
-        <% end %>
-        <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-            <%= simple_form_for(application) do |f| %>
-              <%= f.input :waiter_comment, label: "Comment on your experience"  %>
-              <%= f.input :waiter_rating, label: "Rate your experience"  %>
-              <%= f.submit %>
+      <div class="waiter-card">
+        <div class="top">
+          <div class="card-head">
+            <% if application.restaurant.photos.attached? %>
+              <%= cl_image_tag application.restaurant.photos[0].key%>
+              <div class="rating">
+                <h3> <%= application.restaurant.restaurant_avg %></h3>
+              </div>
             <% end %>
-        <% elsif (Date.today > application.end_time && application.approved?) %>
-          <h4>Review completed</h4>
-        <% end %>
+          </div>
+
+          <div class="card-body">
+            <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <div class="mid">
+              <div class="attr">
+                <div class="column">
+                  <a><span>Start-date:</span> <%= application.start_time %></a>
+                  <a><span>End-date:</span> <%= application.end_time %></a>
+                </div>
+              </div>
+              <div class="card-tail">
+                <h3><%= application.status.capitalize %></h3>
+                <% if application.status == 'pending' %>
+                  <%= link_to "Approve", approve_path(application), method: 'patch', data: { confirm: "Are you sure you want to approve"}, class:"btn btn-primary" %>
+                  <%= link_to "Reject", reject_path(application), method: 'patch', data: { confirm: "Are you sure you want to reject"}, class:"btn btn-primary" %>
+                <% end %>
+                <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
+                  <%= simple_form_for(application) do |f| %>
+                    <%= f.input :waiter_comment, label: "Comment on your experience"  %>
+                    <%= f.input :waiter_rating, label: "Rate your experience"  %>
+                    <%= f.submit %>
+                  <% end %>
+                <% elsif (Date.today > application.end_time && application.approved?) %>
+                  <h4>Review completed</h4>
+                <% end %>
+                <div class="bottom">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
