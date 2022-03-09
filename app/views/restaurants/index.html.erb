@@ -9,7 +9,7 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
 <div class="index" data-controller="map-toggle">
   <h1 class="text-center">Wait here</h1>
   <div class="btns">
-    <%= render "shared/capsule" %>
+    <%= render "shared/capsule", action: "click->map-toggle#toggle_map", value: "Map", value_2: "" %>
     <% unless @result.nil? %>
       <a>Search: <%= @result %></a>
     <% end %>
@@ -19,7 +19,7 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
 
     <div class="cards-v" data-map-toggle-target="cards">
       <% @restaurants.each do |restaurant|%>
-        <%= render 'shared/card', resto: restaurant %>
+        <%= render 'shared/card', resto: restaurant%>
       <% end %>
     </div>
     <div class="map"
