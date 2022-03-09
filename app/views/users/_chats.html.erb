@@ -1,19 +1,23 @@
 <div class="d-none">
-    <% chatrooms.each do |chatroom| %>
-      <div data-controller="chatbox-view">
+  <% chatrooms.each do |chatroom| %>
+    <div data-controller="chatbox-view">
 
-        <div data-action="click->chatbox-view#showChat">
-          <% if current_user.waiter? %>
-            <%= chatroom.restaurant.restaurant_name %>
-          <% else %>
-            <%= chatroom.waiter.nickname %>
-          <% end %>
-        </div>
-
-        <div data-chatbox-view-target="chatbox" class="d-none">
-          <%= render 'shared/chatbox', chatroom: chatroom %>
-        </div>
-
+      <div class="btn btn-primary mt-2" data-action="click->chatbox-view#showChat">
+        <% if current_user.waiter? %>
+          <%= "Chat with #{chatroom.restaurant.restaurant_name}" %>
+        <% else %>
+          <%= "Chat with #{chatroom.waiter.nickname}" %>
+        <% end %>
       </div>
-    <% end %>
+
+        <a href="#" data-chatbox-view-target="close" class="d-none"
+            data-action="click->chatbox-view#hideChat">[X]
+        </a>
+
+      <div data-chatbox-view-target="chatbox" class="d-none">
+        <%= render 'shared/chatbox', chatroom: chatroom %>
+      </div>
+
+    </div>
+  <% end %>
 </div>
