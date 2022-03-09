@@ -42,7 +42,7 @@
 }
 
 .card-body {
-  height: auto;
+  height: fit-content;
   padding: 0;
   .desc {
     padding: 8px 16px;
@@ -72,6 +72,13 @@
   @include flex(space-between, center);
   gap: 12px;
   width: 100%;
+  height: fit-content;
+  .icon {
+    min-width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    max-height: 24px;
+  }
 }
 
 .rate {
