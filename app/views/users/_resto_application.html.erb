@@ -2,7 +2,7 @@
 <div class="application">
 
   <div class="cards">
-    <h3>Waiters you are interested in</h3>
+    <h3>Prospective Waiters </h3>
     <% current_user.created_applications.each do |application| %>
       <div class="waiter-card">
         <div class="top">
@@ -24,7 +24,7 @@
               <div class="bottom">
                 <h3><%= application.status.capitalize %></h3>
                 <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
-                  <%= simple_form_for(application, remote: true ) do |f| %>
+                  <%= simple_form_for(application ) do |f| %>
                     <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
                     <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
                     <%= f.submit %>
@@ -42,7 +42,7 @@
 
   <div class="h-line"></div>
   <div class="cards">
-    <h3>Waiters interested in you</h3>
+    <h3>Applications received</h3>
     <% current_user.restaurant_applications_received.each do |application| %>
 
       <div class="waiter-card">

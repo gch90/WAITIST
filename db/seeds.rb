@@ -6,7 +6,7 @@ p "start seed"
 Application.delete_all
 p "deleted applications"
 Message.delete_all
-p "messages deleted"
+p "deleted messages"
 Chatroom.delete_all
 p "deleted chatrooms"
 User.delete_all
@@ -44,7 +44,32 @@ my_restos << User.create!(user_role: 1, email: "2@2.r", password: "qwerty", rest
 my_restos << User.create!(user_role: 1, email: "3@3.r", password: "qwerty", restaurant_name: "Sterlings Steakhouse", nickname: "Sterlings", address: "165 Prom. Du Centropolis, Laval", restaurant_type: "American", summary: "Now Hiring Highly motivated, bilingual servers ,for upscale steakhouse", rate: 16, description: "When it comes to steak, fish and seafood, Sterlings Steakhouse is the place to be. Ranked among the top three steakhouses in the region, Sterlings Steakhouse offers casual dining in an elegant and relaxing atmosphere. Featuring the finest cuts of meat and fresh fish selected daily, then grilled over real charcoal to bring out the natural flavors. A true gourmet experience awaits you! The private cellar is a wine lover’s delight. Exceptional service makes Sterlings Steakhouse a great choice for any occasion. Sterlings Steakhouse only offers USDA prime beef, aged 30 to 35 days and hand carved daily. All our steaks are grilled to perfection on a real open wood charcoal pit, to sear in the juices and insure taste and tenderness.", phone: "555-514-1234", website: "http://www.sterlingsrestaurant.com/")
 my_restos << User.create!(user_role: 1, email: "4@4.r", password: "qwerty", restaurant_name: "Le Vieux Four de Laval", nickname: "LVFL", address: "St-Vincent-de-Paul, 5070 Bd Lévesque E, Laval", restaurant_type: "Italian", summary: "Our busy restaurant is looking for a friendly and competent waiter/waitress to make sure our diners have a memorable experience. Since the quality of our service is crucial to success, the ideal candidate should possess clear communication skills, patience and attentiveness.", rate: 18, description: "Le Vieux Four is an excellent restaurant in Laval, more in the style of an Italian cafeteria. The antipasti make excellent appetizers full of Italian flavours, and come hot or cold, best served with an aperitif or with the meal. If making pasta at home, all the needed ingredients are available here as well. But when eating at Il Miglio, choose from three appetizers, three pasta and a few dishes with sauces, including lasagna, meatballs and stuffed pasta. These are all perfectly cooked and the delicious sauces sweep you off your feet.", phone: "555-514-1234", website: "http://www.levieuxfour.net/")
 my_restos << User.create!(user_role: 1, email: "5@5.r", password: "qwerty", restaurant_name: "Restaurant Amato", address: "192 Bd Sainte-Rose, Laval", restaurant_type: "Italian", summary: "Looking for a new waiter/waitress. Our servers are friendly people who are passionate about gourmet products. They offer outstanding service and share their enthusiasm about food with all of our customers.", rate: 18, description: "We are located in the very heart of old Sainte-Rose in Laval, in an ancestral house built in 1895. We renovated and expanded in 2004 and we opened the Amato restaurant in December of the same year. We are very proud of our little piece of paradise – especially our terrace. It is recognized as one of the most beautiful terraces in Laval, and even in Quebec. In addition to feeling amazed in a garden with all the stunning flowers, the terrace includes a fountain, a gazebo as well as a section with curtains and auxiliary heating. With a warm decor and authentic Italian cuisine, our restaurant is very intimate with only 10 tables inside and a capacity of around 35 people outside.", phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-my_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "Joe's Panini", nickname: "Joe's", address: "1404 Drummond St, Montreal", restaurant_type: "Italian", summary: "Currently looking for new staff for our client! We are looking for people who excel in customer service and who enjoy working in a team.", rate: 18, description: "Located in the heart of downtown Montreal, Joe's Panini has been a staple in Montreal for over 30 years. Whether it's for breakfast, lunch breaks or late night snacks, the doors of Joe's Panini are open 24 hours a day, 7 days a week. Loved by people from all over the city, the restaurant was voted by the Gazette as the # 1 place serving the best paninis on the island! Come taste one of our 25 famous classic sandwiches as well as our salad varieties to understand why the Montrealers have given us this beautiful title.", phone: "555-514-1234", website: "https://joespanini.com/")
+my_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "Joe's Panini", nickname: "Joe's", address: "1404 Drummond Street, Montreal", restaurant_type: "Italian", summary: "Currently looking for new staff for our client! We are looking for people who excel in customer service and who enjoy working in a team.", rate: 18, description: "Located in the heart of downtown Montreal, Joe's Panini has been a staple in Montreal for over 30 years. Whether it's for breakfast, lunch breaks or late night snacks, the doors of Joe's Panini are open 24 hours a day, 7 days a week. Loved by people from all over the city, the restaurant was voted by the Gazette as the # 1 place serving the best paninis on the island! Come taste one of our 25 famous classic sandwiches as well as our salad varieties to understand why the Montrealers have given us this beautiful title.", phone: "555-514-1234", website: "https://joespanini.com/")
+
+p "creating  other restos"
+
+other_restos = []
+other_restos << User.create!(user_role: 1, email: "7@7.re", password: "qwerty", restaurant_name: "Enoteca Monza Pizzeria Moderna", address: "3800 Boul Saint-Jean, Dollard-des-Ormeaux, Montreal", restaurant_type: "Italian", summary: "Polished Italian specialist for wood-fired panini & pizza, plus classic dishes & wines by the glass.", rate: 18, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "8@8.re", password: "qwerty", restaurant_name: "Del Friscos", address: "3237 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Hefty portions of familiar pastas & grilled meats (plus wood-oven pizzas) in an inviting room.", rate: 17, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "9@9.re", password: "qwerty", restaurant_name: "Madisons Restaurant & Bar", address: "11590 Salaberry Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Canadian", summary: "cozy place. nice service. delicious food ...", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "10@10.re", password: "qwerty", restaurant_name: "Pastamore", address: "M-3343 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Good portions, great atmosphere, great service at a great price", rate: 14, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "11@11.re", password: "qwerty", restaurant_name: "Renoir Restaurant", address: "1155 Serbrook, Montreal", restaurant_type: "French", summary: "Eclectic-New French recipes offered in a high-end hotel restaurant with a terrace.", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "12@12.re", password: "qwerty", restaurant_name: "Estiatorio Milos", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "13@13.re", password: "qwerty", restaurant_name: "Baton Rouge", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "14@14.re", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "16@16.re", password: "qwerty", restaurant_name: "Gaja Restaurant", address: "177 Rue Bernard O, Montréal", restaurant_type: "Korean", summary: "Korean family recipes, with bulgogi & bibimbop, in a welcoming corner venue with quirky accents.", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "17@17.re", password: "qwerty", restaurant_name: "Petit Seoul", address: "5245 Boulevard St Laurent, Montreal", restaurant_type: "Korean", summary: "Warm, stylish outpost offering homey Korean fare such as spicy noodles, BBQ & beef tartare.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "18@18.re", password: "qwerty", restaurant_name: "Omma", address: "51 Rue Ontario O, Montréal", restaurant_type: "Korean", summary: "Relaxed yet refined dining room where classic Korean cooking is featured with beer & soju.", rate: 17, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+other_restos << User.create!(user_role: 1, email: "19@19.re", password: "qwerty", restaurant_name: "La Serenata Restaurant", address: "53 Brunswick Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Fixture offering Italian wines & traditional dishes with a serenading accordion player on weekends.", rate: 19, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
+
+nums = (5..17).to_a
+other_restos.each do |user|
+  5.times do
+    num = nums.sample
+    user.photos.attach(io: File.open("app/assets/images/rand_restos/resto#{num}.jpg"), filename: "resto#{num}.jpg", content_type: 'image/jpg')
+    user.save!
+  end
+end
 
 # Creating random restos
 p "Creating random restos"
@@ -68,46 +93,53 @@ my_restos.each_with_index do |user, resto_num|
 end
 
 p "creating applications"
-Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4, creator: waiters[0], status: 1)
-Application.create!(waiter: waiters[1], restaurant: my_restos[0], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5, creator: my_restos[2])
-Application.create!(waiter: waiters[2], restaurant: my_restos[0], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5, creator: waiters[2])
-Application.create!(waiter: waiters[3], restaurant: my_restos[0], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4, creator: my_restos[0])
-Application.create!(waiter: waiters[3], restaurant: my_restos[1], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4, creator: waiters[0])
-Application.create!(waiter: waiters[4], restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: waiters[0], status: 1)
+
+waiter_comments = ["It was great working there!", "Highly recommend", "I will come back to work here again"]
+resto_comments = ["It was great working with you!", "Highly recommend to work with", "Great personality", "Very efficient !", "Come back anytime !"]
+applications = []
+
+applications << Application.create!(waiter: waiters[0], restaurant: my_restos[0], creator: waiters[0], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,2), rating: 4 )
+Application.create!(waiter: waiters[0], restaurant: my_restos[0], creator: my_restos[0], status: 1, start_time: Date.new(2022,3,2), end_time: Date.new(2022,3,4), rating: 5)
+applications << Application.create!(waiter: waiters[1], restaurant: my_restos[0], creator: waiters[1], status: 1, start_time: Date.new(2022,3,7), end_time: Date.new(2022,3,9),rating: 5 )
+applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1], creator: my_restos[1], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4)
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[0], creator: waiters[2], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4)
+applications << Application.create!(waiter: waiters[3], restaurant: my_restos[0], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4)
+applications << Application.create!(waiter: waiters[0], restaurant: my_restos[2], creator: waiters[0], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4 )
+applications << Application.create!(waiter: waiters[1], restaurant: my_restos[3], creator: my_restos[3], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5)
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[4], creator: waiters[3], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5 )
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[5], creator: my_restos[5], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4 )
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[2], creator: my_restos[2], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4 )
+applications << Application.create!(waiter: waiters[0], restaurant: my_restos[4], creator: my_restos[4], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1], creator: waiters[1], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[2], creator: waiters[2], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[3], restaurant: my_restos[3], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[3], restaurant: my_restos[4], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[3], restaurant: my_restos[5], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+
+applications.each do |application|
+  if application.approved? && Date.today > application.end_time
+  application.waiter_rating = rand(7..10)
+  application.waiter_comment = waiter_comments.sample
+  application.restaurant_rating = rand(7..10)
+  application.restaurant_comment = resto_comments.sample
+  application.save!
+  end
+end
+
 p "applications created"
 
-Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[3], restaurant: my_restos[0])
-Chatroom.create!(waiter: waiters[3], restaurant: my_restos[0])
-# <<<<<<< HEAD
-# all_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "La Serenata Restaurant", address: "53 Brunswick Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Fixture offering Italian wines & traditional dishes with a serenading accordion player on weekends.", rate: 19, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "7@7.r", password: "qwerty", restaurant_name: "Enoteca Monza Pizzeria Moderna", address: "3800 Boul Saint-Jean, Dollard-des-Ormeaux, Montreal", restaurant_type: "Italian", summary: "Polished Italian specialist for wood-fired panini & pizza, plus classic dishes & wines by the glass.", rate: 18, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "8@8.r", password: "qwerty", restaurant_name: "Del Friscos", address: "3237 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Hefty portions of familiar pastas & grilled meats (plus wood-oven pizzas) in an inviting room.", rate: 17, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "9@9.r", password: "qwerty", restaurant_name: "Madisons Restaurant & Bar", address: "11590 Salaberry Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Canadian", summary: "cozy place. nice service. delicious food ...", rate: 15, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "10@10.r", password: "qwerty", restaurant_name: "Pastamore", address: "M-3343 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Good portions, great atmosphere, great service at a great price", rate: 14, description: Faker::Restaurant.description, Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "11@11.r", password: "qwerty", restaurant_name: "Renoir Restaurant", address: "1155 Serbrook, Montreal", restaurant_type: "French", summary: "Eclectic-New French recipes offered in a high-end hotel restaurant with a terrace.", rate: 15, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "12@12.r", password: "qwerty", restaurant_name: "Estiatorio Milos", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", restaurant_name: "Baton Rouge", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
-# =======
-# all_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "La Serenata Restaurant", address: "53 Brunswick Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Fixture offering Italian wines & traditional dishes with a serenading accordion player on weekends.", rate: 19, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "7@7.r", password: "qwerty", restaurant_name: "Enoteca Monza Pizzeria Moderna", address: "3800 Boul Saint-Jean, Dollard-des-Ormeaux, Montreal", restaurant_type: "Italian", summary: "Polished Italian specialist for wood-fired panini & pizza, plus classic dishes & wines by the glass.", rate: 18, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "8@8.r", password: "qwerty", restaurant_name: "Del Friscos", address: "3237 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Hefty portions of familiar pastas & grilled meats (plus wood-oven pizzas) in an inviting room.", rate: 17, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "9@9.r", password: "qwerty", restaurant_name: "Madisons Restaurant & Bar", address: "11590 Salaberry Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Canadian", summary: "cozy place. nice service. delicious food ...", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "10@10.r", password: "qwerty", restaurant_name: "Pastamore", address: "M-3343 Sources Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Good portions, great atmosphere, great service at a great price", rate: 14, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "11@11.r", password: "qwerty", restaurant_name: "Renoir Restaurant", address: "1155 Serbrook, Montreal", restaurant_type: "French", summary: "Eclectic-New French recipes offered in a high-end hotel restaurant with a terrace.", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "12@12.r", password: "qwerty", restaurant_name: "Estiatorio Milos", address: "5357 Park Ave, Montreal", restaurant_type: "Greek", summary: "Stylish Greek taverna with fresh seafood & a popular fixed-price lunch in a whitewashed setting.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "13@13.r", password: "qwerty", restaurant_name: "Baton Rouge", address: "5385 Rue des Jockeys, Montreal", restaurant_type: "Canadian", summary: "Bâton Rouge Steakhouse & Bar is a Canadian restaurant chain", rate: 18, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "14@14.r", password: "qwerty", restaurant_name: "Bis", address: "1229 Rue de la Montagne, Montreal", restaurant_type: "Italian", summary: "Classic Italian cuisine, with gluten-free pastas & vegetarian choices, in a homey & elegant space.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "16@16.r", password: "qwerty", restaurant_name: "Gaja Restaurant", address: "177 Rue Bernard O, Montréal", restaurant_type: "Korean", summary: "Korean family recipes, with bulgogi & bibimbop, in a welcoming corner venue with quirky accents.", rate: 15, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "17@17.r", password: "qwerty", restaurant_name: "Petit Seoul", address: "5245 St Laurent Blvd, Montreal", restaurant_type: "Korean", summary: "Warm, stylish outpost offering homey Korean fare such as spicy noodles, BBQ & beef tartare.", rate: 16, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# all_restos << User.create!(user_role: 1, email: "18@18.r", password: "qwerty", restaurant_name: "Omma", address: "51 Rue Ontario O, Montréal", restaurant_type: "Korean", summary: "Relaxed yet refined dining room where classic Korean cooking is featured with beer & soju.", rate: 17, description: Faker::Restaurant.description, phone: Faker::Config.locale = 'en-CA', website: Faker::Internet.url)
-# >>>>>>> master
+p "Seeding Success...  P-A-R-T-Y   T-I-M-E"
+
+# Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[3], restaurant: my_restos[0])
+# Chatroom.create!(waiter: waiters[3], restaurant: my_restos[0])
+
+
 
 
 
