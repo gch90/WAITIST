@@ -13,7 +13,9 @@
           </div>
 
           <div class="card-body">
-            <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <%= link_to restaurant_path(application.restaurant) do %>
+              <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <% end %>
             <div class="mid">
               <div class="attr">
                 <div class="column">

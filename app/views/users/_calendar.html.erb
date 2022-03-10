@@ -4,14 +4,18 @@
   <%= date %>
 
   <% meetings.each do |meeting| %>
-    <div class="meeting color_<%= meeting.id.to_s[1]  %>">
+
       <% if current_user.waiter? %>
-        <a><%= meeting.restaurant.restaurant_name %></a>
+        <div class="meeting color_<%= meeting.status == "pending" ? 'pending' : meeting.id.to_s[0]  %>">
+          <a><%= meeting.restaurant.restaurant_name %></a>
+        </div>
       <% else %>
-        <a><%= meeting.waiter.first_name %></a>
+        <div class="meeting color_<%= meeting.status == 'pending' ? 'pending' : meeting.id.to_s[0]  %>">
+          <a><%= meeting.waiter.first_name %></a>
+        </div>
       <% end %>
 
-    </div>
+
   <% end %>
 <% end %>
 </div>

@@ -20,17 +20,13 @@
       </div>
       <div class="mid">
         <div class="attr">
-          <div>
             <p class="location"><%= render 'icons/location' %><%= wait.address %></p>
             <p class="type"><%= render 'icons/phone' %><%= wait.phone %></p>
-          </div>
-          <div>
             <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
-            <p class="type"><%= render 'icons/file' %>
+            <p class="type"><%= render 'icons/document' %>
             <% if wait.cv.attached? %>
               <%= link_to 'CV', wait.cv %>
             <% end %></p>
-          </div>
         </div>
         <div class="bottom">
           <div class="summary-tab">

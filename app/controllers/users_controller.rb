@@ -56,9 +56,9 @@ class UsersController < ApplicationController
 
     # For a monthly view:
     if(current_user.waiter? )
-      @meetings = Application.where(waiter: current_user).where(status: 1)
+      @meetings = Application.where(waiter: current_user)
     else
-      @meetings = Application.where(restaurant: current_user).where(status: 1)
+      @meetings = Application.where(restaurant: current_user)
     end
   end
   def user_params
