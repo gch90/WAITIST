@@ -1,3 +1,8 @@
+.tabs {
+  @include flex(flex-start, flex-start);
+  flex-direction: column;
+  min-height: 100%;
+}
 .pannel {
   background: $white;
   width: 256px;
@@ -28,14 +33,34 @@
     cursor: pointer;
     transition: 200ms;
     .icon {
+      height: 24px;
+      width: 24px;
       * {
         fill: $light-gray;
         stroke: $dark-gray;
       }
     }
   }
+  .logout {
+    align-self: flex-end;
+    justify-self: flex-end;
+    a {
+      color: $black !important;
+    }
+
+    .icon {
+      height: 24px;
+      width: 24px;
+      * {
+        fill: $dark-gray;
+        stroke: $black;
+      }
+    }
+  }
   .active {
-    @include color-custom($secondary, $light-gray);
+    color: secondary;
+    @include texture;
+    background-position: -16px -10px !important;
     box-shadow: 8px 0 0 0 $light-gray;
     cursor: default;
     transition: 200ms;

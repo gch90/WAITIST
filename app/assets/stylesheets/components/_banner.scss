@@ -1,6 +1,6 @@
 .banner {
-  background-size: cover;
   background-position: center;
+  @include texture_two;
   display: flex;
   height: 480px;
   img {
@@ -9,22 +9,22 @@
     margin-right: 96px;
   }
   .container {
-      @include flex(center, flex-start);
-      flex-direction: column;
-      margin-left: 128px;
-      height: auto;
-      background: $white;
-      width: 446px;
-      padding: 52px;
-      gap: 16px;
-      h1 {
-        color: $secondary;
-      }
-      .search {
+    @include flex(center, flex-start);
+    @include texture;
+    flex-direction: column;
+    margin-left: 128px;
+    height: auto;
+    width: 446px;
+    padding: 52px;
+    gap: 16px;
+    h1 {
+      color: $secondary;
+    }
+    .search {
+      width: 100%;
+      .input {
         width: 100%;
-        .input {
-          width: 100%;
-        }
       }
     }
   }
+}

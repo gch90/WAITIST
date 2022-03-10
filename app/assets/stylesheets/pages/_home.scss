@@ -1,32 +1,27 @@
-// Specific CSS for your home-page
 .home {
-  .container {
-    @include flex(center, flex-start);
-    gap: 32px;
-    margin: 20px auto;
-    width: 90%;
+  margin: 32px auto;
+  h1 {
+    margin: 32px 0 8px 0 !important;
   }
 }
+
 .genres {
-  .container{
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 16px;
   .card-category {
     background-size: cover;
     background-position: center;
-    height: 220px;
-    width: 220px;
+    width: 100%;
+    aspect-ratio: 4 / 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: $white;
     font-size: 24px;
     font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    text-shadow: $shadow;
     border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    margin: 20px;
+    box-shadow: $shadow;
   }
 }

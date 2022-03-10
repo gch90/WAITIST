@@ -1,6 +1,6 @@
 .carousel1 {
   width: 100%;
-  box-shadow: 8px 0 5px -4px $dark-gray, -8px 0 2px -4px $dark-gray;
+  box-shadow: inset 8px 0 4px -4px $dark-gray, inset -8px 0 4px -4px $dark-gray;
   body {
     align-items: center;
     // background: #E3E3E3;
@@ -10,17 +10,24 @@
   }
 
   @mixin white-gradient {
-    background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   $animationSpeed: 80s;
 
   // Animation
   @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 7))}
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
   }
-
 
   // Styling
   .slider {
@@ -28,7 +35,7 @@
     // box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
     // height: 100px;
     margin: auto;
-    overflow:hidden;
+    overflow: hidden;
     position: relative;
     width: 100%;
 
