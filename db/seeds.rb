@@ -69,11 +69,11 @@ end
 
 p "creating applications"
 Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4, creator: waiters[0], status: 1)
-Application.create!(waiter: waiters[1], restaurant: my_restos[0], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5, creator: my_restos[2])
-Application.create!(waiter: waiters[2], restaurant: my_restos[0], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5, creator: waiters[2])
-Application.create!(waiter: waiters[3], restaurant: my_restos[0], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4, creator: my_restos[0])
-Application.create!(waiter: waiters[3], restaurant: my_restos[1], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4, creator: waiters[0])
-Application.create!(waiter: waiters[4], restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: waiters[0], status: 1)
+Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5, creator: my_restos[0])
+Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5, creator: waiters[0])
+Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4, creator: my_restos[0])
+Application.create!(waiter: waiters[0], restaurant: my_restos[1], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4, creator: waiters[0])
+Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: waiters[0], status: 1)
 p "applications created"
 
 Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
