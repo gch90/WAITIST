@@ -1,4 +1,4 @@
-<div class="container chatroom">
+
   <div class="messages" data-controller="chatroom-subscription"
                         data-chatroom-subscription-chatroom-id-value="<%= chatroom.id %>">
     <% chatroom.messages.each do |message| %>
@@ -9,4 +9,3 @@
   <%= simple_form_for [chatroom, Message.new], namespace: chatroom.id, remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "type your message here" %>
   <% end %>
-</div>
