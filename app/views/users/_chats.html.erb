@@ -1,7 +1,7 @@
 <div class="d-none">
   <% chatrooms.each do |chatroom| %>
     <div data-controller="chatbox-view">
-
+      <h1><%= render "icons/chat" %>Messages</h1>
       <div class="btn btn-primary mt-2" data-action="click->chatbox-view#showChat">
         <% if current_user.waiter? %>
           <%= "Chat with #{chatroom.restaurant.restaurant_name}" %>
