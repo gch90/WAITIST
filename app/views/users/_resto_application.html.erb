@@ -22,16 +22,18 @@
                 </div>
               </div>
               <div class="bottom">
-                <h3><%= application.status.capitalize %></h3>
-                <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
-                  <%= simple_form_for(application ) do |f| %>
-                    <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
-                    <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
-                    <%= f.submit %>
+                <div class="card-tail">
+                  <h3><%= application.status.capitalize %></h3>
+                  <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                    <%= simple_form_for(application ) do |f| %>
+                      <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
+                      <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
+                      <%= f.submit %>
+                    <% end %>
+                  <% elsif (Date.today > application.end_time && application.approved?) %>
+                    <h3 class="review">Review completed</h3>
                   <% end %>
-                <% elsif (Date.today > application.end_time && application.approved?) %>
-                  <h4>Review completed</h4>
-                <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -116,16 +118,19 @@
                     </div>
                   </div>
                 <% end %>
-                <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
-                    <%= simple_form_for(application) do |f| %>
-                      <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
-                      <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
-                      <%= f.submit %>
-                    <% end %>
-                <% elsif (Date.today > application.end_time && application.approved?) %>
-                  <h4>Review completed</h4>
-                <% end %>
+
                 <div class="bottom">
+                  <div class="card-tail">
+                    <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                      <%= simple_form_for(application) do |f| %>
+                        <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
+                        <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
+                        <%= f.submit %>
+                      <% end %>
+                    <% elsif (Date.today > application.end_time && application.approved?) %>
+                      <h3 class="review">Review completed</h3>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>

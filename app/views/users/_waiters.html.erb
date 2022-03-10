@@ -1,9 +1,9 @@
 <div class="d-none waiters"  >
-  <h1><%= render "icons/profile" %>Waiters</h1>
-  <div class="sort">
+  <h1><%= render "icons/waiters" %>Waiters</h1>
+  <%# <div class="sort">
     Sort-By
     <div class="btn btn-light">Rating</div>
-  </div>
+  </div> %>
   <% @waiters.each do |waiter|%>
     <%= render "shared/waiterCard", wait: waiter %>
   <% end %>
