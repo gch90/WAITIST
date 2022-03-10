@@ -117,7 +117,7 @@ applications << Application.create!(waiter: waiters[2], restaurant: my_restos[5]
 applications << Application.create!(waiter: waiters[2], restaurant: my_restos[2], creator: my_restos[2], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4 )
 applications << Application.create!(waiter: waiters[0], restaurant: my_restos[4], creator: my_restos[4], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1], creator: waiters[1], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
-applications << Application.create!(waiter: waiters[2], restaurant: my_restos[2], creator: waiters[2], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[5], restaurant: my_restos[0], creator: waiters[5], status: 0, start_time: Date.new(2022,3,14), end_time: Date.new(2022,3,17), rating: 4 )
 applications << Application.create!(waiter: waiters[3], restaurant: my_restos[3], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 applications << Application.create!(waiter: waiters[3], restaurant: my_restos[4], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 applications << Application.create!(waiter: waiters[3], restaurant: my_restos[5], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
@@ -136,7 +136,7 @@ p "applications created"
 
 p "Seeding Success...  P-A-R-T-Y   T-I-M-E"
 
-# Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
 # Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
 # Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
 # Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
