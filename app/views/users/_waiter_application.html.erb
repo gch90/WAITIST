@@ -10,6 +10,13 @@
             <% if application.restaurant.photos.attached? %>
               <%= cl_image_tag application.restaurant.photos[0].key%>
             <% end %>
+              <div class="rating">
+                <% if current_user.restaurant_reviews.nil? %>
+                  <h3> <%= @rating %></h3>
+                <% else %>
+                  <h3> <%= application.restaurant.restaurant_avg %></h3>
+                <% end %>
+              </div>
           </div>
 
           <div class="card-body">
@@ -55,7 +62,11 @@
             <% if application.restaurant.photos.attached? %>
               <%= cl_image_tag application.restaurant.photos[0].key%>
               <div class="rating">
-                <h3> <%= application.restaurant.restaurant_avg %></h3>
+                <% if current_user.restaurant_reviews.nil? %>
+                  <h3> <%= @rating %></h3>
+                <% else %>
+                  <h3> <%= application.restaurant.restaurant_avg %></h3>
+                <% end %>
               </div>
             <% end %>
           </div>

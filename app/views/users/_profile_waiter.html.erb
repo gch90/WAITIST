@@ -26,4 +26,11 @@
     <div class="btn btn-light" data-action="click->edit#open">Edit</div>
   </div>
   <%= render "shared/summary", title: "Summary", paragraph: current_user.summary %>
+    <% current_user.waiter_reviews.each do |review| %>
+    <div class="summary">
+      <h2>Review</h2>
+      <p><%= review.restaurant_comment %></p>
+      <p><%= review.restaurant_rating %></p>
+    </div>
+  <% end %>
 </div>
