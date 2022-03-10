@@ -2,7 +2,7 @@
 <div class="application">
 
   <div class="cards">
-    <h3>Waiters you are interested in</h3>
+    <h3>Prospective Waiters </h3>
     <% current_user.created_applications.each do |application| %>
       <div class="waiter-card">
         <div class="top">
@@ -42,7 +42,7 @@
 
   <div class="h-line"></div>
   <div class="cards">
-    <h3>Waiters interested in you</h3>
+    <h3>Applications received</h3>
     <% current_user.restaurant_applications_received.each do |application| %>
 
       <div class="waiter-card">
