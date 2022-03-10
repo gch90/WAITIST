@@ -68,24 +68,22 @@ my_restos.each_with_index do |user, resto_num|
 end
 
 p "creating applications"
-Application.create!(waiter: my_restos[0], restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: my_restos[0], status: 1)
-Application.create!(waiter: my_restos[0], restaurant: my_restos[0], start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4, creator: my_restos[0], status: 1)
-Application.create!(waiter: my_restos[0], restaurant: my_restos[0], start_time: Date.new(2022,3,7), end_time: Date.new(2022,3,11), rating: 3, creator: my_restos[0], status: 1)
-Application.create!(waiter: my_restos[0], restaurant: my_restos[0], start_time: Date.new(2022,3,14), end_time: Date.new(2022,3,18), rating: 3, creator: my_restos[0])
-Application.create!(waiter: my_restos[2], restaurant: my_restos[0], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5, creator: my_restos[2])
-Application.create!(waiter: my_restos[2], restaurant: my_restos[0], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5, creator: my_restos[2])
-Application.create!(waiter: my_restos[3], restaurant: my_restos[0], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4, creator: my_restos[0])
-Application.create!(waiter: my_restos[3], restaurant: my_restos[0], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4, creator: my_restos[0])
+Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4, creator: waiters[0], status: 1)
+Application.create!(waiter: waiters[1], restaurant: my_restos[0], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5, creator: my_restos[2])
+Application.create!(waiter: waiters[2], restaurant: my_restos[0], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5, creator: waiters[2])
+Application.create!(waiter: waiters[3], restaurant: my_restos[0], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4, creator: my_restos[0])
+Application.create!(waiter: waiters[3], restaurant: my_restos[1], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4, creator: waiters[0])
+Application.create!(waiter: waiters[4], restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: waiters[0], status: 1)
 p "applications created"
 
-Chatroom.create!(waiter: my_restos[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[0], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[2], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[2], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[3], restaurant: my_restos[0])
-Chatroom.create!(waiter: my_restos[3], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[2], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[3], restaurant: my_restos[0])
+Chatroom.create!(waiter: waiters[3], restaurant: my_restos[0])
 # <<<<<<< HEAD
 # all_restos << User.create!(user_role: 1, email: "6@6.r", password: "qwerty", restaurant_name: "La Serenata Restaurant", address: "53 Brunswick Blvd, Dollard-Des Ormeaux, Montreal", restaurant_type: "Italian", summary: "Fixture offering Italian wines & traditional dishes with a serenading accordion player on weekends.", rate: 19, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
 # all_restos << User.create!(user_role: 1, email: "7@7.r", password: "qwerty", restaurant_name: "Enoteca Monza Pizzeria Moderna", address: "3800 Boul Saint-Jean, Dollard-des-Ormeaux, Montreal", restaurant_type: "Italian", summary: "Polished Italian specialist for wood-fired panini & pizza, plus classic dishes & wines by the glass.", rate: 18, description: Faker::Restaurant.description, phone: Faker::PhoneNumber.cell_phone, website: Faker::Internet.url)
