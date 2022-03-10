@@ -162,10 +162,11 @@
         .card-tail {
           @include flex(flex-end, flex-end);
           flex-direction: column;
-          gap: 8px;
+          gap: 4px;
           color: $primary;
           .review {
             color: $dark-gray;
+            font-style: italic;
           }
         }
       }

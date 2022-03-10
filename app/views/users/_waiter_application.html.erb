@@ -26,15 +26,7 @@
               <div class="bottom">
                 <div class="card-tail">
                   <h3><%= application.status.capitalize %></h3>
-                  <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-                    <%= simple_form_for(application) do |f| %>
-                      <%= f.input :waiter_comment, label: "Comment on your experience", class: "input" %>
-                      <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
-                      <%= f.submit%>
-                    <% end %>
-                  <% elsif (Date.today > application.end_time && application.approved?) %>
-                    <h3 class="review">Review completed</h3>
-                  <% end %>
+                  <%= render "shared/review_post", application: application %>
                 </div>
               </div>
             </div>
@@ -126,15 +118,7 @@
 
                 <div class="bottom">
                   <div class="card-tail">
-                    <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-                    <%= simple_form_for(application) do |f| %>
-                      <%= f.input :waiter_comment, label: "Comment on your experience", class: "input"  %>
-                      <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
-                      <%= f.submit %>
-                    <% end %>
-                    <% elsif (Date.today > application.end_time && application.approved?) %>
-                      <h3 class="review">Review completed</h3>
-                    <% end %>
+                    <%= render "shared/review_post", application: application %>
                   </div>
                 </div>
               </div>

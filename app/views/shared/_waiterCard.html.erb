@@ -9,7 +9,7 @@
         </div>
       <% else %>
         <div class="rating">
-          <h3><%= wait.waiter_avg %></h3>
+          <p><%= wait.waiter_avg %></p>
         </div>
       <% end %>
     </div>
@@ -74,7 +74,7 @@
               <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
               <%= application.restaurant.restaurant_name %>
               <div class="rating">
-                <h3><%= application.restaurant_rating %></h3>
+                <p><%= application.restaurant_rating %></p>
               </div>
           </div>
           <div class="bottom">

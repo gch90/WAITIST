@@ -1,0 +1,9 @@
+<% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+  <%= simple_form_for(application) do |f| %>
+    <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
+    <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
+    <%= f.submit %>
+  <% end %>
+<% elsif (Date.today > application.end_time && application.approved?) %>
+  <p class="review">Review completed</p>
+<% end %>
