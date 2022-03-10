@@ -101,6 +101,8 @@ Application.create!(waiter: waiters[0], restaurant: my_restos[1], start_time: Da
 Application.create!(waiter: waiters[0], restaurant: my_restos[0], start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4, creator: waiters[0], status: 1)
 p "applications created"
 
+p "Seeding Success...  P-A-R-T-Y   T-I-M-E"
+
 # Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
 # Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
 # Chatroom.create!(waiter: waiters[0], restaurant: my_restos[0])
