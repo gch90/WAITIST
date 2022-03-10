@@ -120,7 +120,7 @@ applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1]
 applications << Application.create!(waiter: waiters[5], restaurant: my_restos[0], creator: waiters[5], status: 0, start_time: Date.new(2022,3,14), end_time: Date.new(2022,3,17), rating: 4 )
 applications << Application.create!(waiter: waiters[2], restaurant: my_restos[3], creator: waiters[2], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,22), rating: 4 )
 applications << Application.create!(waiter: waiters[2], restaurant: my_restos[4], creator: waiters[2], status: 1, start_time: Date.new(2022,2,22), end_time: Date.new(2022,2,25), rating: 4 )
-applications << Application.create!(waiter: waiters[2], restaurant: my_restos[5], creator: waiters[2], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,2,30), rating: 4 )
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[5], creator: waiters[2], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,2), rating: 4 )
 
 applications.each do |application|
   if application.approved? && Date.today > application.end_time
