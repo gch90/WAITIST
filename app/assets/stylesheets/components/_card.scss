@@ -163,6 +163,10 @@
           @include flex(flex-end, flex-end);
           flex-direction: column;
           gap: 8px;
+          color: $primary;
+          .review {
+            color: $dark-gray;
+          }
         }
       }
       .attr {

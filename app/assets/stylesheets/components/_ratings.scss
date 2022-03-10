@@ -1,0 +1,9 @@
+.ratings {
+  @include lil-container;
+  .ratinge {
+    width: fit-content;
+    .rating-top {
+      @include flex(flex-start);
+    }
+  }
+}

@@ -8,4 +8,6 @@
 
   <%= simple_form_for [chatroom, Message.new], namespace: chatroom.id, remote: true do |f| %>
     <%= f.input :content, label: false, placeholder: "type your message here" %>
+    <%= f.button :submit, "Send", class: "btn-primary"%>
+
   <% end %>
