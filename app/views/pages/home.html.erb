@@ -15,13 +15,21 @@
         </div>
       </div>
     </div>
-    <h1 class="text-center">Genres</h1>
+    <h1 class="text-center">Cuisines</h1>
     <div class="genres">
       <%= render "shared/category_card", type: "french" %>
       <%= render "shared/category_card", type: "american" %>
       <%= render "shared/category_card", type: "canadian" %>
       <%= render "shared/category_card", type: "italian" %>
       <%= render "shared/category_card", type: "korean" %>
+    </div>
+    <h1 class="text-center">Cities</h1>
+    <div class="cities">
+      <%= render "shared/cities_card", type: "montreal" %>
+      <%= render "shared/cities_card", type: "laval" %>
+      <%= render "shared/cities_card", type: "dollard-des-ormeaux" %>
+      <%# <%= render "shared/cities_card", type: "sainte-rose" %>
+      <%# <%= render "shared/cities_card", type: "sainte-dorothée" %>
     </div>
   </div>
 </div>
