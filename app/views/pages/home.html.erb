@@ -1,16 +1,27 @@
   <%= render 'shared/banner'  %>
 
-  <h1 class="text-center">Wait here</h1>
-  <%= render 'shared/carousel' %>
 
-  <h2 class="text-center">Genres</h2>
-
-<div class="genres">
+<div class="home">
   <div class="container">
-    <%= render "shared/category_card", type: "french" %>
-    <%= render "shared/category_card", type: "american" %>
-    <%= render "shared/category_card", type: "canadian" %>
-    <%= render "shared/category_card", type: "italian" %>
-    <%= render "shared/category_card", type: "korean" %>
+    <h1 class="text-center">Wait here</h1>
+    <div class="carousel1">
+      <div class="slider">
+        <div class="slide-track">
+          <% @restaurants.each do |restaurant|%>
+            <div class="slide">
+              <%= render 'shared/card', resto: restaurant %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <h1 class="text-center">Genres</h1>
+    <div class="genres">
+      <%= render "shared/category_card", type: "french" %>
+      <%= render "shared/category_card", type: "american" %>
+      <%= render "shared/category_card", type: "canadian" %>
+      <%= render "shared/category_card", type: "italian" %>
+      <%= render "shared/category_card", type: "korean" %>
+    </div>
   </div>
 </div>

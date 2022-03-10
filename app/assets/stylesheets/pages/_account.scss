@@ -4,7 +4,7 @@
   padding: 32px;
   padding-left: 5%;
   color: $secondary;
-  .icon {
+  .stroke-p {
     min-width: 24px;
     max-width: 24px;
     min-height: 24px;
@@ -56,8 +56,10 @@
           gap: 4px;
           padding: 4px 0;
           p {
+            @include flex;
+            gap: 2px;
             svg {
-              padding-right: 4px;
+              margin-right: 4px;
             }
           }
         }
@@ -65,6 +67,7 @@
           * {
             @include flex(flex-end, flex-start);
             flex-direction: column;
+            gap: 4px;
           }
         }
       }

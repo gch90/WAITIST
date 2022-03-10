@@ -28,7 +28,7 @@
   display: grid;
   gap: 8px;
   .icon,
-  .stroke {
+  .stroke-p {
     min-height: 24px;
     min-width: 24px;
     max-width: 24px;
@@ -44,7 +44,7 @@
 .summary {
   @include lil-container;
   h3 {
-    color: $black;
+    color: $primary;
   }
   p {
     color: $black;
@@ -85,11 +85,13 @@
 }
 
 .show-legs {
+  @include flex;
+  @include texture_three;
   width: 100%;
   min-height: 40px;
-  @include flex;
   flex-direction: column;
-  @include color-custom($white, $secondary);
+  color: $white;
+
   padding: 32px;
 }
 
@@ -156,20 +158,20 @@
 }
 
 .all-imgs {
-  @include flex(flex-start, center);
+  @include flex(flex-start, flex-start);
   gap: 16px;
 
   .small-img {
     box-shadow: $shadow;
     width: 64px;
-    height: 64px;
+    height: fit-content;
     position: relative;
     border-radius: $border-radius;
     cursor: pointer;
     img {
       object-fit: cover;
       width: 100%;
-      height: 100%;
+      height: 64px;
       border-radius: $border-radius;
     }
     .gradient {

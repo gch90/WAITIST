@@ -2,15 +2,16 @@
   <%= link_to current_user.waiter? ? root_path : user_path(tab: 0), class: "logo" do %>
       <%= render 'icons/logo'%>
   <% end %>
-  <div data-pannel-target="tabs">
+  <div class="tabs" data-pannel-target="tabs">
     <div class="tab" data-action="click->pannel#select"><%= render 'icons/profile' %>Profile</div>
     <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Applications</div>
-    <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Messages</div>
-    <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Calendar</div>
+    <div class="tab" data-action="click->pannel#select"><%= render 'icons/chat' %>Messages</div>
+    <div class="tab" data-action="click->pannel#select"><%= render 'icons/calendar' %>Calendar</div>
     <% if current_user.restaurant? %>
-      <div class="tab" data-action="click->pannel#select"><%= render 'icons/application' %>Waiters</div>
+      <div class="tab" data-action="click->pannel#select"><%= render 'icons/waiters' %>Waiters</div>
     <% end %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "tab" %>
+    <div class="tab logout" ><%= render 'icons/logout' %><%= link_to "Log out", destroy_user_session_path, method: :delete %></div>
+
   </div>
 
 </div>
