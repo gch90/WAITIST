@@ -25,7 +25,7 @@
             <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
             <p class="type"><%= render 'icons/document' %>
             <% if wait.cv.attached? %>
-              <%= link_to 'CV', wait.cv %>
+              <%= link_to 'CV', wait.cv, :target => "_blank" %>
             <% end %></p>
         </div>
         <div class="bottom">
@@ -73,9 +73,12 @@
 
               <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
               <%= application.restaurant.restaurant_name %>
-              <h3><%= application.restaurant_rating %></h3>
+              <div class="rating">
+                <h3><%= application.restaurant_rating %></h3>
+              </div>
           </div>
           <div class="bottom">
+
             <p><%= application.restaurant_comment %></p>
           </div>
         </div>
