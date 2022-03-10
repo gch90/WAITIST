@@ -105,16 +105,16 @@ applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1]
 applications << Application.create!(waiter: waiters[2], restaurant: my_restos[0], creator: waiters[2], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4)
 applications << Application.create!(waiter: waiters[3], restaurant: my_restos[0], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4)
 applications << Application.create!(waiter: waiters[0], restaurant: my_restos[2], creator: waiters[0], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,4), rating: 4 )
-applications << Application.create!(waiter: waiters[0], restaurant: my_restos[3], creator: my_restos[3], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5)
-applications << Application.create!(waiter: waiters[0], restaurant: my_restos[4], creator: waiters[4], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5 )
-applications << Application.create!(waiter: waiters[0], restaurant: my_restos[5], creator: my_restos[5], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4 )
-applications << Application.create!(waiter: waiters[0], restaurant: my_restos[2], creator: my_restos[2], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4 )
+applications << Application.create!(waiter: waiters[1], restaurant: my_restos[3], creator: my_restos[3], start_time: Date.new(2022,3,21), end_time: Date.new(2022,3,25), rating: 5)
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[4], creator: waiters[3], start_time: Date.new(2022,3,28), end_time: Date.new(2022,4,1),rating: 5 )
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[5], creator: my_restos[5], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4 )
+applications << Application.create!(waiter: waiters[2], restaurant: my_restos[2], creator: my_restos[2], start_time: Date.new(2022,4,11), end_time: Date.new(2022,4,15), rating: 4 )
 applications << Application.create!(waiter: waiters[0], restaurant: my_restos[4], creator: my_restos[4], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1], creator: waiters[1], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 applications << Application.create!(waiter: waiters[2], restaurant: my_restos[2], creator: waiters[2], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 applications << Application.create!(waiter: waiters[3], restaurant: my_restos[3], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
-applications << Application.create!(waiter: waiters[4], restaurant: my_restos[4], creator: waiters[4], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
-applications << Application.create!(waiter: waiters[4], restaurant: my_restos[5], creator: waiters[4], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[3], restaurant: my_restos[4], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
+applications << Application.create!(waiter: waiters[3], restaurant: my_restos[5], creator: waiters[3], status: 1, start_time: Date.new(2022,2,21), end_time: Date.new(2022,2,25), rating: 4 )
 
 applications.each do |application|
   if application.approved? && Date.today > application.end_time
@@ -122,6 +122,7 @@ applications.each do |application|
   application.waiter_comment = waiter_comments.sample
   application.restaurant_rating = rand(7..10)
   application.restaurant_comment = resto_comments.sample
+  application.save!
   end
 end
 
