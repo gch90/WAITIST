@@ -23,8 +23,9 @@
       right: 12px;
     }
   }
-  .icon {
+  .stroke-p {
     width: 24px;
+    height: 24px;
   }
 }
 
@@ -92,7 +93,8 @@
 .name {
   width: 100%;
   padding: 12px 8px 4px 8px;
-  @include color-custom($white, $primary);
+  @include texture_two;
+  color: $white;
   @include contain-text(1);
 }
 
@@ -193,6 +195,5 @@
 .card-category {
   a {
     color: $white;
-
   }
 }
