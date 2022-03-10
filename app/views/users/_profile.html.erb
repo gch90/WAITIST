@@ -1,90 +1,9 @@
 <div class="d-none" data-controller="edit">
   <% if current_user.waiter? %>
-    <h1><%= render "icons/profile" %>Waiter</h1>
-    <div class="profile" data-edit-target="profile">
-      <div class="profile-head">
-        <div class="image small-img">
-          <% if current_user.avatar.key.nil? %>
-            <%= image_tag "blankUser.png" %>
-          <% else %>
-            <%= cl_image_tag current_user.avatar.key %>
-          <% end %>
-          <div class="in-shadow"></div>
-        </div>
-        <div class="desc">
-          <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
-          <div class="attr">
-            <div>
-              <p><%= render 'icons/location' %><%= current_user.address %></p>
-              <p><%= render 'icons/rate' %><%= current_user.phone %></p>
-              <p><%= render 'icons/rate' %><%= current_user.email %></p>
-              <% if current_user.cv.attached? %>
-                <p><%= render 'icons/rate' %><%= link_to 'CV', current_user.cv %></p>
-              <% end %>
-
-            </div>
-          </div>
-        </div>
-        <div class="btn btn-light" data-action="click->edit#open">Edit</div>
-      </div>
-      <div class="summary">
-        <h2>Summary</h2>
-        <p><%= current_user.summary %></p>
-      </div>
-    </div>
+    <%= render "profile_waiter" %>
     <%= render 'formEditWaiter'%>
   <% else %>
-    <h1><%= render "icons/profile" %>Restaurant</h1>
-    <div class="profile" data-edit-target="profile">
-      <div class="profile-head">
-        <div class="image">
-          <%= cl_image_tag current_user.photos[0].key %>
-          <div class="in-shadow"></div>
-        </div>
-        <div class="desc">
-          <h2><%= current_user.restaurant_name %></h2>
-          <div class="attr">
-            <div>
-              <p><%= render 'icons/location' %><%= current_user.address %></p>
-              <p><%= render 'icons/rate' %><%= current_user.phone %></p>
-              <p><%= render 'icons/rate' %><%= current_user.email %></p>
-              <p><%= render 'icons/rate' %><%= current_user.rate %>$/hour</p>
-            </div>
-            <div>
-              <p><%= render 'icons/info' %><%= current_user.restaurant_type %></p>
-              <p>
-                <%= render 'icons/rate' %>
-                <%= link_to "Placeholder.com", url_for(current_user.website), :target => "_blank" %>
-              </p>
-            </div>
-          </div>
-
-        </div>
-          <div class="btn btn-light" data-action="click->edit#open">Edit</div>
-      </div>
-      <div class="all-imgs" >
-        <%  current_user.photos.each do |photo| %>
-          <div class="small-img">
-            <%= cl_image_tag photo.key %>
-          </div>
-        <% end %>
-      </div>
-      <div class="summary">
-        <h2>Summary</h2>
-        <p><%= current_user.summary %></p>
-      </div>
-      <div class="summary">
-        <h2>Description</h2>
-        <p><%= current_user.description %></p>
-      </div>
-      <% current_user.restaurant_reviews.each do |review| %>
-        <div class="summary">
-          <h2>Review</h2>
-          <p><%= review.waiter_comment %></p>
-          <p><%= review.waiter_rating %></p>
-        </div>
-      <% end %>
-    </div>
+    <%= render "profile_resto" %>
     <%= render 'formEditResto'%>
   <% end %>
 </div>

@@ -4,5 +4,7 @@
     class: "input",
     placeholder: "Search..."
   %>
-  <%= submit_tag "", class: "btn-search" %>
+  <%= button_tag(class: "btn-search") do %>
+    <%= render 'icons/search' %>
+  <% end %>
 <% end %>

@@ -1,0 +1,29 @@
+<h1><%= render "icons/profile" %>Waiter</h1>
+<div class="profile" data-edit-target="profile">
+  <div class="profile-head">
+    <div class="image small-img">
+      <% if current_user.avatar.key.nil? %>
+        <%= image_tag "blankUser.png" %>
+      <% else %>
+        <%= cl_image_tag current_user.avatar.key %>
+      <% end %>
+      <div class="in-shadow"></div>
+    </div>
+    <div class="desc">
+      <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+      <div class="attr">
+        <div>
+          <p><%= render 'icons/location' %><%= current_user.address %></p>
+          <p><%= render 'icons/phone' %><%= current_user.phone %></p>
+          <p><%= render 'icons/mail' %><%= current_user.email %></p>
+          <% if current_user.cv.attached? %>
+            <p><%= render 'icons/document' %><%= link_to 'CV', current_user.cv, :target => "_blank" %></p>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <div class="btn btn-light" data-action="click->edit#open">Edit</div>
+  </div>
+  <%= render "shared/summary", title: "Summary", paragraph: current_user.summary %>
+</div>
