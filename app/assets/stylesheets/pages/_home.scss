@@ -25,3 +25,23 @@
     box-shadow: $shadow;
   }
 }
+.cities {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  .card-category {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    aspect-ratio: 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: $shadow;
+    border-radius: 5px;
+    box-shadow: $shadow;
+  }
+}
