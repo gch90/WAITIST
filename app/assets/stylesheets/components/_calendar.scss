@@ -23,6 +23,7 @@
 }
 
 .table {
+  // background-color: $white !important;
   border: none !important;
   * {
     border: none !important;
@@ -43,24 +44,27 @@
   margin-bottom: 4px;
 }
 
-.color_0 {
+.color_0,
+.color_3,
+.color_6,
+.color_9 {
   background: $primary;
 }
 
-.color_1 {
+.color_1,
+.color_4,
+.color_7 {
   background: $secondary;
 }
 
-.color_2 {
+.color_2,
+.color_5,
+.color_8 {
   background: $black;
 }
 
-.color_3 {
-  background: $dark-gray;
-}
-
-.color_4 {
-  background: $trans-black;
+.color_pending {
+  background-color: $dark-gray !important;
 }
 
 .day {

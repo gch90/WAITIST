@@ -16,21 +16,17 @@
 
     <div class="card-body">
       <div class="name">
-        <h3><%= wait.first_name %><%= wait.last_name %></h3>
+        <h3><%= wait.first_name %> <%= wait.last_name %></h3>
       </div>
       <div class="mid">
         <div class="attr">
-          <div>
             <p class="location"><%= render 'icons/location' %><%= wait.address %></p>
             <p class="type"><%= render 'icons/phone' %><%= wait.phone %></p>
-          </div>
-          <div>
             <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
-            <p class="type"><%= render 'icons/file' %>
+            <p class="type"><%= render 'icons/document' %>
             <% if wait.cv.attached? %>
               <%= link_to 'CV', wait.cv %>
             <% end %></p>
-          </div>
         </div>
         <div class="bottom">
           <div class="summary-tab">
@@ -70,10 +66,20 @@
     <h3>Summary: </h3>
     <p><%= wait.description %></p>
   </div>
-  <div class="summary d-none" data-summary-target="ratings">
-        <% wait.waiter_reviews.each do |review|  %>
-          <%= review.restaurant_rating %>
-          <%= review.restaurant_comment %>
+  <div class="ratings d-none" data-summary-target="ratings">
+        <% wait.waiter_reviews.each do |application|  %>
+        <div class="ratinge">
+          <div class="rating-top">
+
+              <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
+              <%= application.restaurant.restaurant_name %>
+              <h3><%= application.restaurant_rating %></h3>
+          </div>
+          <div class="bottom">
+            <p><%= application.restaurant_comment %></p>
+          </div>
+        </div>
+
         <% end %>
   </div>
 

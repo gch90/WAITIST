@@ -13,7 +13,9 @@
           </div>
 
           <div class="card-body">
-            <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <%= link_to restaurant_path(application.restaurant) do %>
+              <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <% end %>
             <div class="mid">
               <div class="attr">
                 <div class="column">
@@ -22,16 +24,18 @@
                 </div>
               </div>
               <div class="bottom">
-                <h3><%= application.status.capitalize %></h3>
-                <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-                  <%= simple_form_for(application) do |f| %>
-                    <%= f.input :waiter_comment, label: "Comment on your experience", class: "input" %>
-                    <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
-                    <%= f.submit%>
+                <div class="card-tail">
+                  <h3><%= application.status.capitalize %></h3>
+                  <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
+                    <%= simple_form_for(application) do |f| %>
+                      <%= f.input :waiter_comment, label: "Comment on your experience", class: "input" %>
+                      <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
+                      <%= f.submit%>
+                    <% end %>
+                  <% elsif (Date.today > application.end_time && application.approved?) %>
+                    <h3 class="review">Review completed</h3>
                   <% end %>
-                <% elsif (Date.today > application.end_time && application.approved?) %>
-                  <h4>Review completed</h4>
-                <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -57,7 +61,9 @@
           </div>
 
           <div class="card-body">
-            <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <%= link_to restaurant_path(application.restaurant) do %>
+              <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+            <% end %>
             <div class="mid">
               <div class="attr">
                 <div class="column">
@@ -117,16 +123,19 @@
                   </div>
 
                 <% end %>
-                <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
-                  <%= simple_form_for(application) do |f| %>
-                    <%= f.input :waiter_comment, label: "Comment on your experience", class: "input"  %>
-                    <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
-                    <%= f.submit %>
-                  <% end %>
-                <% elsif (Date.today > application.end_time && application.approved?) %>
-                  <h4>Review completed</h4>
-                <% end %>
+
                 <div class="bottom">
+                  <div class="card-tail">
+                    <% if Date.today > application.end_time && application.approved? && application.waiter_comment.nil? && application.waiter_rating.nil? %>
+                    <%= simple_form_for(application) do |f| %>
+                      <%= f.input :waiter_comment, label: "Comment on your experience", class: "input"  %>
+                      <%= f.input :waiter_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
+                      <%= f.submit %>
+                    <% end %>
+                    <% elsif (Date.today > application.end_time && application.approved?) %>
+                      <h3 class="review">Review completed</h3>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
