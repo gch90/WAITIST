@@ -90,4 +90,7 @@
     @include flex(flex-start);
     gap: 8px;
   }
+  .top {
+    z-index: 1;
+  }
 }

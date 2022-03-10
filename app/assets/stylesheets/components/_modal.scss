@@ -4,5 +4,19 @@
 }
 
 .modal-backdrop {
-  display: none;
+  // display: none;
+}
+
+.modal-body {
+  color: $dark-gray;
+  background-color: $light-gray;
+}
+
+.modal-footer {
+  background-color: $light-gray;
+  border-top: none;
+  gap: 8px;
+  .btn {
+    margin: 0;
+  }
 }

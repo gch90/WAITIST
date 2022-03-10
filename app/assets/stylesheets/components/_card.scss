@@ -105,7 +105,6 @@
   max-width: 100%;
   gap: 4px;
   .top {
-    z-index: 1;
     @include flex(space-between, flex-start);
     gap: 16px;
     background: $white;
