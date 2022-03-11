@@ -118,7 +118,7 @@ resto_comments = ["It was great working with you!", "Highly recommend to work wi
 bad_comments = ["He was 5min late for every shift!", "Was hard working"]
 applications = []
 
-applications << Application.create!(waiter: waiters[8], restaurant: my_restos[0], creator: my_restos[8], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,2), rating: 4 )
+applications << Application.create!(waiter: waiters[8], restaurant: my_restos[0], creator: my_restos[0], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,2), rating: 4 )
 Application.create!(waiter: waiters[0], restaurant: my_restos[4], creator: my_restos[4], status: 1, start_time: Date.new(2022,3,3), end_time: Date.new(2022,3,4), rating: 5)
 applications << Application.create!(waiter: waiters[1], restaurant: my_restos[0], creator: waiters[1], status: 1, start_time: Date.new(2022,3,7), end_time: Date.new(2022,3,9),rating: 5 )
 applications << Application.create!(waiter: waiters[1], restaurant: my_restos[1], creator: my_restos[1], start_time: Date.new(2022,4,8), end_time: Date.new(2022,4,8), rating: 4)
