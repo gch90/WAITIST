@@ -1,10 +1,16 @@
 .mapboxgl-popup {
   .mapboxgl-popup-content {
+    display: grid;
+    gp: 8px;
     max-width: 200px;
     box-shadow: $shadow;
     h3 {
       a {
         font-size: 24px !important;
+        padding: 0px 4px;
+        &:focus-visible {
+          outline-color: $primary !important;
+        }
       }
     }
     p {

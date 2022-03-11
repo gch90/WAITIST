@@ -9,15 +9,17 @@
   bottom: 0;
   width: 100%;
   height: 64px;
-
+  gap: 8px;
+  p {
+    margin-left: 16px;
+  }
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: #c24a5f;
-  opacity: 0.15;
+  color: $primary;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
@@ -26,5 +28,18 @@
   opacity: 1;
 }
 .footer .fa-heart {
-  color: #c24a5f;
+  color: $primary;
+}
+
+.footer-copyright {
+  @include flex;
+  height: 48px;
+  .icon > {
+    * {
+      fill: $primary !important;
+    }
+  }
+  .icon {
+    height: 100%;
+  }
 }
