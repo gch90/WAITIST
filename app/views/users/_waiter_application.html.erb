@@ -4,34 +4,44 @@
   <div class="cards">
     <h3>Restaurants you have applied to</h3>
     <% current_user.created_applications.each do |application| %>
-      <div class="waiter-card">
-        <div class="top">
-          <div class="card-head">
-            <% if application.restaurant.photos.attached? %>
-              <%= cl_image_tag application.restaurant.photos[0].key%>
-            <% end %>
-          </div>
+      <div class="card-set" data-controller="summary">
+        <div class="waiter-card">
+          <div class="top">
+            <div class="card-head">
+              <% if application.restaurant.photos.attached? %>
+                <%= cl_image_tag application.restaurant.photos[0].key%>
+              <% end %>
+            </div>
 
-          <div class="card-body">
-            <%= link_to restaurant_path(application.restaurant) do %>
-              <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
-            <% end %>
-            <div class="mid">
-              <div class="attr">
-                <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
-                  <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
+            <div class="card-body">
+              <%= link_to restaurant_path(application.restaurant) do %>
+                <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+              <% end %>
+              <div class="mid">
+                <div class="attr">
+                  <div class="column">
+                    <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
+                    <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
+                  </div>
                 </div>
-              </div>
-              <div class="bottom">
-                <div class="card-tail">
-                  <h3><%= application.status.capitalize %></h3>
-                  <%= render "shared/review_post", application: application %>
+                <div class="bottom">
+                  <div class="card-tail">
+                    <h3><%= application.status.capitalize %></h3>
+                    <div class="summary-tab">
+                      <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                        <a>Leave a review</a>
+                        <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
+                      <% elsif (Date.today > application.end_time && application.approved?) %>
+                        <p class="review-complete">Review completed</p>
+                      <% end%>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <%= render "shared/review_post", application: application %>
       </div>
     <% end %>
   </div>
@@ -40,93 +50,103 @@
   <div class="cards">
     <h3>Work Opportunities</h3>
     <% current_user.waiter_applications_received.each do |application| %>
-
-      <div class="waiter-card">
-        <div class="top">
-          <div class="card-head">
-            <% if application.restaurant.photos.attached? %>
-              <%= cl_image_tag application.restaurant.photos[0].key%>
-              <div class="rating">
-                <h3> <%= application.restaurant.restaurant_avg %></h3>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="card-body">
-            <%= link_to restaurant_path(application.restaurant) do %>
-              <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
-            <% end %>
-            <div class="mid">
-              <div class="attr">
-                <div class="column">
-                  <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
-                  <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
+      <div class="card-set" data-controller="summary">
+        <div class="waiter-card">
+          <div class="top">
+            <div class="card-head">
+              <% if application.restaurant.photos.attached? %>
+                <%= cl_image_tag application.restaurant.photos[0].key%>
+                <div class="rating">
+                  <h3> <%= application.restaurant.restaurant_avg %></h3>
                 </div>
-              </div>
-              <div class="card-tail">
-                <h3><%= application.status.capitalize %></h3>
-                  <% if application.status == 'pending' %>
-                  <!-- Approve Button trigger modal -->
-                  <div class="bottom">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#approveModal">
-                      Approve
-                    </button>
+              <% end %>
+            </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="approveModalLabel">Are you sure?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            Please approve or close
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
-                            <%= link_to "Approve", approve_path(application), method: 'patch', class:"btn btn-primary"%>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Reject Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reject<%=application.id%>Modal">
-                      Reject
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="reject<%=application.id%>Modal" tabindex="-1" aria-labelledby="reject<%=application.id%>ModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="reject<%=application.id%>ModalLabel">Are you sure?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            Please reject or close
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
-                            <%= link_to "Reject", reject_path(application), method: 'patch', class:"btn btn-primary" %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+            <div class="card-body">
+              <%= link_to restaurant_path(application.restaurant) do %>
+                <h3 class="name"><%= application.restaurant.restaurant_name %></h3>
+              <% end %>
+              <div class="mid">
+                <div class="attr">
+                  <div class="column">
+                    <a><span>Start-date:</span> <%= application.start_time.strftime("%d %b %Y") %></a>
+                    <a><span>End-date:</span> <%= application.end_time.strftime("%d %b %Y") %></a>
                   </div>
+                </div>
+                <div class="card-tail">
+                  <h3><%= application.status.capitalize %></h3>
+                    <% if application.status == 'pending' %>
+                    <!-- Approve Button trigger modal -->
+                    <div class="bottom">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#approveModal">
+                        Approve
+                      </button>
 
-                <% end %>
+                      <!-- Modal -->
+                      <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="approveModalLabel">Are you sure?</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Please approve or close
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
+                              <%= link_to "Approve", approve_path(application), method: 'patch', class:"btn btn-primary"%>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                <div class="bottom">
-                  <div class="card-tail">
-                    <%= render "shared/review_post", application: application %>
+                      <!-- Reject Button trigger modal -->
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reject<%=application.id%>Modal">
+                        Reject
+                      </button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="reject<%=application.id%>Modal" tabindex="-1" aria-labelledby="reject<%=application.id%>ModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="reject<%=application.id%>ModalLabel">Are you sure?</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Please reject or close
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-gray" data-bs-dismiss="modal">Close</button>
+                              <%= link_to "Reject", reject_path(application), method: 'patch', class:"btn btn-primary" %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  <% end %>
+
+                  <div class="bottom">
+                    <div class="card-tail">
+                      <h3><%= application.status.capitalize %></h3>
+                      <div class="summary-tab">
+                        <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                          <a>Leave a review</a>
+                          <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
+                        <% elsif (Date.today > application.end_time && application.approved?) %>
+                          <p class="review-complete">Review completed</p>
+                        <% end%>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <%= render "shared/review_post", application: application %>
       </div>
     <% end %>
   </div>

@@ -124,16 +124,22 @@
 
                 <div class="bottom">
                   <div class="card-tail">
-                      <%= render "shared/review_post", application: application %>
+                    <div class="summary-tab">
+                      <% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+                        <a>Leave a review</a>
+                        <div class="arrow" data-action="click->summary#open"><%= render 'icons/arrow' %></div>
+                      <% elsif (Date.today > application.end_time && application.approved?) %>
+                        <p class="review-complete">Review completed</p>
+                      <% end%>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <%= render "shared/review_post", application: application %>
       </div>
-
+      <%= render "shared/review_post", application: application %>
     </div>
     <% end %>
   </div>

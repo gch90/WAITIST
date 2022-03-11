@@ -1,6 +1,8 @@
 .show-body {
+  display: grid;
   width: 66%;
   margin: 16px auto;
+  gap: 8px;
   .info {
     margin: 8px 0;
     @include flex(center, flex-start);
