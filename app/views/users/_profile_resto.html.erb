@@ -41,15 +41,15 @@
     <div class="ratinge">
       <div class="rating-top">
 
-          <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
-          <%= application.restaurant.restaurant_name %>
+          <%= image_tag  application.waiter.avatar, class: "avatar" %>
+          <%= application.waiter.first_name %>
           <div class="rating">
-            <p><%= application.restaurant_rating %></p>
+            <p><%= application.waiter_rating %></p>
           </div>
       </div>
       <div class="bottom">
 
-        <p><%= application.restaurant_comment %></p>
+        <p><%= application.waiter_comment %></p>
       </div>
     </div>
 
