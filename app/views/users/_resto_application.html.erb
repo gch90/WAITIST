@@ -10,6 +10,13 @@
             <% if application.waiter.avatar.attached? %>
               <%= cl_image_tag application.waiter.avatar.key %>
             <% end %>
+              <div class="rating">
+                <% if current_user.waiter_reviews.nil? %>
+                  <h3> <%= @rating %></h3>
+                <% else %>
+                  <h3> <%= application.waiter.waiter_avg %></h3>
+                <% end %>
+              </div>
           </div>
 
           <div class="card-body">
@@ -53,7 +60,11 @@
             <% if application.waiter.avatar.attached? %>
               <%= cl_image_tag application.waiter.avatar.key %>
               <div class="rating">
-                <h3> <%= application.waiter.waiter_avg %></h3>
+                <% if current_user.waiter_reviews.nil? %>
+                  <h3> <%= @rating %></h3>
+                <% else %>
+                  <h3> <%= application.waiter.waiter_avg %></h3>
+                <% end %>
               </div>
             <% end %>
           </div>

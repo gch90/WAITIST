@@ -35,7 +35,13 @@
   width: 40px;
   height: 40px;
   @include color-custom($secondary, $primary, $secondary);
+  .stroke > *{
+
+    stroke: $white;
+  }
 }
+
+
 
 .capsule {
   position: relative;
