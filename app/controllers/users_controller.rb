@@ -45,9 +45,6 @@ class UsersController < ApplicationController
   end
 
   def reject
-
-    # @messages = Message.where(chatroom: waiter_chatrooms).where(chatroom: @chatroom.restaurant)
-    # @messages.destroy_all
     @chatrooms = Chatroom.where(waiter: @application.waiter).where(restaurant: @application.restaurant)
     @chatrooms.each do |chatroom|
       chatroom.messages.each { |message| message.destroy }
