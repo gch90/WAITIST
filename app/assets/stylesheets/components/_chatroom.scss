@@ -22,6 +22,7 @@
       border-top: 2px solid $secondary;
       border-bottom: 2px solid $secondary;
       background-color: $light-red;
+      margin-bottom: 0;
     }
   }
   h1 {
@@ -48,7 +49,7 @@
         max-width: 50%;
       }
     }
-    #message-mine {
+    .message-mine {
       align-self: flex-end;
       @include flex(center, flex-end);
       flex-direction: column;
@@ -64,7 +65,7 @@
       }
     }
 
-    #message-his {
+    .message-his {
       p {
         @include color-custom($dark-gray, $light-gray, $dark-gray);
 

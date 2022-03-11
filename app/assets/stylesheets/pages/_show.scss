@@ -1,6 +1,8 @@
 .show-body {
+  display: grid;
   width: 66%;
   margin: 16px auto;
+  gap: 8px;
   .info {
     margin: 8px 0;
     @include flex(center, flex-start);
@@ -19,6 +21,12 @@
         border-radius: $border-radius;
         box-shadow: $shadow;
         @include contain-text(2);
+      }
+      .summary {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
       }
     }
   }
@@ -122,9 +130,9 @@
     .type {
       display: none;
     }
-    .icon > {
+    .stroke-p > {
       * {
-        fill: $white;
+        stroke: $white;
       }
     }
   }

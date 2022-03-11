@@ -60,7 +60,28 @@ waiter_applications_received, restaurant_applications_received, waiter?, restaur
     <h3>Description</h3>
     <p><%= @restaurant.description %></p>
   </div>
+
+   <div class="ratings">
+      <% @restaurant.restaurant_reviews.each do |application|  %>
+      <div class="ratinge">
+        <div class="rating-top">
+
+            <%= image_tag  application.waiter.avatar, class: "avatar" %>
+            <%= application.waiter.first_name %>
+            <div class="rating">
+              <p><%= application.waiter_rating %></p>
+            </div>
+        </div>
+        <div class="bottom">
+
+          <p><%= application.waiter_comment %></p>
+        </div>
+      </div>
+
+      <% end %>
+  </div>
 </div>
+
 <div class="show-legs">
   <h2>Similar Restaurants - <%= @restaurant.restaurant_type %></h2>
   <div class="lil-cards">

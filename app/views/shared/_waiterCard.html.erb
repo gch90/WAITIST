@@ -4,12 +4,20 @@
     <div class="card-head">
       <% if wait.avatar.attached? %>
         <%= cl_image_tag wait.avatar.key %>
-        <div class="rating">
-          <h3><%= wait.waiter_avg %></h3>
-        </div>
+          <div class="rating">
+            <% if wait.waiter_reviews.nil? %>
+              <h3> <%= @rating %></h3>
+            <% else %>
+              <h3> <%= wait.waiter_avg %></h3>
+            <% end %>
+          </div>
       <% else %>
         <div class="rating">
-          <h3><%= wait.waiter_avg %></h3>
+          <% if wait.waiter_reviews.nil? %>
+            <h3> <%= @rating %></h3>
+          <% else %>
+            <h3> <%= wait.waiter_avg %></h3>
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -25,7 +33,7 @@
             <p class="type"><%= render 'icons/info' %><%= wait.email %></p>
             <p class="type"><%= render 'icons/document' %>
             <% if wait.cv.attached? %>
-              <%= link_to 'CV', wait.cv %>
+              <%= link_to 'CV', wait.cv, :target => "_blank" %>
             <% end %></p>
         </div>
         <div class="bottom">
@@ -73,9 +81,12 @@
 
               <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
               <%= application.restaurant.restaurant_name %>
-              <h3><%= application.restaurant_rating %></h3>
+              <div class="rating">
+                <p><%= application.restaurant_rating %></p>
+              </div>
           </div>
           <div class="bottom">
+
             <p><%= application.restaurant_comment %></p>
           </div>
         </div>

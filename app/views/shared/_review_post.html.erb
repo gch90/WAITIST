@@ -1,0 +1,11 @@
+<% if Date.today > application.end_time && application.approved? && application.restaurant_comment.nil? && application.restaurant_rating.nil? %>
+  <div class="review d-none"  data-summary-target="summary">
+    <%= simple_form_for(application) do |f| %>
+      <%= f.input :restaurant_comment, label: "Comment on your experience", class: "input" %>
+      <div class="bottom">
+        <%= f.input :restaurant_rating, collection: 1..10, label: "Rate your experience", class: "input" %>
+        <%= f.submit "Leave Review", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

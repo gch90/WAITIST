@@ -85,4 +85,8 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(current_user.id)
   end
+
+  def rand_rating
+    @rating = rand(5.0..9.5)
+  end
 end
