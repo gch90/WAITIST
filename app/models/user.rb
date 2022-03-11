@@ -92,11 +92,11 @@ class User < ApplicationRecord
     #   else
     #     return avg.sum / avg.count
     #   end
-  if waiter_reviews.average(:restaurant_rating).nil?
-      rand(5.0..9.5).round(1)
-  else
-    waiter_reviews.average(:restaurant_rating).round(1)
-  end
+    if waiter_reviews.average(:restaurant_rating).nil?
+        rand(5.0..9.5).round(1)
+    else
+      waiter_reviews.average(:restaurant_rating).round(1)
+    end
 
   end
 end

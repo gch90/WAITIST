@@ -4,12 +4,20 @@
     <div class="card-head">
       <% if wait.avatar.attached? %>
         <%= cl_image_tag wait.avatar.key %>
-        <div class="rating">
-          <h3><%= wait.waiter_avg %></h3>
-        </div>
+          <div class="rating">
+            <% if wait.waiter_reviews.nil? %>
+              <h3> <%= @rating %></h3>
+            <% else %>
+              <h3> <%= wait.waiter_avg %></h3>
+            <% end %>
+          </div>
       <% else %>
         <div class="rating">
-          <p><%= wait.waiter_avg %></p>
+          <% if wait.waiter_reviews.nil? %>
+            <h3> <%= @rating %></h3>
+          <% else %>
+            <h3> <%= wait.waiter_avg %></h3>
+          <% end %>
         </div>
       <% end %>
     </div>

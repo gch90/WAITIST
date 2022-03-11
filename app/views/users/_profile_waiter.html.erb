@@ -28,10 +28,9 @@
   <%= render "shared/summary", title: "Summary", paragraph: current_user.summary %>
   <div class="ratings">
     <h3>Reviews</h3>
-    <% current_user.restaurant_reviews.each do |application|  %>
+    <% current_user.waiter_reviews.each do |application|  %>
     <div class="ratinge">
       <div class="rating-top">
-
           <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
           <%= application.restaurant.restaurant_name %>
           <div class="rating">
@@ -39,12 +38,12 @@
           </div>
       </div>
       <div class="bottom">
-
         <p><%= application.restaurant_comment %></p>
       </div>
     </div>
 
     <% end %>
   </div>
+
 
 </div>
