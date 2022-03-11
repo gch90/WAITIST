@@ -7,6 +7,9 @@
   width: 320px;
   min-width: 240px;
   gap: 8px;
+  &:hover {
+    transform: scale(1.01);
+  }
   .card-head {
     height: 240px;
     position: relative;
@@ -104,6 +107,9 @@
   display: grid;
   max-width: 100%;
   gap: 4px;
+  &:hover {
+    transform: scale(1.01);
+  }
   .top {
     @include flex(space-between, flex-start);
     gap: 16px;
