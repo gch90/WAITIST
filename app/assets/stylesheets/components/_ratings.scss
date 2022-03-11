@@ -22,3 +22,22 @@
     }
   }
 }
+
+.review {
+  @include lil-container;
+  z-index: 0;
+  .btn {
+    height: fit-content;
+  }
+  .optional {
+    margin-bottom: 0 !important;
+  }
+  .bottom {
+    @include flex(space-between, flex-end);
+  }
+}
+
+.card-set {
+  display: grid;
+  gap: 4px;
+}

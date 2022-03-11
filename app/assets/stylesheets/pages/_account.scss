@@ -77,7 +77,7 @@
     }
 
     .all-imgs {
-      @include lil-container(4px, 4px);
+      @include lil-container(8px, 8px);
       gap: 8px;
     }
   }

@@ -5,23 +5,20 @@ export default class extends Controller {
   connect() {}
 
   open(e) {
-    if (e.target.classList.contains("arrow")) {
-      e.target.classList.toggle("rotate");
-    } else {
-      e.target.parentNode.classList.toggle("rotate");
-    }
-    this.summaryTarget.classList.toggle("d-none");
-    this.summaryTarget.classList.toggle("fade-in");
+    this.base_open(e, this.summaryTarget);
   }
 
   open_ratings(e) {
+    this.base_open(e, this.ratingsTarget);
+  }
+
+  base_open(e, target) {
     if (e.target.classList.contains("arrow")) {
       e.target.classList.toggle("rotate");
     } else {
       e.target.parentNode.classList.toggle("rotate");
     }
-    this.ratingsTarget.classList.toggle("d-none");
-    this.ratingsTarget.classList.toggle("fade-in");
+    target.classList.toggle("d-none");
+    target.classList.toggle("fade-in");
   }
-
 }

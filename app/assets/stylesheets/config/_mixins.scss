@@ -26,7 +26,7 @@
   -webkit-box-orient: vertical;
 }
 
-@mixin lil-container($y: 12px, $x: 16px) {
+@mixin lil-container($y: 8px, $x: 12px) {
   background: $white;
   border-radius: $border-radius;
   box-shadow: $shadow;

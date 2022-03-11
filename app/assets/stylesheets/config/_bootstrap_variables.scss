@@ -103,6 +103,7 @@ a {
   flex-direction: column;
 }
 
-input {
+input,
+select {
   @include input;
 }
