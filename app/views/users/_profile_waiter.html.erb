@@ -26,11 +26,24 @@
     <div class="btn btn-light" data-action="click->edit#open">Edit</div>
   </div>
   <%= render "shared/summary", title: "Summary", paragraph: current_user.summary %>
-    <% current_user.waiter_reviews.each do |review| %>
-    <div class="summary">
-      <h2>Review</h2>
-      <p><%= review.restaurant_comment %></p>
-      <p><%= review.restaurant_rating %></p>
+  <div class="ratings">
+    <h3>Reviews</h3>
+    <% current_user.waiter_reviews.each do |application|  %>
+    <div class="ratinge">
+      <div class="rating-top">
+          <%= image_tag  application.restaurant.photos[0], class: "avatar" %>
+          <%= application.restaurant.restaurant_name %>
+          <div class="rating">
+            <p><%= application.restaurant_rating %></p>
+          </div>
+      </div>
+      <div class="bottom">
+        <p><%= application.restaurant_comment %></p>
+      </div>
     </div>
-  <% end %>
+
+    <% end %>
+  </div>
+
+
 </div>

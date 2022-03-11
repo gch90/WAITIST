@@ -105,7 +105,6 @@
   max-width: 100%;
   gap: 4px;
   .top {
-    z-index: 1;
     @include flex(space-between, flex-start);
     gap: 16px;
     background: $white;
@@ -162,10 +161,11 @@
         .card-tail {
           @include flex(flex-end, flex-end);
           flex-direction: column;
-          gap: 8px;
+          gap: 4px;
           color: $primary;
-          .review {
+          .review-complete {
             color: $dark-gray;
+            font-style: italic;
           }
         }
       }

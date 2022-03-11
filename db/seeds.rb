@@ -115,6 +115,7 @@ p "creating applications"
 
 waiter_comments = ["It was great working there!", "Highly recommend", "I will come back to work here again"]
 resto_comments = ["It was great working with you!", "Highly recommend to work with", "Great personality", "Very efficient !", "Come back anytime !"]
+bad_comments = ["He was 5min late for every shift!", "Was hard working"]
 applications = []
 
 applications << Application.create!(waiter: waiters[0], restaurant: my_restos[0], creator: waiters[0], status: 1, start_time: Date.new(2022,2,28), end_time: Date.new(2022,3,2), rating: 4 )

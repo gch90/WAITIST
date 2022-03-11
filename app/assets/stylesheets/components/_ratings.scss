@@ -1,9 +1,43 @@
 .ratings {
+  display: grid;
   @include lil-container;
+  gap: 8px;
   .ratinge {
+    display: grid;
+    gap: 8px;
     width: fit-content;
+    border-bottom: 2px solid $light-gray;
     .rating-top {
       @include flex(flex-start);
+      gap: 8px;
+    }
+    .rating {
+      scale: 50%;
+      @include color-custom($white, $primary);
+      height: 40px;
+      width: 40px;
+      h3 {
+        color: $white !important;
+      }
     }
   }
+}
+
+.review {
+  @include lil-container;
+  z-index: 0;
+  .btn {
+    height: fit-content;
+  }
+  .optional {
+    margin-bottom: 0 !important;
+  }
+  .bottom {
+    @include flex(space-between, flex-end);
+  }
+}
+
+.card-set {
+  display: grid;
+  gap: 4px;
 }

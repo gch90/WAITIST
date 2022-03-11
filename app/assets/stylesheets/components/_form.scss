@@ -5,6 +5,22 @@
 .input {
   @include input;
 }
+.form-select {
+  @include input;
+  width: fit-content;
+  aspect-ratio: 1 / 1;
+  border-radius: 36px;
+  font-size: 24px;
+  color: $secondary !important;
+  option {
+    text-align: center;
+    color: $secondary;
+    font-size: 24px;
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
 
 #application_start_time,
 #application_end_time {
