@@ -45,7 +45,12 @@ class UsersController < ApplicationController
   end
 
   def reject
-    @application.update(status: 2)
+    @chatrooms = Chatroom.where(waiter: @application.waiter).where(restaurant: @application.restaurant)
+    @chatrooms.each do |chatroom|
+      chatroom.messages.each { |message| message.destroy }
+      chatroom.destroy
+    end
+    @application.destroy
     redirect_to user_path(tab: 1)
   end
 
