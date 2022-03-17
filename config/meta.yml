@@ -1,4 +1,4 @@
 meta_product_name: "Waitist"
-meta_title: "Waitist - Find a waiter or find a restaurant to wait tables"
-meta_description: "Waitist facilitates the hiring and finding of waiters in the restauration business"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_title: "Waitist - Find a waiter or restaurant for you"
+meta_description: "Waitist makes getting a job fast and easy, by connecting waiters and restaurant owners."
+meta_image: "cover_new.png" # should exist in `app/assets/images/`
